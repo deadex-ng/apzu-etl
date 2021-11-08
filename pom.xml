@@ -1,4 +1,3 @@
-
 <project>
 
     <modelVersion>4.0.0</modelVersion>
@@ -50,6 +49,41 @@
                     <nexusUrl>https://oss.sonatype.org/</nexusUrl>
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <resources>
+                        <resource>
+                            <directory>${basedir}</directory>
+                            <filtering>false</filtering>
+                            <includes>
+                                <include>datasources/**</include>
+                                <include>jobs/**</include>
+                            </includes>
+                        </resource>
+                    </resources>
+                    <outputDirectory>${project.build.directory}/apzu-etl/</outputDirectory>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <descriptors>
+                        <descriptor>${basedir}/assembly.xml</descriptor>
+                    </descriptors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

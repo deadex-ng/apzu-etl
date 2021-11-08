@@ -1,5 +1,5 @@
 petl:
-  homeDir: "/home/mseaton/environments/malawi-etl"
+  homeDir: "/home/petl"
   datasourceDir: "${petl.homeDir}/datasources"
   jobDir: "${petl.homeDir}/jobs"
   startup:
