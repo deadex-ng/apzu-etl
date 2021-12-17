@@ -10,5 +10,4 @@ configuration:
 
 # If you never want this to execute on a schedule, but rather plan to execute it only from startup.jobs, you can remove this schedule property
 # If you wish to execute the job on a different schedule, you can adjust that here
-schedule:
-  cron: "0 0 5 ? * *"
+
