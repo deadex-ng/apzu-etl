@@ -1,4 +1,6 @@
 type: "pentaho-job"
+schedule:
+  cron: "${executeCron.refreshOpenmrsData}"
 configuration:
   job:
     filePath: "pentaho/malawi/jobs/refresh-warehouse.kjb"
