@@ -1,6 +1,7 @@
 type: "pentaho-job"
 schedule:
   cron: "${executeCron.refreshLowerNeno}"
+description: "Execute Lower Neno Pentaho pipeline"
 configuration:
   job:
     filePath: "pentaho/malawi/jobs/refresh-warehouse.kjb"

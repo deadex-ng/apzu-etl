@@ -2,6 +2,7 @@
 # If we have the server resources, and want to reduce loading time, we could adapt this to use a nested iterating-job
 # that would execute the upper-neno and lower-neno refreshes concurrently.
 type: "job-pipeline"
+description: "Refresh combined DW in SQL Server"
 configuration:
   jobs:
     - path: "refresh-upper-neno.yml"
