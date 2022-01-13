@@ -1,4 +1,5 @@
 type: "pentaho-job"
+description: "Execute Upper Neno Pentaho pipeline"
 configuration:
   job:
     filePath: "pentaho/malawi/jobs/refresh-warehouse.kjb"
