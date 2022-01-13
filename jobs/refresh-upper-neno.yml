@@ -1,4 +1,6 @@
 type: "pentaho-job"
+schedule:
+  cron: "${executeCron.refreshUpperNeno}"
 description: "Execute Upper Neno Pentaho pipeline"
 configuration:
   job:
