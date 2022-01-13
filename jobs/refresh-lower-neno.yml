@@ -1,6 +1,6 @@
 type: "pentaho-job"
 schedule:
-  cron: "${executeCron.refreshOpenmrsData}"
+  cron: "${executeCron.refreshLowerNeno}"
 configuration:
   job:
     filePath: "pentaho/malawi/jobs/refresh-warehouse.kjb"
