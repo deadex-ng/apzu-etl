@@ -48,5 +48,5 @@ consolidatedReporting:
   host: "localhost"
   port: "1433"
   databaseName: "openmrs_reporting"
-  user: "sa"
-  password: "9%4qP7b2H!%J"
+  user: "<mssql_db_username>"
+  password: "<mssql_db_password>"
