@@ -124,7 +124,7 @@ CREATE TABLE omrs_obs (
   concept VARCHAR(255) not null,
   value_coded VARCHAR(255),
   value_date DATE DEFAULT NULL,
-  value_numeric DOUBLE DEFAULT NULL,
+  value_numeric FLOAT DEFAULT NULL,
   value_text TEXT,
   comments VARCHAR(255),
   obs_group_id INT,
