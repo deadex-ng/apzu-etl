@@ -27,7 +27,8 @@ CREATE PROCEDURE create_rpt_ic3_data(IN _endDate DATE, IN _location VARCHAR(255)
 	-- Define columns
 	SELECT 			ic3.patient_id, 
 					birthdate,
-					htnDx,				
+					htnDx,	
+					htnDxDate,
 					dmDx,
 					dmDx1,
 					dmDx2,
@@ -234,7 +235,15 @@ CREATE PROCEDURE create_rpt_ic3_data(IN _endDate DATE, IN _location VARCHAR(255)
 					AND diagnosis_date < _endDate
 					GROUP BY patient_id
 					) htnDx
-					ON htnDx.patient_id = ic3.patient_id				
+					ON htnDx.patient_id = ic3.patient_id	
+	LEFT JOIN 		(SELECT patient_id,
+					diagnosis_date htnDxDate 
+					FROM mw_ncd_diagnoses
+					WHERE diagnosis = "Hypertension"
+					AND diagnosis_date < _endDate
+					GROUP BY patient_id
+					) htnDxDate
+					ON htnDxDate.patient_id = ic3.patient_id				
 	LEFT JOIN 		(SELECT patient_id,
 					CASE WHEN diagnosis IS NOT NULL THEN 'X' END AS dmDx 
 					FROM mw_ncd_diagnoses
