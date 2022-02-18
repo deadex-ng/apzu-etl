@@ -30,6 +30,7 @@ CREATE PROCEDURE create_rpt_ic3_data(IN _endDate DATE, IN _location VARCHAR(255)
 					htnDx,	
 					htnDxDate,
 					dmDx,
+					dmDxDate,
 					dmDx1,
 					dmDx2,
 					cvDisease,
@@ -53,6 +54,7 @@ CREATE PROCEDURE create_rpt_ic3_data(IN _endDate DATE, IN _location VARCHAR(255)
 					eidVisits.lastEidVisit,
 					lastMentalHealthVisitDate,
 					lastAsthmaVisitDate,
+					astHtnDmVisitDate,
 					CASE 
 						WHEN artVisits.lastArtVisit IS NULL THEN ncdVisits.lastNcdVisit
 						WHEN ncdVisits.lastNcdVisit IS NULL THEN artVisits.lastArtVisit
@@ -251,7 +253,15 @@ CREATE PROCEDURE create_rpt_ic3_data(IN _endDate DATE, IN _location VARCHAR(255)
 					AND diagnosis_date < _endDate
 					GROUP BY patient_id
 					) dmDx
-					ON dmDx.patient_id = ic3.patient_id			
+					ON dmDx.patient_id = ic3.patient_id	
+	LEFT JOIN 		(SELECT patient_id,
+					diagnosis_date AS dmDxDate 
+					FROM mw_ncd_diagnoses
+					WHERE diagnosis in ("Diabetes", "Type 1 diabetes", "Type 2 diabetes")
+					AND diagnosis_date < _endDate
+					GROUP BY patient_id
+					) dmDxDate
+					ON dmDxDate.patient_id = ic3.patient_id				
 	LEFT JOIN 		(SELECT patient_id,
 					CASE WHEN diagnosis IS NOT NULL THEN 'X' END AS dmDx1 
 					FROM mw_ncd_diagnoses
@@ -353,6 +363,7 @@ CREATE PROCEDURE create_rpt_ic3_data(IN _endDate DATE, IN _location VARCHAR(255)
 							visual_acuity as visualAcuityAtLastVisit,
 							cv_risk as cvRiskAtLastVisit,
 							hospitalized_since_last_visit as htnDmHospitalizedSinceLastVisit,
+						 	visit_date AS lastHtnDmVisitDate,
 							next_appointment_date AS nextHtnDmAppt						
 							FROM mw_ncd_visits
 							WHERE diabetes_htn_followup = 1
