@@ -104,6 +104,8 @@ CREATE PROCEDURE create_rpt_ic3_data(IN _endDate DATE, IN _location VARCHAR(255)
 					lastHba1cVisitDate,
 					fingerStickAtLastVisit,
 					footCheckAtLastVisit,
+					shortActingInsulin,
+                    			longActingInsulin,
 					hba1cAtLastVisit,
 					seizuresSinceLastVisit,
 					seizures,
@@ -371,7 +373,17 @@ CREATE PROCEDURE create_rpt_ic3_data(IN _endDate DATE, IN _location VARCHAR(255)
 							ORDER BY visit_date DESC
 							) htnDmVisitInner GROUP BY patient_id 
 					) htnDmVisit
-					ON htnDmVisit.patient_id = ic3.patient_id	
+					ON htnDmVisit.patient_id = ic3.patient_id
+	LEFT JOIN 		(SELECT * 
+					FROM (SELECT patient_id, 											
+						    diabetes_med_long_acting as longActingInsulin, 
+						    diabetes_med_short_acting as shortActingInsulin 
+						    FROM mw_diabetes_hypertension_followup 
+						    WHERE visit_date < @endDate 
+						    ORDER BY visit_date DESC
+						) htnDmFollowupInner GROUP BY patient_id
+					) htnDmFollowupEnc 
+					ON htnDmFollowupEnc.patient_id = ic3.patient_id 				
 	LEFT JOIN 		(SELECT *
 					FROM 	(SELECT patient_id,
 							hba1c as lastHba1c,
