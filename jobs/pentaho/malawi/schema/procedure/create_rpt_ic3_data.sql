@@ -36,6 +36,8 @@ CREATE PROCEDURE create_rpt_ic3_data(IN _endDate DATE, IN _location VARCHAR(255)
 					cvDisease,
 					asthmaDx,
 					asthmaDxDate,
+					copdDx,
+		                        copdDxDate,
 					epilepsyDx,
 					artStartDate, 
 					artStartLocation, 
@@ -231,7 +233,23 @@ CREATE PROCEDURE create_rpt_ic3_data(IN _endDate DATE, IN _location VARCHAR(255)
 					AND diagnosis_date < _endDate
 					GROUP BY patient_id
 					) asthmaDxDate
-					ON asthmaDxDate.patient_id = ic3.patient_id				
+					ON asthmaDxDate.patient_id = ic3.patient_id	
+	LEFT JOIN 		(SELECT patient_id,
+					CASE WHEN diagnosis IS NOT NULL THEN 'X' END AS copdDx 
+					FROM mw_ncd_diagnoses
+					WHERE diagnosis = "Chronic obstructive pulmonary disease"
+					AND diagnosis_date < _endDate
+					GROUP BY patient_id
+					) copdDx
+					ON copdDx.patient_id = ic3.patient_id
+      LEFT JOIN 		(SELECT patient_id,
+					diagnosis_date  AS copdDxDate 
+					FROM mw_ncd_diagnoses
+					WHERE diagnosis = "Chronic obstructive pulmonary disease"
+					AND diagnosis_date < _endDate
+					GROUP BY patient_id
+					) copdDxDate
+					ON copdDxDate.patient_id = ic3.patient_id     				
 	LEFT JOIN 		(SELECT patient_id,
 					CASE WHEN diagnosis IS NOT NULL THEN 'X' END AS htnDx 
 					FROM mw_ncd_diagnoses
