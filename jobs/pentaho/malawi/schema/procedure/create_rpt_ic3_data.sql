@@ -25,7 +25,7 @@ CREATE PROCEDURE create_rpt_ic3_data(IN _endDate DATE, IN _location VARCHAR(255)
 	DROP TABLE IF EXISTS rpt_ic3_data_table;
 	CREATE TABLE rpt_ic3_data_table AS
 	-- Define columns
-	SELECT 			ic3.patient_id, 
+	SELECT 	ic3.patient_id,
 					birthdate,
 					htnDx,	
 					htnDxDate,
@@ -37,7 +37,7 @@ CREATE PROCEDURE create_rpt_ic3_data(IN _endDate DATE, IN _location VARCHAR(255)
 					asthmaDx,
 					asthmaDxDate,
 					copdDx,
-		                        copdDxDate,
+		      copdDxDate,
 					epilepsyDx,
 					artStartDate, 
 					artStartLocation, 
@@ -56,7 +56,7 @@ CREATE PROCEDURE create_rpt_ic3_data(IN _endDate DATE, IN _location VARCHAR(255)
 					eidVisits.lastEidVisit,
 					lastMentalHealthVisitDate,
 					lastAsthmaVisitDate,
-					astHtnDmVisitDate,
+          lastHtnDmVisitDate,
 					CASE 
 						WHEN artVisits.lastArtVisit IS NULL THEN ncdVisits.lastNcdVisit
 						WHEN ncdVisits.lastNcdVisit IS NULL THEN artVisits.lastArtVisit
@@ -65,6 +65,7 @@ CREATE PROCEDURE create_rpt_ic3_data(IN _endDate DATE, IN _location VARCHAR(255)
 					END AS lastIc3Visit,
 					nextHtnDmAppt,
 					nextAsthmaAppt,
+          lastEpilepsyVisit,
 					nextEpilepsyAppt,
 					mentalHealthVisit.nextMentalHealthAppt,
 					mentalStatusExam,
@@ -107,12 +108,13 @@ CREATE PROCEDURE create_rpt_ic3_data(IN _endDate DATE, IN _location VARCHAR(255)
 					fingerStickAtLastVisit,
 					footCheckAtLastVisit,
 					shortActingInsulin,
-                    			longActingInsulin,
+          longActingInsulin,
 					hba1cAtLastVisit,
 					seizuresSinceLastVisit,
 					seizures,
 					lastSeizureActivityRecorded,
 					epilepsyHospitalizedSinceLastVisit,
+          epilepsySeizuresSinceLastVsit,
 					asthmaClassificationAtLastVisit,
 					ablePerformDailyActivitiesAtLastVisit,
 					suicideRiskAtLastVisit
@@ -257,9 +259,9 @@ CREATE PROCEDURE create_rpt_ic3_data(IN _endDate DATE, IN _location VARCHAR(255)
 					AND diagnosis_date < _endDate
 					GROUP BY patient_id
 					) htnDx
-					ON htnDx.patient_id = ic3.patient_id	
-	LEFT JOIN 		(SELECT patient_id,
-					diagnosis_date htnDxDate 
+					ON htnDx.patient_id = ic3.patient_id
+    LEFT JOIN 		(SELECT patient_id,
+					diagnosis_date AS htnDxDate
 					FROM mw_ncd_diagnoses
 					WHERE diagnosis = "Hypertension"
 					AND diagnosis_date < _endDate
@@ -373,6 +375,15 @@ CREATE PROCEDURE create_rpt_ic3_data(IN _endDate DATE, IN _location VARCHAR(255)
 							) motherHivStatusInner GROUP BY patient_id
 					) motherHivStatus
 					ON motherHivStatus.patient_id = ic3.patient_id			
+    LEFT JOIN 		(SELECT *
+					FROM	(SELECT patient_id,
+							seizure_since_last_visit AS epilepsySeizuresSinceLastVsit
+							FROM mw_epilepsy_followup
+							WHERE visit_date < _endDate
+							ORDER BY visit_date DESC
+							) epilepsyFollowupInner GROUP BY patient_id
+					) epilepsyFollowup
+					ON epilepsyFollowup.patient_id = ic3.patient_id
 	LEFT JOIN 		(SELECT *
 					FROM	(SELECT patient_id,
 							hba1c as hba1cAtLastVisit,
@@ -452,6 +463,7 @@ CREATE PROCEDURE create_rpt_ic3_data(IN _endDate DATE, IN _location VARCHAR(255)
 							seizure_activity as seizuresSinceLastVisit,
 							num_seizures as seizures,
 							hospitalized_since_last_visit as epilepsyHospitalizedSinceLastVisit,
+              visit_date as lastEpilepsyVisit,
 							next_appointment_date AS nextEpilepsyAppt
 							FROM mw_ncd_visits
 							WHERE epilepsy_followup = 1
