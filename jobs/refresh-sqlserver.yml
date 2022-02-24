@@ -21,7 +21,7 @@ configuration:
             target:
               datasource: "consolidatedReporting.yml"
               tableName: "${tableName}"
-              dropAndRecreateTable: "true"
+              actionIfExists: "drop"
         # Next step is we iterate over sources and import from each
         - type: "iterating-job"
           description: "Iterating job over upper and lower neno reporting to load ${tableName} in SQL Server"
