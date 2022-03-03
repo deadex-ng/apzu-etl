@@ -21,11 +21,18 @@ CREATE TABLE mw_art_followup (
   weight					DECIMAL(10,2),
   arvs_given					INT,
   arvs_given_to				VARCHAR(255),
-  hiv_preventive_therapy			VARCHAR(255),
-  therapy_pills		     		DECIMAL(10,2),
+  ctx_960					VARCHAR(255),
+  ctx_960_pills		     		DECIMAL(10,2),
+  inh_300					VARCHAR(255),
+  inh_300_pills		     		DECIMAL(10,2),
+  rfp_150					VARCHAR(255),
+  rfp_150_pills		     		DECIMAL(10,2),
+  pyridoxine					VARCHAR(255),
+  pyridoxine_pills		     		DECIMAL(10,2),
   depo_given					VARCHAR(255),
   systolic_bp		 			VARCHAR(255),
   diastolic_bp					VARCHAR(255),
   condoms_given				VARCHAR(255),
      PRIMARY KEY (art_followup_visit_id)
 );
+

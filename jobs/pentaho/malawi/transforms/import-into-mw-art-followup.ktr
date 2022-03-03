@@ -2,9 +2,9 @@
 <transformation>
   <info>
     <name>import-into-mw-art-followup</name>
-    <description />
-    <extended_description />
-    <trans_version />
+    <description/>
+    <extended_description/>
+    <trans_version/>
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
     <directory>/</directory>
@@ -12,12 +12,12 @@
     </parameters>
     <log>
       <trans-log-table>
-        <connection />
-        <schema />
-        <table />
-        <size_limit_lines />
-        <interval />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <size_limit_lines/>
+        <interval/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -42,37 +42,37 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_REJECTED</id>
           <enabled>Y</enabled>
           <name>LINES_REJECTED</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>ERRORS</id>
@@ -126,11 +126,11 @@
         </field>
       </trans-log-table>
       <perf-log-table>
-        <connection />
-        <schema />
-        <table />
-        <interval />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <interval/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -208,10 +208,10 @@
         </field>
       </perf-log-table>
       <channel-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -274,10 +274,10 @@
         </field>
       </channel-log-table>
       <step-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -350,10 +350,10 @@
         </field>
       </step-log-table>
       <metrics-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -402,9 +402,9 @@
       </metrics-log-table>
     </log>
     <maxdate>
-      <connection />
-      <table />
-      <field />
+      <connection/>
+      <table/>
+      <field/>
       <offset>0.0</offset>
       <maxdiff>0.0</maxdiff>
     </maxdate>
@@ -415,7 +415,7 @@
     <feedback_shown>Y</feedback_shown>
     <feedback_size>50000</feedback_size>
     <using_thread_priorities>Y</using_thread_priorities>
-    <shared_objects_file />
+    <shared_objects_file/>
     <capture_step_performance>N</capture_step_performance>
     <step_performance_capturing_delay>1000</step_performance_capturing_delay>
     <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
@@ -460,8 +460,8 @@
   diastolic_bp							VARCHAR(255),
   condoms_given						VARCHAR(255)
 );</note>
-      <xloc>1008</xloc>
-      <yloc>16</yloc>
+      <xloc>1408</xloc>
+      <yloc>48</yloc>
       <width>511</width>
       <heigth>418</heigth>
       <fontname>Ubuntu</fontname>
@@ -489,9 +489,9 @@
     <port>${warehouse.db.port}</port>
     <username>${warehouse.db.user}</username>
     <password>${warehouse.db.password}</password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
     <attributes>
       <attribute>
         <code>EXTRA_OPTION_MYSQL.defaultFetchSize</code>
@@ -531,7 +531,7 @@
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>${warehouse.db.port}</attribute>
+        <attribute>3306</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -621,8 +621,18 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Import No Side Effect</from>
-      <to>No Side Effect Merge</to>
+      <from>Import Side Effects</from>
+      <to>Side Effects Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>TB Status Merge</from>
+      <to>Side Effects Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Side Effects Merge</from>
+      <to>Pill Count Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -671,38 +681,8 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>ARVs Given  To Merge</from>
-      <to>HIV Preventive Therapy Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Import HIV Preventive Therapy</from>
-      <to>HIV Preventive Therapy Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>HIV Preventive Therapy Merge</from>
-      <to>Therapy Pills Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Import Therapy Pills</from>
-      <to>Therapy Pills Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Therapy Pills Merge</from>
-      <to>Depo given Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Import Depo given</from>
       <to>Depo given Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Depo given Merge</from>
-      <to>Systolic BP Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -713,6 +693,11 @@
     <hop>
       <from>Systolic BP Merge</from>
       <to>Diastolic BP Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Depo given Merge</from>
+      <to>Systolic BP Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -731,67 +716,92 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>TB Status Merge</from>
-      <to>Pill Count Merge</to>
+      <from>Import CTX 960</from>
+      <to>CTX 960 Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Condoms Given Merge</from>
-      <to>No Side Effect Merge</to>
+      <to>CTX 960 Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>No Side Effect Merge</from>
-      <to>Peripheral Neuropathy Side Effect Merge</to>
+      <from>ARVs Given  To Merge</from>
+      <to>Depo given Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Import Peripheral Neuropathy Side Effect</from>
-      <to>Peripheral Neuropathy Side Effect Merge</to>
+      <from>CTX 960 Merge</from>
+      <to>CTX 960 Pills Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Peripheral Neuropathy Side Effect Merge</from>
-      <to>Hepatitis Side Effect Merge</to>
+      <from>Import CTX 960 Pills</from>
+      <to>CTX 960 Pills Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Import Hepatitis Side Effect</from>
-      <to>Hepatitis Side Effect Merge</to>
+      <from>Import INH 300</from>
+      <to>INH 300 Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Hepatitis Side Effect Merge</from>
-      <to>Skin Rash Side Effect Merge</to>
+      <from>CTX 960 Pills Merge</from>
+      <to>INH 300 Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Import Skin Rash Side Effect</from>
-      <to>Skin Rash Side Effect Merge</to>
+      <from>INH 300 Merge</from>
+      <to>INH 300 Pills Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Skin Rash Side Effect Merge</from>
-      <to>Lipodystrophy Side Effect Merge</to>
+      <from>Import INH 300 Pills</from>
+      <to>INH 300 Pills Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Import Lipodystrophy Side Effect</from>
-      <to>Lipodystrophy Side Effect Merge</to>
+      <from>Import RFP 150</from>
+      <to>RFP 150 Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Lipodystrophy Side Effect Merge</from>
-      <to>Other Side Effect Merge</to>
+      <from>Import RFP 150 Pills Merge</from>
+      <to>RFP 150 Pills Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Import Other Side Effect</from>
-      <to>Other Side Effect Merge</to>
+      <from>INH 300 Pills Merge</from>
+      <to>RFP 150 Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Other Side Effect Merge</from>
+      <from>RFP 150 Merge</from>
+      <to>RFP 150 Pills Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>RFP 150 Pills Merge</from>
+      <to>Pyridoxine Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Pyridoxine</from>
+      <to>Pyridoxine Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Pyridoxine Pills</from>
+      <to>Pyridoxine Pills Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Pyridoxine Merge</from>
+      <to>Pyridoxine Pills Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Pyridoxine Pills Merge</from>
       <to>Write ART Visit Table</to>
       <enabled>Y</enabled>
     </hop>
@@ -799,13 +809,13 @@
   <step>
     <name>ART Regimen Merge </name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Doses Missed Merge</step1>
@@ -820,8 +830,8 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -837,13 +847,13 @@
   <step>
     <name>ARVs Given  To Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>ARVs Given Merge </step1>
@@ -858,8 +868,8 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -867,21 +877,21 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>544</xloc>
-      <yloc>256</yloc>
+      <xloc>512</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>ARVs Given Merge </name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>ART Regimen Merge </step1>
@@ -896,8 +906,8 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -913,13 +923,13 @@
   <step>
     <name>Appointment Date Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Import Encounters</step1>
@@ -934,8 +944,8 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -949,15 +959,131 @@
     </GUI>
   </step>
   <step>
-    <name>Condoms Given Merge</name>
+    <name>CTX 960 Merge</name>
     <type>MergeJoin</type>
-    <description />
-    <distribute>N</distribute>
-    <custom_distribution />
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Condoms Given Merge</step1>
+    <step2>Import CTX 960</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>832</xloc>
+      <yloc>496</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>CTX 960 Pills Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>CTX 960 Merge</step1>
+    <step2>Import CTX 960 Pills</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>obs_group_id_ctx_960_pills</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>obs_group_id_ctx_960_pills</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>832</xloc>
+      <yloc>624</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>INH 300 Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>CTX 960 Pills Merge</step1>
+    <step2>Import INH 300</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>832</xloc>
+      <yloc>752</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Condoms Given Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Diastolic BP Merge</step1>
@@ -972,8 +1098,8 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -989,16 +1115,16 @@
   <step>
     <name>Depo given Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1>Therapy Pills Merge</step1>
+    <step1>ARVs Given  To Merge</step1>
     <step2>Import Depo given</step2>
     <keys_1>
       <key>patient_id</key>
@@ -1010,8 +1136,8 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1020,20 +1146,20 @@
     </remotesteps>
     <GUI>
       <xloc>832</xloc>
-      <yloc>32</yloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>Diastolic BP Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Systolic BP Merge</step1>
@@ -1048,8 +1174,8 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1065,13 +1191,13 @@
   <step>
     <name>Doses Missed Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Pill Count Merge</step1>
@@ -1086,8 +1212,8 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1101,53 +1227,15 @@
     </GUI>
   </step>
   <step>
-    <name>HIV Preventive Therapy Merge</name>
-    <type>MergeJoin</type>
-    <description />
-    <distribute>N</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <join_type>LEFT OUTER</join_type>
-    <step1>ARVs Given  To Merge</step1>
-    <step2>Import HIV Preventive Therapy</step2>
-    <keys_1>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_1>
-    <keys_2>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_2>
-    <attributes />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>544</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Height Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Malawi Drugs Merge</step1>
@@ -1162,8 +1250,8 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1177,68 +1265,30 @@
     </GUI>
   </step>
   <step>
-    <name>Hepatitis Side Effect Merge</name>
-    <type>MergeJoin</type>
-    <description />
-    <distribute>N</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <join_type>LEFT OUTER</join_type>
-    <step1>Peripheral Neuropathy Side Effect Merge</step1>
-    <step2>Import Hepatitis Side Effect</step2>
-    <keys_1>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_1>
-    <keys_2>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_2>
-    <attributes />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>832</xloc>
-      <yloc>736</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Import ART Regimen</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as art_regimen
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Malawi Antiretroviral drugs received' and e.encounter_type in ('ART_FOLLOWUP')
+where		o.concept = 'Malawi Antiretroviral drugs received'
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1254,28 +1304,28 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import ARVs Given To</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as arvs_given_to
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Responsible person present' and e.encounter_type in ('ART_FOLLOWUP')
+where		o.concept = 'Responsible person present'
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1291,13 +1341,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import Appointment Date</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as next_appointment_date
@@ -1307,12 +1357,12 @@ where		o.concept = 'Appointment date'
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1326,30 +1376,30 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>Import Condoms Given</name>
+    <name>Import CTX 960</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as condoms_given
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as ctx_960, o.obs_group_id as obs_group_id_ctx_960_pills
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Number of Condoms dispensed' and e.encounter_type in ('ART_FOLLOWUP')
+where		o.concept = 'HIV Preventive Therapy' and o.value_coded = 'Trimethoprim and sulfamethoxazole'
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1358,35 +1408,148 @@ order by 	patient_id, visit_date, location</sql>
     </remotesteps>
     <GUI>
       <xloc>672</xloc>
-      <yloc>400</yloc>
+      <yloc>496</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import INH 300</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as inh_300, o.obs_group_id as obs_group_id_inh_300_pills
+from		omrs_encounter e
+
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'HIV Preventive Therapy' and o.value_coded = 'Isoniazid'
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>688</xloc>
+      <yloc>752</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import CTX 960 Pills</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>
+select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as ctx_960_pills, o.obs_group_id as obs_group_id_ctx_960_pills
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Amount Dispensed'  and e.encounter_type in ('ART_FOLLOWUP') 
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>672</xloc>
+      <yloc>592</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Condoms Given</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as condoms_given
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Number of Condoms dispensed'
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>672</xloc>
+      <yloc>384</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>Import Depo given</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as depo_given
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Depo-Provera given' and e.encounter_type in ('ART_FOLLOWUP')
+where		o.concept = 'Depo-Provera given'
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1394,36 +1557,36 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>672</xloc>
-      <yloc>64</yloc>
+      <xloc>496</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>Import Diastolic BP</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as diastolic_bp
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Diastolic blood pressure' and e.encounter_type in ('ART_FOLLOWUP')
+where		o.concept = 'Diastolic blood pressure'
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1439,28 +1602,28 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import Doses Missed</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as doses_missed
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Number of HIV drug doses missed' and e.encounter_type in ('ART_FOLLOWUP')
+where		o.concept = 'Number of HIV drug doses missed'
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1476,13 +1639,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import Encounters</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>/*
@@ -1497,12 +1660,12 @@ group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location
 </sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1516,52 +1679,15 @@ order by 	patient_id, visit_date, location
     </GUI>
   </step>
   <step>
-    <name>Import HIV Preventive Therapy</name>
-    <type>TableInput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as hiv_preventive_therapy
-from		omrs_encounter e
-inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'HIV Preventive Therapy' and e.encounter_type in ('ART_FOLLOWUP')
-group by 	e.patient_id, e.encounter_date, e.location
-order by 	patient_id, visit_date, location</sql>
-    <limit>0</limit>
-    <lookup />
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>400</xloc>
-      <yloc>112</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Import Height</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as height
@@ -1571,12 +1697,12 @@ where		o.concept = 'Height (cm)'
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1590,104 +1716,30 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>Import Hepatitis Side Effect</name>
-    <type>TableInput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location,  o.value_coded AS hepatitis_side_effect
-from		omrs_encounter e
-inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Malawi ART side effects' and o.value_coded = "Hepatitis"
-group by 	e.patient_id, e.encounter_date, e.location
-order by 	patient_id, visit_date, location</sql>
-    <limit>0</limit>
-    <lookup />
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>672</xloc>
-      <yloc>688</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Import Lipodystrophy Side Effect</name>
-    <type>TableInput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location,  o.value_coded AS lipodystrophy_side_effect
-from		omrs_encounter e
-inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Malawi ART side effects' and o.value_coded = "Lipodystrophy"
-group by 	e.patient_id, e.encounter_date, e.location
-order by 	patient_id, visit_date, location</sql>
-    <limit>0</limit>
-    <lookup />
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>944</xloc>
-      <yloc>528</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Import Malawi Drugs</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as art_drugs_received
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Malawi Antiretroviral drugs received' and e.encounter_type in ('ART_FOLLOWUP')
+where		o.concept = 'Malawi Antiretroviral drugs received'
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1701,67 +1753,30 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>Import No Side Effect</name>
-    <type>TableInput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location,o.value_coded AS no_side_effect
-from		omrs_encounter e
-inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Malawi ART side effects' and o.value_coded = "No"
-group by 	e.patient_id, e.encounter_date, e.location
-order by 	patient_id, visit_date, location</sql>
-    <limit>0</limit>
-    <lookup />
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>672</xloc>
-      <yloc>464</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Import Number of ARVs Given</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as arvs_given
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Number of antiretrovirals given' and e.encounter_type in ('ART_FOLLOWUP')
+where		o.concept = 'Number of antiretrovirals given'
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1775,104 +1790,30 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>Import Other Side Effect</name>
-    <type>TableInput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location,  o.value_coded AS other_side_effect
-from		omrs_encounter e
-inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Malawi ART side effects' and o.value_coded = "other"
-group by 	e.patient_id, e.encounter_date, e.location
-order by 	patient_id, visit_date, location</sql>
-    <limit>0</limit>
-    <lookup />
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>960</xloc>
-      <yloc>432</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Import Peripheral Neuropathy Side Effect</name>
-    <type>TableInput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded AS peripheral_neuropathy_side_effect
-from		omrs_encounter e
-inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Malawi ART side effects' and o.value_coded = "Peripheral neuropathy"
-group by 	e.patient_id, e.encounter_date, e.location
-order by 	patient_id, visit_date, location</sql>
-    <limit>0</limit>
-    <lookup />
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>688</xloc>
-      <yloc>544</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Import Pill Count</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as pill_count
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Amount of drug brought to clinic' and e.encounter_type in ('ART_FOLLOWUP')
+where		o.concept = 'Amount of drug brought to clinic'
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1888,28 +1829,28 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import Pregnant or Lactating</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as pregnant_or_lactating
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Pregnant/Lactating' and e.encounter_type in ('ART_FOLLOWUP')
+where		o.concept = 'Pregnant/Lactating'
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1923,30 +1864,48 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>Import Skin Rash Side Effect</name>
+    <name>Import Side Effects</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded AS skin_rash_side_effect
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location,  
+		CASE
+        WHEN o.value_coded = "No" THEN o.value_coded
+    	END AS no_side_effect,
+		CASE
+        WHEN o.value_coded = "Peripheral neuropathy" THEN o.value_coded
+    	END AS peripheral_neuropathy_side_effect,
+		CASE
+        WHEN o.value_coded = "Hepatitis" THEN o.value_coded
+    	END AS hepatitis_side_effect,
+		CASE
+        WHEN o.value_coded = "Skin rash" THEN o.value_coded
+    	END AS skin_rash_side_effect,
+		CASE
+		WHEN o.value_coded = "Lipodystrophy" THEN o.value_coded
+    	END AS lipodystrophy_side_effect,	
+		CASE
+		WHEN o.value_coded = "Other" THEN o.value_coded
+    	END AS other_side_effect	
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Malawi ART side effects' and o.value_coded = "Skin rash"
+where		o.concept = 'Malawi ART side effects'
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1954,36 +1913,36 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>944</xloc>
-      <yloc>672</yloc>
+      <xloc>96</xloc>
+      <yloc>624</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>Import Systolic BP</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as systolic_bp
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Systolic blood pressure' and e.encounter_type in ('ART_FOLLOWUP')
+where		o.concept = 'Systolic blood pressure'
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1999,28 +1958,28 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import TB Status</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as tb_status
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'TB status' and e.encounter_type in ('ART_FOLLOWUP')
+where		o.concept = 'TB status'
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2034,52 +1993,15 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>Import Therapy Pills</name>
-    <type>TableInput</type>
-    <description />
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as therapy_pills
-from		omrs_encounter e
-inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Amount dispensed' and e.encounter_type in ('ART_FOLLOWUP')
-group by 	e.patient_id, e.encounter_date, e.location
-order by 	patient_id, visit_date, location</sql>
-    <limit>0</limit>
-    <lookup />
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>400</xloc>
-      <yloc>0</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Import Weight</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as weight
@@ -2089,12 +2011,12 @@ where		o.concept = 'Weight (kg)'
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2108,53 +2030,15 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>Lipodystrophy Side Effect Merge</name>
-    <type>MergeJoin</type>
-    <description />
-    <distribute>N</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <join_type>LEFT OUTER</join_type>
-    <step1>Skin Rash Side Effect Merge</step1>
-    <step2>Import Lipodystrophy Side Effect</step2>
-    <keys_1>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_1>
-    <keys_2>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_2>
-    <attributes />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1040</xloc>
-      <yloc>592</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Malawi Drugs Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Appointment Date Merge</step1>
@@ -2169,8 +2053,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2184,132 +2068,18 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>No Side Effect Merge</name>
-    <type>MergeJoin</type>
-    <description />
-    <distribute>N</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <join_type>LEFT OUTER</join_type>
-    <step1>Condoms Given Merge</step1>
-    <step2>Import No Side Effect</step2>
-    <keys_1>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_1>
-    <keys_2>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_2>
-    <attributes />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>832</xloc>
-      <yloc>496</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Other Side Effect Merge</name>
-    <type>MergeJoin</type>
-    <description />
-    <distribute>N</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <join_type>LEFT OUTER</join_type>
-    <step1>Lipodystrophy Side Effect Merge</step1>
-    <step2>Import Other Side Effect</step2>
-    <keys_1>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_1>
-    <keys_2>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_2>
-    <attributes />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1152</xloc>
-      <yloc>464</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Peripheral Neuropathy Side Effect Merge</name>
-    <type>MergeJoin</type>
-    <description />
-    <distribute>N</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <join_type>LEFT OUTER</join_type>
-    <step1>No Side Effect Merge</step1>
-    <step2>Import Peripheral Neuropathy Side Effect</step2>
-    <keys_1>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_1>
-    <keys_2>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_2>
-    <attributes />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>832</xloc>
-      <yloc>608</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Pill Count Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1>TB Status Merge</step1>
+    <step1>Side Effects Merge</step1>
     <step2>Import Pill Count</step2>
     <keys_1>
       <key>patient_id</key>
@@ -2321,8 +2091,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2338,13 +2108,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Pregnant/Lactating Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Weight Merge</step1>
@@ -2359,8 +2129,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2374,19 +2144,19 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>Skin Rash Side Effect Merge</name>
+    <name>Side Effects Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1>Hepatitis Side Effect Merge</step1>
-    <step2>Import Skin Rash Side Effect</step2>
+    <step1>TB Status Merge</step1>
+    <step2>Import Side Effects</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -2397,8 +2167,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2406,21 +2176,21 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1040</xloc>
-      <yloc>736</yloc>
+      <xloc>272</xloc>
+      <yloc>752</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>Systolic BP Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Depo given Merge</step1>
@@ -2435,8 +2205,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2452,13 +2222,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>TB Status Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Pregnant/Lactating Merge</step1>
@@ -2473,8 +2243,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2483,58 +2253,20 @@ order by 	patient_id, visit_date, location</sql>
     </remotesteps>
     <GUI>
       <xloc>272</xloc>
-      <yloc>752</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Therapy Pills Merge</name>
-    <type>MergeJoin</type>
-    <description />
-    <distribute>N</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <join_type>LEFT OUTER</join_type>
-    <step1>HIV Preventive Therapy Merge</step1>
-    <step2>Import Therapy Pills</step2>
-    <keys_1>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_1>
-    <keys_2>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_2>
-    <attributes />
-    <cluster_schema />
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>544</xloc>
-      <yloc>32</yloc>
+      <yloc>640</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>Weight Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Height Merge</step1>
@@ -2549,8 +2281,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2566,31 +2298,31 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Write ART Visit Table</name>
     <type>TableOutput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <schema />
+    <schema/>
     <table>mw_art_followup</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
+    <use_batch>N</use_batch>
     <specify_fields>Y</specify_fields>
     <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field />
+    <partitioning_field/>
     <partitioning_daily>N</partitioning_daily>
     <partitioning_monthly>Y</partitioning_monthly>
     <tablename_in_field>N</tablename_in_field>
-    <tablename_field />
+    <tablename_field/>
     <tablename_in_table>Y</tablename_in_table>
     <return_keys>N</return_keys>
-    <return_field />
+    <return_field/>
     <fields>
       <field>
         <column_name>patient_id</column_name>
@@ -2653,14 +2385,6 @@ order by 	patient_id, visit_date, location</sql>
         <stream_name>arvs_given_to</stream_name>
       </field>
       <field>
-        <column_name>hiv_preventive_therapy</column_name>
-        <stream_name>hiv_preventive_therapy</stream_name>
-      </field>
-      <field>
-        <column_name>therapy_pills</column_name>
-        <stream_name>therapy_pills</stream_name>
-      </field>
-      <field>
         <column_name>depo_given</column_name>
         <stream_name>depo_given</stream_name>
       </field>
@@ -2696,9 +2420,41 @@ order by 	patient_id, visit_date, location</sql>
         <column_name>other_side_effect</column_name>
         <stream_name>other_side_effect</stream_name>
       </field>
+      <field>
+        <column_name>ctx_960</column_name>
+        <stream_name>ctx_960</stream_name>
+      </field>
+      <field>
+        <column_name>inh_300</column_name>
+        <stream_name>inh_300</stream_name>
+      </field>
+      <field>
+        <column_name>rfp_150</column_name>
+        <stream_name>rfp_150</stream_name>
+      </field>
+      <field>
+        <column_name>pyridoxine</column_name>
+        <stream_name>pyridoxine</stream_name>
+      </field>
+      <field>
+        <column_name>ctx_960_pills</column_name>
+        <stream_name>ctx_960_pills</stream_name>
+      </field>
+      <field>
+        <column_name>inh_300_pills</column_name>
+        <stream_name>inh_300_pills</stream_name>
+      </field>
+      <field>
+        <column_name>rfp_150_pills</column_name>
+        <stream_name>rfp_150_pills</stream_name>
+      </field>
+      <field>
+        <column_name>pyridoxine_pills</column_name>
+        <stream_name>pyridoxine_pills</stream_name>
+      </field>
     </fields>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2706,8 +2462,396 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1344</xloc>
-      <yloc>464</yloc>
+      <xloc>1152</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>INH 300 Pills Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>INH 300 Merge</step1>
+    <step2>Import INH 300 Pills</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>obs_group_id_inh_300_pills</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>obs_group_id_inh_300_pills</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1152</xloc>
+      <yloc>752</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>RFP 150 Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>INH 300 Pills Merge</step1>
+    <step2>Import RFP 150</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>obs_group_id_inh_300_pills</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>obs_group_id_rfp_150_pills</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1152</xloc>
+      <yloc>608</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>RFP 150 Pills Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>RFP 150 Merge</step1>
+    <step2>Import RFP 150 Pills Merge</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>obs_group_id_rfp_150_pills</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>obs_group_id_rfp_150_pills</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1152</xloc>
+      <yloc>496</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Pyridoxine Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>RFP 150 Pills Merge</step1>
+    <step2>Import Pyridoxine</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1152</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import INH 300 Pills</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>
+select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as inh_300_pills, o.obs_group_id as obs_group_id_inh_300_pills
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Amount Dispensed'  and e.encounter_type in ('ART_FOLLOWUP') 
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>976</xloc>
+      <yloc>704</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import RFP 150</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as rfp_150, o.obs_group_id as obs_group_id_rfp_150_pills
+from		omrs_encounter e
+
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'HIV Preventive Therapy' and o.value_coded = 'Rifapentine'
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>976</xloc>
+      <yloc>608</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Pyridoxine</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as pyridoxine, o.obs_group_id as obs_group_id_pyridoxine_pills
+from		omrs_encounter e
+
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'HIV Preventive Therapy' and o.value_coded = 'Pyridoxine'
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>992</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import RFP 150 Pills Merge</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as rfp_150_pills, o.obs_group_id as obs_group_id_rfp_150_pills
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Amount Dispensed'  and e.encounter_type in ('ART_FOLLOWUP') 
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>992</xloc>
+      <yloc>496</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Pyridoxine Pills</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>
+select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as pyridoxine_pills, o.obs_group_id as obs_group_id_pyridoxine_pills
+
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Amount Dispensed'  and e.encounter_type in ('ART_FOLLOWUP') 
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>992</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Pyridoxine Pills Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Pyridoxine Merge</step1>
+    <step2>Import Pyridoxine Pills</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>obs_group_id_pyridoxine_pills</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>obs_group_id_pyridoxine_pills</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1152</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2716,5 +2860,5 @@ order by 	patient_id, visit_date, location</sql>
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>
   <slave_transformation>N</slave_transformation>
-  <attributes />
+  <attributes/>
 </transformation>
