@@ -28,8 +28,11 @@ CREATE PROCEDURE create_rpt_mh_data(IN _endDate DATE, IN _location VARCHAR(255))
       mhIntakeLocation,
       dx_organic_mental_disorder_chronic,
       dx_date_organic_mental_disorder_chronic,
-      mentalHealthVisit.nextMHAppt,
-      mentalStatusExam
+      lastMHVisitDate,
+      YEAR(lastMHVisitDate) - YEAR(birthdate)
+      - (DATE_FORMAT(lastMHVisitDate, '%m%d') < DATE_FORMAT(birthdate, '%m%d')) as ageAtLastVisit,
+      visitLocation,
+      nextMHAppt
     FROM 			rpt_ic3_patient_ids ic3
       INNER JOIN 		(SELECT patient_id,
                       birthdate,
@@ -50,8 +53,9 @@ CREATE PROCEDURE create_rpt_mh_data(IN _endDate DATE, IN _location VARCHAR(255))
                              visit_date AS mhIntakeVisitDate,
                              location AS mhIntakeLocation,
                              diagnosis_organic_mental_disorder_chronic as dx_organic_mental_disorder_chronic,
-                             CASE WHEN diagnosis_date_organic_mental_disorder_chronic IS NULL THEN visit_date
-                              ELSE diagnosis_date_organic_mental_disorder_chronic
+                             CASE WHEN diagnosis_organic_mental_disorder_chronic IS NOT NULL AND diagnosis_date_organic_mental_disorder_chronic IS NOT NULL THEN diagnosis_date_organic_mental_disorder_chronic
+                                  WHEN diagnosis_organic_mental_disorder_chronic IS NOT NULL AND diagnosis_date_organic_mental_disorder_chronic IS NULL THEN visit_date
+                              ELSE NULL
                              END AS dx_date_organic_mental_disorder_chronic
                            FROM mw_mental_health_initial
                            WHERE visit_date < _endDate and location= _location
@@ -60,20 +64,16 @@ CREATE PROCEDURE create_rpt_mh_data(IN _endDate DATE, IN _location VARCHAR(255))
                    ) mhIntake ON mhIntake.patient_id = ic3.patient_id
       LEFT JOIN		(SELECT *
                     FROM 	(SELECT patient_id,
-                             visit_date AS lastMentalHealthVisitDate,
-                             hospitalized_since_last_visit as mentalHospitalizedSinceLastVisit,
-                             mental_health_drug_side_effect as mentalHealthRxSideEffectsAtLastVisit,
-                             mental_status_exam as mentalStatusExam,
-                             mental_stable as mentalStableAtLastVisit,
+                             visit_date AS lastMHVisitDate,
+                             location AS visitLocation,
                              next_appointment_date AS nextMHAppt
-                           FROM mw_ncd_visits
-                           WHERE mental_health_followup = 1
+                           FROM mw_mental_health_followup
+                           WHERE location= _location
                                  AND visit_date < _endDate
                            ORDER BY visit_date DESC
                           ) mhFollowupInner GROUP BY patient_id
                    ) mentalHealthVisit ON mentalHealthVisit.patient_id = ic3.patient_id
   ;
-
 
   DROP TABLE IF EXISTS rpt_ic3_patient_ids;
 
