@@ -9,7 +9,17 @@ CREATE PROCEDURE create_rpt_mh_data(IN _endDate DATE, IN _location VARCHAR(255))
     UNION
 
     SELECT DISTINCT(patient_id)
-    FROM mw_mental_health_followup;
+    FROM mw_mental_health_followup
+
+    UNION
+
+    SELECT DISTINCT(patient_id)
+    FROM mw_epilepsy_initial
+
+    UNION
+
+    SELECT DISTINCT(patient_id)
+    FROM mw_epilepsy_followup;
 
   CREATE INDEX patient_id_index ON rpt_ic3_patient_ids(patient_id);
 
@@ -22,9 +32,18 @@ CREATE PROCEDURE create_rpt_mh_data(IN _endDate DATE, IN _location VARCHAR(255))
       birthdate,
       gender,
       epilepsyDx,
+      epilepsyIntakeVisitDate,
+      epilepsyIntakeLocation,
+      YEAR(epilepsyIntakeVisitDate) - YEAR(birthdate)
+      - (DATE_FORMAT(epilepsyIntakeVisitDate, '%m%d') < DATE_FORMAT(birthdate, '%m%d')) as ageAtEpilepsyIntake,
+      lastEpilepsyVisitDate,
+      lastEpilepsyVisitLocation,
+      YEAR(lastEpilepsyVisitDate) - YEAR(birthdate)
+      - (DATE_FORMAT(lastEpilepsyVisitDate, '%m%d') < DATE_FORMAT(birthdate, '%m%d')) as ageAtLastEpilepsyVisit,
+      nextEpilepsyAppt,
       mhIntakeVisitDate,
       YEAR(mhIntakeVisitDate) - YEAR(birthdate)
-      - (DATE_FORMAT(mhIntakeVisitDate, '%m%d') < DATE_FORMAT(birthdate, '%m%d')) as ageAtIntake,
+      - (DATE_FORMAT(mhIntakeVisitDate, '%m%d') < DATE_FORMAT(birthdate, '%m%d')) as ageAtMHIntake,
       mhIntakeLocation,
       dx_organic_mental_disorder_chronic,
       dx_date_organic_mental_disorder_chronic,
@@ -42,7 +61,7 @@ CREATE PROCEDURE create_rpt_mh_data(IN _endDate DATE, IN _location VARCHAR(255))
       dx_anxiety_disorder,
       lastMHVisitDate,
       YEAR(lastMHVisitDate) - YEAR(birthdate)
-      - (DATE_FORMAT(lastMHVisitDate, '%m%d') < DATE_FORMAT(birthdate, '%m%d')) as ageAtLastVisit,
+      - (DATE_FORMAT(lastMHVisitDate, '%m%d') < DATE_FORMAT(birthdate, '%m%d')) as ageAtLastMHVisit,
       visitLocation,
       nextMHAppt
     FROM 			rpt_ic3_patient_ids ic3
@@ -60,7 +79,26 @@ CREATE PROCEDURE create_rpt_mh_data(IN _endDate DATE, IN _location VARCHAR(255))
                     GROUP BY patient_id
                    ) epilepsyDx
         ON epilepsyDx.patient_id = ic3.patient_id
-      INNER JOIN		(SELECT *
+      LEFT JOIN		(SELECT *
+                    FROM 	(SELECT patient_id,
+                             visit_date AS epilepsyIntakeVisitDate,
+                             location AS epilepsyIntakeLocation
+                           FROM mw_epilepsy_initial
+                           ORDER BY visit_date DESC
+                          ) epilepsyInner GROUP BY patient_id
+                   ) epilepsyIntake ON epilepsyIntake.patient_id = ic3.patient_id
+      LEFT JOIN		(SELECT *
+                    FROM 	(SELECT patient_id,
+                             visit_date AS lastEpilepsyVisitDate,
+                             location AS lastEpilepsyVisitLocation,
+                             next_appointment_date AS nextEpilepsyAppt
+                           FROM mw_epilepsy_followup
+                           WHERE location= _location
+                                 AND visit_date < _endDate
+                           ORDER BY visit_date DESC
+                          ) epilepsyFollowupInner GROUP BY patient_id
+                   ) epilepsyVisit ON epilepsyVisit.patient_id = ic3.patient_id
+      LEFT JOIN		(SELECT *
                     FROM 	(SELECT patient_id,
                              visit_date AS mhIntakeVisitDate,
                              location AS mhIntakeLocation,
@@ -91,7 +129,6 @@ CREATE PROCEDURE create_rpt_mh_data(IN _endDate DATE, IN _location VARCHAR(255))
                              diagnosis_mood_affective_disorder_depression as dx_mood_affective_disorder_depression,
                              diagnosis_anxiety_disorder as dx_anxiety_disorder
                            FROM mw_mental_health_initial
-                           WHERE visit_date < _endDate and location= _location
                            ORDER BY visit_date DESC
                           ) mhInner GROUP BY patient_id
                    ) mhIntake ON mhIntake.patient_id = ic3.patient_id
