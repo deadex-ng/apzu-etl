@@ -59,6 +59,9 @@ CREATE PROCEDURE create_rpt_mh_data(IN _endDate DATE, IN _location VARCHAR(255))
       dx_mood_affective_disorder_manic,
       dx_mood_affective_disorder_depression,
       dx_anxiety_disorder,
+      dx_mh_other_1,
+      dx_mh_other_2,
+      dx_mh_other_3,
       lastMHVisitDate,
       YEAR(lastMHVisitDate) - YEAR(birthdate)
       - (DATE_FORMAT(lastMHVisitDate, '%m%d') < DATE_FORMAT(birthdate, '%m%d')) as ageAtLastMHVisit,
@@ -127,7 +130,10 @@ CREATE PROCEDURE create_rpt_mh_data(IN _endDate DATE, IN _location VARCHAR(255))
                              diagnosis_schizoaffective_disorder as dx_schizoaffective_disorder,
                              diagnosis_mood_affective_disorder_manic as dx_mood_affective_disorder_manic,
                              diagnosis_mood_affective_disorder_depression as dx_mood_affective_disorder_depression,
-                             diagnosis_anxiety_disorder as dx_anxiety_disorder
+                             diagnosis_anxiety_disorder as dx_anxiety_disorder,
+                             diagnosis_other_1 as dx_mh_other_1,
+                             diagnosis_other_2 as dx_mh_other_2,
+                             diagnosis_other_3 as dx_mh_other_3
                            FROM mw_mental_health_initial
                            ORDER BY visit_date DESC
                           ) mhInner GROUP BY patient_id
