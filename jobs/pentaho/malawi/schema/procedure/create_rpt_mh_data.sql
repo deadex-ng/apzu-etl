@@ -28,6 +28,12 @@ CREATE PROCEDURE create_rpt_mh_data(IN _endDate DATE, IN _location VARCHAR(255))
       mhIntakeLocation,
       dx_organic_mental_disorder_chronic,
       dx_date_organic_mental_disorder_chronic,
+      dx_organic_mental_disorder_acute,
+      dx_date_organic_mental_disorder_acute,
+      dx_alcohol_use_mental_disorder,
+      dx_date_alcohol_use_mental_disorder,
+      dx_drug_use_mental_disorder,
+      dx_date_drug_use_mental_disorder,
       lastMHVisitDate,
       YEAR(lastMHVisitDate) - YEAR(birthdate)
       - (DATE_FORMAT(lastMHVisitDate, '%m%d') < DATE_FORMAT(birthdate, '%m%d')) as ageAtLastVisit,
@@ -56,7 +62,22 @@ CREATE PROCEDURE create_rpt_mh_data(IN _endDate DATE, IN _location VARCHAR(255))
                              CASE WHEN diagnosis_organic_mental_disorder_chronic IS NOT NULL AND diagnosis_date_organic_mental_disorder_chronic IS NOT NULL THEN diagnosis_date_organic_mental_disorder_chronic
                                   WHEN diagnosis_organic_mental_disorder_chronic IS NOT NULL AND diagnosis_date_organic_mental_disorder_chronic IS NULL THEN visit_date
                               ELSE NULL
-                             END AS dx_date_organic_mental_disorder_chronic
+                             END AS dx_date_organic_mental_disorder_chronic,
+                             diagnosis_organic_mental_disorder_acute as dx_organic_mental_disorder_acute,
+                             CASE WHEN diagnosis_organic_mental_disorder_acute IS NOT NULL AND diagnosis_date_organic_mental_disorder_acute IS NOT NULL THEN diagnosis_date_organic_mental_disorder_acute
+                                  WHEN diagnosis_organic_mental_disorder_acute IS NOT NULL AND diagnosis_date_organic_mental_disorder_acute IS NULL THEN visit_date
+                             ELSE NULL
+                             END AS dx_date_organic_mental_disorder_acute,
+                             diagnosis_alcohol_use_mental_disorder as dx_alcohol_use_mental_disorder,
+                             CASE WHEN diagnosis_alcohol_use_mental_disorder IS NOT NULL AND diagnosis_date_alcohol_use_mental_disorder IS NOT NULL THEN diagnosis_date_alcohol_use_mental_disorder
+                                  WHEN diagnosis_alcohol_use_mental_disorder IS NOT NULL AND diagnosis_date_alcohol_use_mental_disorder IS NULL THEN visit_date
+                             ELSE NULL
+                             END AS dx_date_alcohol_use_mental_disorder,
+                             diagnosis_drug_use_mental_disorder as dx_drug_use_mental_disorder,
+                             CASE WHEN diagnosis_drug_use_mental_disorder IS NOT NULL AND diagnosis_date_drug_use_mental_disorder IS NOT NULL THEN diagnosis_date_drug_use_mental_disorder
+                                  WHEN diagnosis_drug_use_mental_disorder IS NOT NULL AND diagnosis_date_drug_use_mental_disorder IS NULL THEN visit_date
+                             ELSE NULL
+                             END AS dx_date_drug_use_mental_disorder
                            FROM mw_mental_health_initial
                            WHERE visit_date < _endDate and location= _location
                            ORDER BY visit_date DESC
