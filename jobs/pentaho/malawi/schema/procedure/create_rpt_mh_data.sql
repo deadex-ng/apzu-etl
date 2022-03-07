@@ -34,6 +34,12 @@ CREATE PROCEDURE create_rpt_mh_data(IN _endDate DATE, IN _location VARCHAR(255))
       dx_date_alcohol_use_mental_disorder,
       dx_drug_use_mental_disorder,
       dx_date_drug_use_mental_disorder,
+      dx_schizophrenia,
+      dx_acute_and_transient_psychotic,
+      dx_schizoaffective_disorder,
+      dx_mood_affective_disorder_manic,
+      dx_mood_affective_disorder_depression,
+      dx_anxiety_disorder,
       lastMHVisitDate,
       YEAR(lastMHVisitDate) - YEAR(birthdate)
       - (DATE_FORMAT(lastMHVisitDate, '%m%d') < DATE_FORMAT(birthdate, '%m%d')) as ageAtLastVisit,
@@ -77,7 +83,13 @@ CREATE PROCEDURE create_rpt_mh_data(IN _endDate DATE, IN _location VARCHAR(255))
                              CASE WHEN diagnosis_drug_use_mental_disorder IS NOT NULL AND diagnosis_date_drug_use_mental_disorder IS NOT NULL THEN diagnosis_date_drug_use_mental_disorder
                                   WHEN diagnosis_drug_use_mental_disorder IS NOT NULL AND diagnosis_date_drug_use_mental_disorder IS NULL THEN visit_date
                              ELSE NULL
-                             END AS dx_date_drug_use_mental_disorder
+                             END AS dx_date_drug_use_mental_disorder,
+                             diagnosis_schizophrenia as dx_schizophrenia,
+                             diagnosis_acute_and_transient_psychotic as dx_acute_and_transient_psychotic,
+                             diagnosis_schizoaffective_disorder as dx_schizoaffective_disorder,
+                             diagnosis_mood_affective_disorder_manic as dx_mood_affective_disorder_manic,
+                             diagnosis_mood_affective_disorder_depression as dx_mood_affective_disorder_depression,
+                             diagnosis_anxiety_disorder as dx_anxiety_disorder
                            FROM mw_mental_health_initial
                            WHERE visit_date < _endDate and location= _location
                            ORDER BY visit_date DESC
