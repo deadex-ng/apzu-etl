@@ -1469,7 +1469,6 @@ select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeri
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
 where		o.concept = 'Amount Dispensed'  and e.encounter_type in ('ART_FOLLOWUP') 
-group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
     <lookup/>
@@ -1772,7 +1771,6 @@ select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeri
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
 where		o.concept = 'Amount Dispensed'  and e.encounter_type in ('ART_FOLLOWUP') 
-group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
     <lookup/>
@@ -1997,7 +1995,6 @@ select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeri
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
 where		o.concept = 'Amount Dispensed'  and e.encounter_type in ('ART_FOLLOWUP') 
-group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
     <lookup/>
@@ -2072,7 +2069,6 @@ order by 	patient_id, visit_date, location</sql>
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
 where		o.concept = 'Amount Dispensed'  and e.encounter_type in ('ART_FOLLOWUP') 
-group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
     <lookup/>
