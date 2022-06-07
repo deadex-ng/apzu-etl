@@ -65,7 +65,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#x24;&#x7b;PIH_PENTAHO_HOME&#x7d;&#x2f;openmrs&#x2f;load-configuration.kjb</filename>
+      <filename>${PIH_PENTAHO_HOME}&#x2f;openmrs&#x2f;load-configuration.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -96,7 +96,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#x24;&#x7b;PIH_PENTAHO_HOME&#x7d;&#x2f;openmrs&#x2f;create-omrs-schema.kjb</filename>
+      <filename>${PIH_PENTAHO_HOME}&#x2f;openmrs&#x2f;create-omrs-schema.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -127,7 +127,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#x24;&#x7b;PIH_PENTAHO_HOME&#x7d;&#x2f;openmrs&#x2f;load-from-openmrs.kjb</filename>
+      <filename>${PIH_PENTAHO_HOME}&#x2f;openmrs&#x2f;load-from-openmrs.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -158,7 +158,7 @@
       <type>JOB</type>
       <specification_method>filename</specification_method>
       <job_object_id/>
-      <filename>&#x24;&#x7b;PIH_PENTAHO_HOME&#x7d;&#x2f;openmrs&#x2f;create-omrs-indexes.kjb</filename>
+      <filename>${PIH_PENTAHO_HOME}&#x2f;openmrs&#x2f;create-omrs-indexes.kjb</filename>
       <jobname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>

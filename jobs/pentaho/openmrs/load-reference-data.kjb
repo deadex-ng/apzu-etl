@@ -14,13 +14,13 @@
     </parameters>
   <connection>
     <name>Warehouse</name>
-    <server>&#x24;&#x7b;warehouse.db.host&#x7d;</server>
+    <server>${warehouse.db.host}</server>
     <type>MYSQL</type>
     <access>Native</access>
-    <database>&#x24;&#x7b;warehouse.db.name&#x7d;</database>
-    <port>&#x24;&#x7b;warehouse.db.port&#x7d;</port>
-    <username>&#x24;&#x7b;warehouse.db.user&#x7d;</username>
-    <password>&#x24;&#x7b;warehouse.db.password&#x7d;</password>
+    <database>${warehouse.db.name}</database>
+    <port>${warehouse.db.port}</port>
+    <username>${warehouse.db.user}</username>
+    <password>${warehouse.db.password}</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -34,7 +34,7 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;warehouse.db.port&#x7d;</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>${warehouse.db.port}</attribute></attribute>
       <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>Y</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
@@ -91,7 +91,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x24;&#x7b;PIH_PENTAHO_HOME&#x7d;&#x2f;openmrs&#x2f;transforms&#x2f;setup-reference-concepts.ktr</filename>
+      <filename>${PIH_PENTAHO_HOME}&#x2f;openmrs&#x2f;transforms&#x2f;setup-reference-concepts.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -140,7 +140,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x24;&#x7b;PIH_PENTAHO_HOME&#x7d;&#x2f;openmrs&#x2f;transforms&#x2f;setup-reference-locations.ktr</filename>
+      <filename>${PIH_PENTAHO_HOME}&#x2f;openmrs&#x2f;transforms&#x2f;setup-reference-locations.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -205,7 +205,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x24;&#x7b;PIH_PENTAHO_HOME&#x7d;&#x2f;openmrs&#x2f;transforms&#x2f;setup-reference-identifier-types.ktr</filename>
+      <filename>${PIH_PENTAHO_HOME}&#x2f;openmrs&#x2f;transforms&#x2f;setup-reference-identifier-types.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -254,7 +254,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x24;&#x7b;PIH_PENTAHO_HOME&#x7d;&#x2f;openmrs&#x2f;transforms&#x2f;setup-reference-encounter-types.ktr</filename>
+      <filename>${PIH_PENTAHO_HOME}&#x2f;openmrs&#x2f;transforms&#x2f;setup-reference-encounter-types.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -303,7 +303,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x24;&#x7b;PIH_PENTAHO_HOME&#x7d;&#x2f;openmrs&#x2f;transforms&#x2f;setup-reference-users.ktr</filename>
+      <filename>${PIH_PENTAHO_HOME}&#x2f;openmrs&#x2f;transforms&#x2f;setup-reference-users.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -352,7 +352,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x24;&#x7b;PIH_PENTAHO_HOME&#x7d;&#x2f;openmrs&#x2f;transforms&#x2f;setup-reference-person-name.ktr</filename>
+      <filename>${PIH_PENTAHO_HOME}&#x2f;openmrs&#x2f;transforms&#x2f;setup-reference-person-name.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -401,7 +401,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x24;&#x7b;PIH_PENTAHO_HOME&#x7d;&#x2f;openmrs&#x2f;transforms&#x2f;setup-reference-provider-name.ktr</filename>
+      <filename>${PIH_PENTAHO_HOME}&#x2f;openmrs&#x2f;transforms&#x2f;setup-reference-provider-name.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -482,7 +482,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x24;&#x7b;PIH_PENTAHO_HOME&#x7d;&#x2f;openmrs&#x2f;transforms&#x2f;setup-reference-forms.ktr</filename>
+      <filename>${PIH_PENTAHO_HOME}&#x2f;openmrs&#x2f;transforms&#x2f;setup-reference-forms.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -531,7 +531,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x24;&#x7b;PIH_PENTAHO_HOME&#x7d;&#x2f;openmrs&#x2f;transforms&#x2f;setup-reference-drugs.ktr</filename>
+      <filename>${PIH_PENTAHO_HOME}&#x2f;openmrs&#x2f;transforms&#x2f;setup-reference-drugs.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -580,7 +580,7 @@
       <type>TRANS</type>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>&#x24;&#x7b;PIH_PENTAHO_HOME&#x7d;&#x2f;openmrs&#x2f;transforms&#x2f;setup-reference-visit-types.ktr</filename>
+      <filename>${PIH_PENTAHO_HOME}&#x2f;openmrs&#x2f;transforms&#x2f;setup-reference-visit-types.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
