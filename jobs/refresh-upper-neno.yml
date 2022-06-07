@@ -2,26 +2,39 @@ type: "pentaho-job"
 schedule:
   cron: "${executeCron.refreshUpperNeno}"
 description: "Execute Upper Neno Pentaho pipeline"
+
+parameters:
+  pih.pentahoHome: "${petl.jobDir}/pentaho"
+  openmrs.db.host: "${upperNenoOpenmrs.host}"
+  openmrs.db.port: "${upperNenoOpenmrs.port}"
+  openmrs.db.name: "${upperNenoOpenmrs.databaseName}"
+  openmrs.db.user: "${upperNenoOpenmrs.user}"
+  openmrs.db.password: "${upperNenoOpenmrs.password}"
+  warehouse.db.host: "${upperNenoReporting.host}"
+  warehouse.db.port: "${upperNenoReporting.port}"
+  warehouse.db.name: "${upperNenoReporting.databaseName}"
+  warehouse.db.user: "${upperNenoReporting.user}"
+  warehouse.db.password: "${upperNenoReporting.password}"
+
 configuration:
   job:
     filePath: "pentaho/malawi/jobs/refresh-warehouse.kjb"
     logLevel: "BASIC"
   pih:
-    pentahoHome: "${petl.jobDir}/pentaho"
+    pentahoHome: "${pih.pentahoHome}"
     country: "malawi"
-
   openmrs:
     db:
-      host: "${upperNenoOpenmrs.host}"
-      port: "${upperNenoOpenmrs.port}"
-      name: "${upperNenoOpenmrs.databaseName}"
-      user: "${upperNenoOpenmrs.user}"
-      password: "${upperNenoOpenmrs.password}"
+      host: "${openmrs.db.host}"
+      port: "${openmrs.db.port}"
+      name: "${openmrs.db.name}"
+      user: "${openmrs.db.user}"
+      password: "${openmrs.db.password}"
   warehouse:
     db:
-      host: "${upperNenoReporting.host}"
-      port: "${upperNenoReporting.port}"
-      name: "${upperNenoReporting.databaseName}"
-      user: "${upperNenoReporting.user}"
-      password: "${upperNenoReporting.password}"
+      host: "${warehouse.db.host}"
+      port: "${warehouse.db.port}"
+      name: "${warehouse.db.name}"
+      user: "${warehouse.db.user}"
+      password: "${warehouse.db.password}"
       key_prefix: "10"
