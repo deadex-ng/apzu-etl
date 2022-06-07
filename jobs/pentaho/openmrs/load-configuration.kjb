@@ -311,7 +311,7 @@
       <description/>
       <type>SET_VARIABLES</type>
       <replacevars>Y</replacevars>
-      <filename>&#x24;&#x7b;user.home&#x7d;&#x2f;.kettle&#x2f;pih-kettle.properties</filename>
+      <filename>${user.home}&#x2f;.kettle&#x2f;pih-kettle.properties</filename>
       <file_variable_type>JVM</file_variable_type>
       <fields>
       </fields>
@@ -326,7 +326,7 @@
       <description/>
       <type>SET_VARIABLES</type>
       <replacevars>Y</replacevars>
-      <filename>&#x24;&#x7b;PIH_PENTAHO_HOME&#x7d;&#x2f;config&#x2f;&#x24;&#x7b;pih.country&#x7d;.properties</filename>
+      <filename>${PIH_PENTAHO_HOME}&#x2f;config&#x2f;${pih.country}.properties</filename>
       <file_variable_type>JVM</file_variable_type>
       <fields>
       </fields>
@@ -342,7 +342,7 @@
       <type>SIMPLE_EVAL</type>
       <valuetype>variable</valuetype>
       <fieldname/>
-      <variablename>&#x24;&#x7b;warehouse.db.key_prefix&#x7d;</variablename>
+      <variablename>${warehouse.db.key_prefix}</variablename>
       <fieldtype>string</fieldtype>
       <mask/>
       <comparevalue/>
@@ -363,7 +363,7 @@
       <description/>
       <type>SET_VARIABLES</type>
       <replacevars>Y</replacevars>
-      <filename>&#x24;&#x7b;PIH_PENTAHO_HOME&#x7d;&#x2f;config&#x2f;default.properties</filename>
+      <filename>${PIH_PENTAHO_HOME}&#x2f;config&#x2f;default.properties</filename>
       <file_variable_type>JVM</file_variable_type>
       <fields>
       </fields>
@@ -379,7 +379,7 @@
       <type>SIMPLE_EVAL</type>
       <valuetype>variable</valuetype>
       <fieldname/>
-      <variablename>&#x24;&#x7b;KETTLE_HOME&#x7d;</variablename>
+      <variablename>${KETTLE_HOME}</variablename>
       <fieldtype>string</fieldtype>
       <mask/>
       <comparevalue/>
@@ -400,7 +400,7 @@
       <description/>
       <type>SET_VARIABLES</type>
       <replacevars>Y</replacevars>
-      <filename>&#x24;&#x7b;KETTLE_HOME&#x7d;&#x2f;.kettle&#x2f;pih-kettle.properties</filename>
+      <filename>${KETTLE_HOME}&#x2f;.kettle&#x2f;pih-kettle.properties</filename>
       <file_variable_type>JVM</file_variable_type>
       <fields>
       </fields>
@@ -414,7 +414,7 @@
       <name>Properties Defined In Kettle Home</name>
       <description/>
       <type>FILE_EXISTS</type>
-      <filename>&#x24;&#x7b;KETTLE_HOME&#x7d;&#x2f;.kettle&#x2f;pih-kettle.properties</filename>
+      <filename>${KETTLE_HOME}&#x2f;.kettle&#x2f;pih-kettle.properties</filename>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
@@ -425,7 +425,7 @@
       <name>Properties Defined In User Home</name>
       <description/>
       <type>FILE_EXISTS</type>
-      <filename>&#x24;&#x7b;user.home&#x7d;&#x2f;.kettle&#x2f;pih-kettle.properties</filename>
+      <filename>${user.home}&#x2f;.kettle&#x2f;pih-kettle.properties</filename>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
@@ -438,7 +438,7 @@
       <type>SIMPLE_EVAL</type>
       <valuetype>variable</valuetype>
       <fieldname/>
-      <variablename>&#x24;&#x7b;pih.country&#x7d;</variablename>
+      <variablename>${pih.country}</variablename>
       <fieldtype>string</fieldtype>
       <mask/>
       <comparevalue/>
