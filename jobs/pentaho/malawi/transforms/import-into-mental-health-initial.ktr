@@ -2,9 +2,9 @@
 <transformation>
   <info>
     <name>MENTAL_HEALTH_INITIAL</name>
-    <description />
-    <extended_description />
-    <trans_version />
+    <description/>
+    <extended_description/>
+    <trans_version/>
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
     <directory>/</directory>
@@ -12,12 +12,12 @@
     </parameters>
     <log>
       <trans-log-table>
-        <connection />
-        <schema />
-        <table />
-        <size_limit_lines />
-        <interval />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <size_limit_lines/>
+        <interval/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -42,37 +42,37 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_REJECTED</id>
           <enabled>Y</enabled>
           <name>LINES_REJECTED</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>ERRORS</id>
@@ -126,11 +126,11 @@
         </field>
       </trans-log-table>
       <perf-log-table>
-        <connection />
-        <schema />
-        <table />
-        <interval />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <interval/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -208,10 +208,10 @@
         </field>
       </perf-log-table>
       <channel-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -274,10 +274,10 @@
         </field>
       </channel-log-table>
       <step-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -350,10 +350,10 @@
         </field>
       </step-log-table>
       <metrics-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -402,9 +402,9 @@
       </metrics-log-table>
     </log>
     <maxdate>
-      <connection />
-      <table />
-      <field />
+      <connection/>
+      <table/>
+      <field/>
       <offset>0.0</offset>
       <maxdiff>0.0</maxdiff>
     </maxdate>
@@ -415,7 +415,7 @@
     <feedback_shown>Y</feedback_shown>
     <feedback_size>50000</feedback_size>
     <using_thread_priorities>Y</using_thread_priorities>
-    <shared_objects_file />
+    <shared_objects_file/>
     <capture_step_performance>N</capture_step_performance>
     <step_performance_capturing_delay>1000</step_performance_capturing_delay>
     <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
@@ -445,9 +445,9 @@
     <port>${warehouse.db.port}</port>
     <username>${warehouse.db.user}</username>
     <password>${warehouse.db.password}</password>
-    <servername />
-    <data_tablespace />
-    <index_tablespace />
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
     <attributes>
       <attribute>
         <code>EXTRA_OPTION_MYSQL.defaultFetchSize</code>
@@ -487,7 +487,7 @@
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
-        <attribute>${warehouse.db.port}</attribute>
+        <attribute>3306</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
@@ -1098,7 +1098,107 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
+      <from>Import diagnosis_bipolar_mood_disorder</from>
+      <to>diadnosis_bipolar_mood_disorder Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>behavior_problems_family_history Merge</from>
+      <to>diadnosis_bipolar_mood_disorder Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>diadnosis_bipolar_mood_disorder Merge</from>
+      <to>diagnosis_date_bipolar_mood_disorder Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import diagnosis_date_bipolar_mood_disorder</from>
+      <to>diagnosis_date_bipolar_mood_disorder Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>diagnosis_date_bipolar_mood_disorder Merge</from>
+      <to>diagnosis_stress_reactive_adjustment_disorder Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import diagnosis_stress_reactive_adjustment_disorder</from>
+      <to>diagnosis_stress_reactive_adjustment_disorder Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>diagnosis_stress_reactive_adjustment_disorder Merge</from>
+      <to>diagnosis_date_stress_reative_adjustment_disorder Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import diagnosis__date_stress_reactive_adjustment_disorder</from>
+      <to>diagnosis_date_stress_reative_adjustment_disorder Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>diagnosis_date_stress_reative_adjustment_disorder Merge</from>
+      <to>diagnosis_dissociative_mood_disorder Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import diagnosis_dissociative_mood_disorder</from>
+      <to>diagnosis_dissociative_mood_disorder Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>diagnosis_dissociative_mood_disorder Merge</from>
+      <to>diagnosis_date_dissociative_mood_disorder Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import diagnosis_date_dissociative_mood_disorder</from>
+      <to>diagnosis_date_dissociative_mood_disorder Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>diagnosis_date_dissociative_mood_disorder Merge</from>
+      <to>diagnosis_hyperkinetic_disorder Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import diagnosis_hyperkinetic_disorder</from>
+      <to>diagnosis_hyperkinetic_disorder Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>diagnosis_hyperkinetic_disorder Merge</from>
+      <to>diagnosis_date_hyperkinetic_disorder</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import diagnosis_date_hyperkinetic_disorder</from>
+      <to>diagnosis_date_hyperkinetic_disorder</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>diagnosis_date_hyperkinetic_disorder</from>
+      <to>diagnosis_puerperal_mental_disorder Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import diagnosis_puerperal_mental_disorder</from>
+      <to>diagnosis_puerperal_mental_disorder Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>diagnosis_puerperal_mental_disorder Merge</from>
+      <to>diagnosis_date_puerperal_mental_disorder</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import diagnosis_date_puerperal_mental_disorder</from>
+      <to>diagnosis_date_puerperal_mental_disorder</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>diagnosis_date_puerperal_mental_disorder</from>
       <to>Write Mental Health Initial Table</to>
       <enabled>Y</enabled>
     </hop>
@@ -1106,13 +1206,13 @@
   <step>
     <name> diagnosis_date_Schizophrenia Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>diagnosis_Schizophrenia Merge</step1>
@@ -1129,8 +1229,8 @@
       <key>location</key>
       <key>obs_group_id</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1146,13 +1246,13 @@
   <step>
     <name> diagnosis_date_schizoaffective_disorder Merge </name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1> diagnosis_schizoaffective_disorder Merge</step1>
@@ -1169,8 +1269,8 @@
       <key>location</key>
       <key>obs_group_id_schizoaffective</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1186,13 +1286,13 @@
   <step>
     <name> diagnosis_schizoaffective_disorder Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>diagnosis_date_acute_and_transient_psychotic Merge</step1>
@@ -1207,8 +1307,8 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1224,13 +1324,13 @@
   <step>
     <name> disorganised_or_disruptive_behaviour_date Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>disorganised_or_disruptive_behaviour Merge</step1>
@@ -1247,8 +1347,8 @@
       <key>location</key>
       <key>obs_group_id_disruptive_behavior</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1264,13 +1364,13 @@
   <step>
     <name>Diagnosis_date_mood_affective_disorder Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>diagnosis_mood_affective_disorder_depression Merge</step1>
@@ -1287,8 +1387,8 @@
       <key>location</key>
       <key>obs_group_id_depression</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1304,13 +1404,13 @@
   <step>
     <name>Import Diagnosis_date_mood_affective_disorder_depression</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as diagnosis_date_mood_affective_disorder_depression, 
@@ -1321,12 +1421,12 @@ where		o.concept = 'Diagnosis date'  and e.encounter_type in ('MENTAL_HEALTH_INI
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1342,13 +1442,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import Encounters</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>/*
@@ -1363,12 +1463,12 @@ group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location
 </sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1384,13 +1484,13 @@ order by 	patient_id, visit_date, location
   <step>
     <name>Import alcohol_date_last_used</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as alcohol_date_last_used, o.obs_group_id as obs_group_id_alcohol_exposure
@@ -1400,12 +1500,12 @@ where		o.concept = 'Date of exposure'  and e.encounter_type in ('MENTAL_HEALTH_I
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1421,13 +1521,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import alcohol_exposure</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as alcohol_exposure, o.obs_group_id as obs_group_id_alcohol_exposure
@@ -1437,12 +1537,12 @@ where		o.concept = 'History of alcohol use'  and e.encounter_type in ('MENTAL_HE
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1458,13 +1558,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import alcohol_years_exposed</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as alcohol_years_exposed, o.obs_group_id as obs_group_id_alcohol_exposure
@@ -1474,12 +1574,12 @@ where		o.concept = 'Duration in years'   and e.encounter_type in ('MENTAL_HEALTH
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1495,13 +1595,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import behavior_problems_family_history</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as behavior_problems_family_history
@@ -1511,12 +1611,12 @@ where		o.concept = 'Family history of behavioral problems' and e.encounter_type 
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1524,21 +1624,21 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3724</xloc>
-      <yloc>234</yloc>
+      <xloc>3392</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>Import delusions_date</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as delusions_date, o.obs_group_id as obs_group_id_delusions
@@ -1548,12 +1648,12 @@ where		o.concept = 'Diagnosis date'   and e.encounter_type in ('MENTAL_HEALTH_IN
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1569,13 +1669,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import depressive_symptoms</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as depressive_symptoms, o.obs_group_id as obs_group_id_depressive_disorder
@@ -1585,12 +1685,12 @@ where		o.concept = 'Mental health chief complaint' AND o.value_coded = 'Depressi
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1606,13 +1706,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import depressive_symptoms_date</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as depressive_symptoms_date, o.obs_group_id as obs_group_id_depressive_disorder
@@ -1622,12 +1722,12 @@ where		o.concept = 'Diagnosis date'   and e.encounter_type in ('MENTAL_HEALTH_IN
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1643,13 +1743,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import diagnosis_Schizophrenia</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as diagnosis_schizophrenia, o.obs_group_id
@@ -1659,12 +1759,12 @@ where		o.concept = 'Chronic care diagnosis' and o.value_coded = 'Schizophrenia' 
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1678,15 +1778,52 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>Import diagnosis_acute_and_transient_psychotic</name>
+    <name>Import diagnosis__date_stress_reactive_adjustment_disorder</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as diagnosis_date_stress_reactive_adjustment_disorder, o.obs_group_id as obs_group_id_stress_reactive
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Diagnosis date'  and e.encounter_type in ('MENTAL_HEALTH_INITIAL')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>3504</xloc>
+      <yloc>736</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import diagnosis_acute_and_transient_psychotic</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as diagnosis_acute_and_transient_psychotic, 
@@ -1698,12 +1835,12 @@ where		o.concept = 'Chronic care diagnosis' AND o.value_coded = 'Acute Psychotic
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1719,13 +1856,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import diagnosis_anxiety_disorder</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as diagnosis_anxiety_disorder, o.obs_group_id as obs_group_id_anxiety
@@ -1735,12 +1872,12 @@ where		o.concept = 'Chronic care diagnosis' AND o.value_coded = 'Anxiety disorde
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1754,15 +1891,52 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>Import diagnosis_date_Schizophrenia</name>
+    <name>Import diagnosis_bipolar_mood_disorder</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as diagnosis_bipolar_mood_disorder, o.obs_group_id as obs_group_id_bipolar
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Chronic care diagnosis' and o.value_coded = 'Mood Affective Disorder (Bipolar)' and e.encounter_type in ('MENTAL_HEALTH_INITIAL')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>3504</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import diagnosis_date_Schizophrenia</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as diagnosis_date_schizophrenia, o.obs_group_id
@@ -1772,12 +1946,12 @@ where		o.concept = 'Diagnosis date'  and e.encounter_type in ('MENTAL_HEALTH_INI
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1793,13 +1967,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import diagnosis_date_acute_and_transient_psychotic</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as diagnosis_date_acute_and_transient_psychotic,
@@ -1810,12 +1984,12 @@ where		o.concept = 'Diagnosis date'  and e.encounter_type in ('MENTAL_HEALTH_INI
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1831,13 +2005,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import diagnosis_date_anxiety_disorder</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as diagnosis_date_anxiety_disorder, o.obs_group_id as obs_group_id_anxiety
@@ -1847,12 +2021,12 @@ where		o.concept = 'Diagnosis date'  and e.encounter_type in ('MENTAL_HEALTH_INI
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1866,15 +2040,89 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>Import diagnosis_date_drug_use_mental_disorder</name>
+    <name>Import diagnosis_date_bipolar_mood_disorder</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as diagnosis_date_bipolar_mood_disorder, o.obs_group_id as obs_group_id_bipolar
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Diagnosis date'  and e.encounter_type in ('MENTAL_HEALTH_INITIAL')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>3488</xloc>
+      <yloc>400</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import diagnosis_date_dissociative_mood_disorder</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as diagnosis_date_dissociative_mood_disorder, o.obs_group_id as obs_group_id_dissociative
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Diagnosis date'  and e.encounter_type in ('MENTAL_HEALTH_INITIAL')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>4048</xloc>
+      <yloc>928</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import diagnosis_date_drug_use_mental_disorder</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as diagnosis_date_drug_use_mental_disorder, o.obs_group_id as obs_group_id_drug_disorder
@@ -1884,12 +2132,12 @@ where		o.concept = 'Diagnosis date'   and e.encounter_type in ('MENTAL_HEALTH_IN
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1903,15 +2151,52 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>Import diagnosis_date_mood affective_disorder_manic</name>
+    <name>Import diagnosis_date_hyperkinetic_disorder</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as diagnosis_date_hyperkinetic_disorder, o.obs_group_id as obs_group_id_hyperkinetic
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Diagnosis date'  and e.encounter_type in ('MENTAL_HEALTH_INITIAL')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>4016</xloc>
+      <yloc>560</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import diagnosis_date_mood affective_disorder_manic</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as diagnosis_date_mood_affective_disorder_manic, o.obs_group_id as obs_group_id_manic
@@ -1921,12 +2206,12 @@ where		o.concept = 'Diagnosis date'  and e.encounter_type in ('MENTAL_HEALTH_INI
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1942,13 +2227,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import diagnosis_date_organic_mental_disorder_acute</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as diagnosis_date_organic_mental_disorder_acute, o.obs_group_id as obs_group_id_mental_acute
@@ -1958,12 +2243,12 @@ where		o.concept = 'Diagnosis date'  and e.encounter_type in ('MENTAL_HEALTH_INI
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1979,13 +2264,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import diagnosis_date_organic_mental_disorder_chronic</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as diagnosis_date_organic_mental_disorder_chronic, o.obs_group_id as obs_group_id_mental_chronic
@@ -1995,12 +2280,12 @@ where		o.concept = 'Diagnosis date'  and e.encounter_type in ('MENTAL_HEALTH_INI
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2014,15 +2299,52 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>Import diagnosis_date_schizoaffective_disorder</name>
+    <name>Import diagnosis_date_puerperal_mental_disorder</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as diagnosis_date_puerperal_mental_disorder, o.obs_group_id as obs_group_id_puerperal
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Diagnosis date'  and e.encounter_type in ('MENTAL_HEALTH_INITIAL')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>4032</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import diagnosis_date_schizoaffective_disorder</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as diagnosis_date_schizoaffective_disorder, 
@@ -2033,12 +2355,12 @@ where		o.concept = 'Diagnosis date'  and e.encounter_type in ('MENTAL_HEALTH_INI
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2052,15 +2374,52 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>Import diagnosis_drug_use_mental_disorder</name>
+    <name>Import diagnosis_dissociative_mood_disorder</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as diagnosis_dissociative_mood_disorder, o.obs_group_id as obs_group_id_dissociative
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Chronic care diagnosis' and o.value_coded = 'Dissociative Conversion Disorder' and e.encounter_type in ('MENTAL_HEALTH_INITIAL')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>3504</xloc>
+      <yloc>896</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import diagnosis_drug_use_mental_disorder</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as diagnosis_drug_use_mental_disorder, o.obs_group_id as obs_group_id_drug_disorder
@@ -2070,12 +2429,12 @@ where		o.concept = 'Chronic care diagnosis' AND o.value_coded = 'Drug-induced me
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2089,15 +2448,52 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>Import diagnosis_mood_affective_disorder_depression</name>
+    <name>Import diagnosis_hyperkinetic_disorder</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as diagnosis_hyperkinetic_disorder, o.obs_group_id as obs_group_id_hyperkinetic
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Chronic care diagnosis' and o.value_coded = 'Hyperkinetic Conductal Disorder (ADHD)' and e.encounter_type in ('MENTAL_HEALTH_INITIAL')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>4048</xloc>
+      <yloc>752</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import diagnosis_mood_affective_disorder_depression</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as diagnosis_mood_affective_disorder_depression, 
@@ -2108,12 +2504,12 @@ where		o.concept = 'Chronic care diagnosis' AND o.value_coded = 'Depression'  an
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2129,13 +2525,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import diagnosis_mood_affective_disorder_manic</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as diagnosis_mood_affective_disorder_manic, 
@@ -2146,12 +2542,12 @@ where		o.concept = 'Chronic care diagnosis' AND o.value_coded = 'Bipolar Affecti
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2168,13 +2564,13 @@ order by 	patient_id, visit_date, location</sql>
     <name>Import diagnosis_organic_mental_disorder_acute
 </name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as diagnosis_organic_mental_disorder_acute, o.obs_group_id as obs_group_id_mental_acute
@@ -2184,12 +2580,12 @@ where		o.concept = 'Chronic care diagnosis' AND o.value_coded = 'Organic mental 
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2205,13 +2601,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import diagnosis_organic_mental_disorder_chronic</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as diagnosis_organic_mental_disorder_chronic, o.obs_group_id as obs_group_id_mental_chronic
@@ -2221,12 +2617,12 @@ where		o.concept = 'Chronic care diagnosis' AND o.value_coded = 'Organic mental 
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2240,15 +2636,52 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>Import diagnosis_schizoaffective_disorder</name>
+    <name>Import diagnosis_puerperal_mental_disorder</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as diagnosis_puerperal_mental_disorder, o.obs_group_id as obs_group_id_puerperal
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Chronic care diagnosis' and o.value_coded = 'Puerperal Mental Disorder' and e.encounter_type in ('MENTAL_HEALTH_INITIAL')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>4048</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import diagnosis_schizoaffective_disorder</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as diagnosis_schizoaffective_disorder, 
@@ -2259,12 +2692,12 @@ where		o.concept = 'Chronic care diagnosis' AND o.value_coded = 'Schizoaffective
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2278,15 +2711,52 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>Import disorganised_or_disruptive_behaviour</name>
+    <name>Import diagnosis_stress_reactive_adjustment_disorder</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as diagnosis_stress_reactive_adjustment_disorder, o.obs_group_id as obs_group_id_stress_reactive
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Chronic care diagnosis' and o.value_coded = 'Stress Reaction Adjustment Disorder' and e.encounter_type in ('MENTAL_HEALTH_INITIAL')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>3488</xloc>
+      <yloc>560</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import disorganised_or_disruptive_behaviour</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as disorganised_or_disruptive_behaviour, o.obs_group_id as obs_group_id_disruptive_behavior
@@ -2296,12 +2766,12 @@ where		o.concept = 'Mental health chief complaint' AND o.value_coded = 'Disrupti
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2317,13 +2787,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import disorganised_speech</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as disorganised_speech, o.obs_group_id as obs_group_id_abnormal_speech
@@ -2333,12 +2803,12 @@ where		o.concept = 'Mental health chief complaint' AND o.value_coded = 'Abnormal
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2354,13 +2824,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import epilepsy_family_history</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as epilepsy_family_history
@@ -2370,12 +2840,12 @@ where		o.concept = 'Family history of epilepsy' and e.encounter_type in ('MENTAL
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2391,13 +2861,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import hallucinations_date</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as hallucinations_date, o.obs_group_id as obs_group_id_hallucinations
@@ -2407,12 +2877,12 @@ where		o.concept = 'Diagnosis date'   and e.encounter_type in ('MENTAL_HEALTH_IN
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2428,13 +2898,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import marijuana_date_last_used</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as marijuana_date_last_used, o.obs_group_id as obs_group_id_marijuana_exposure
@@ -2445,12 +2915,12 @@ where		og.concept = 'Marijuana use construct' and o.concept = 'Date of exposure'
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2466,13 +2936,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import marijuana_exposure</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as marijuana_exposure, o.obs_group_id as obs_group_id_marijuana_exposure
@@ -2483,12 +2953,12 @@ where		og.concept = 'Marijuana use construct' and o.concept = "History of exposu
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2504,13 +2974,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import marijuana_years_exposed</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as marijuana_years_exposed, o.obs_group_id as obs_group_id_marijuana_exposure
@@ -2521,12 +2991,12 @@ where		og.concept = 'Marijuana use construct' and o.concept = 'Duration in years
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2542,13 +3012,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import mental_family_history</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as mental_family_history
@@ -2558,12 +3028,12 @@ where		o.concept = 'Family history of mental illness'  and e.encounter_type in (
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2579,13 +3049,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import other_complaints</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as other_complaints, o.obs_group_id as obs_group_id_other_complaints
@@ -2595,12 +3065,12 @@ where		o.concept = 'Mental health chief complaint' AND o.value_coded = 'Other no
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2616,13 +3086,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import other_complaints_date</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as other_complaints_date, o.obs_group_id as obs_group_id_other_complaints
@@ -2632,12 +3102,12 @@ where		o.concept = 'Diagnosis date'   and e.encounter_type in ('MENTAL_HEALTH_IN
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2653,13 +3123,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import other_drugs_date_last_used</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as other_drugs_date_last_used, o.obs_group_id as obs_group_id_drugs_exposure
@@ -2670,12 +3140,12 @@ where		og.concept = 'Drug use construct' and o.concept = 'Date of exposure' and 
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2691,13 +3161,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import other_drugs_exposure</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as other_drugs_exposure, o.obs_group_id as obs_group_id_drugs_exposure
@@ -2708,12 +3178,12 @@ where		og.concept = 'Drug use construct' and o.concept = "History of exposure"  
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2729,13 +3199,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import other_drugs_years_exposed</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as other_drugs_years_exposed, o.obs_group_id as obs_group_id_drugs_exposure
@@ -2746,12 +3216,12 @@ where		og.concept = 'Drug use construct' and o.concept = 'Duration in years'  an
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2767,13 +3237,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import traditional_med_date_last_used</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as traditional_med_date_last_used, o.obs_group_id as obs_group_id_trad_med_exposure
@@ -2784,12 +3254,12 @@ where		og.concept = 'Traditional medicine use construct' and	o.concept = 'Date o
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2805,13 +3275,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import traditional_med_exposure</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as traditional_med_exposure, o.obs_group_id as obs_group_id_trad_med_exposure
@@ -2822,12 +3292,12 @@ where		og.concept = 'Traditional medicine use construct' and o.concept = "Histor
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2843,13 +3313,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Import traditional_med_years_exposed</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as traditional_med_years_exposed, o.obs_group_id as obs_group_id_trad_med_exposure
@@ -2860,12 +3330,12 @@ where		og.concept = 'Traditional medicine use construct' and o.concept = 'Durati
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -2881,16 +3351,16 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>Write Mental Health Initial Table</name>
     <type>TableOutput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <schema />
+    <schema/>
     <table>mw_mental_health_initial</table>
     <commit>1000</commit>
     <truncate>N</truncate>
@@ -2898,14 +3368,14 @@ order by 	patient_id, visit_date, location</sql>
     <use_batch>Y</use_batch>
     <specify_fields>Y</specify_fields>
     <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field />
+    <partitioning_field/>
     <partitioning_daily>N</partitioning_daily>
     <partitioning_monthly>Y</partitioning_monthly>
     <tablename_in_field>N</tablename_in_field>
-    <tablename_field />
+    <tablename_field/>
     <tablename_in_table>Y</tablename_in_table>
     <return_keys>N</return_keys>
-    <return_field />
+    <return_field/>
     <fields>
       <field>
         <column_name>patient_id</column_name>
@@ -3151,9 +3621,49 @@ order by 	patient_id, visit_date, location</sql>
         <column_name>behavior_problems_family_history</column_name>
         <stream_name>behavior_problems_family_history</stream_name>
       </field>
+      <field>
+        <column_name>diagnosis_bipolar_mood_disorder</column_name>
+        <stream_name>diagnosis_bipolar_mood_disorder</stream_name>
+      </field>
+      <field>
+        <column_name>diagnosis_date_bipolar_mood_disorder</column_name>
+        <stream_name>diagnosis_date_bipolar_mood_disorder</stream_name>
+      </field>
+      <field>
+        <column_name>diagnosis_stress_reactive_adjustment_disorder</column_name>
+        <stream_name>diagnosis_stress_reactive_adjustment_disorder</stream_name>
+      </field>
+      <field>
+        <column_name>diagnosis_date_stress_reactive_adjustment_disorder</column_name>
+        <stream_name>diagnosis_date_stress_reactive_adjustment_disorder</stream_name>
+      </field>
+      <field>
+        <column_name>diagnosis_dissociative_mood_disorder</column_name>
+        <stream_name>diagnosis_dissociative_mood_disorder</stream_name>
+      </field>
+      <field>
+        <column_name>diagnosis_date_dissociative_mood_disorder</column_name>
+        <stream_name>diagnosis_date_dissociative_mood_disorder</stream_name>
+      </field>
+      <field>
+        <column_name>diagnosis_hyperkinetic_disorder</column_name>
+        <stream_name>diagnosis_hyperkinetic_disorder</stream_name>
+      </field>
+      <field>
+        <column_name>diagnosis_date_hyperkinetic_disorder</column_name>
+        <stream_name>diagnosis_date_hyperkinetic_disorder</stream_name>
+      </field>
+      <field>
+        <column_name>diagnosis_puerperal_mental_disorder</column_name>
+        <stream_name>diagnosis_puerperal_mental_disorder</stream_name>
+      </field>
+      <field>
+        <column_name>diagnosis_date_puerperal_mental_disorder</column_name>
+        <stream_name>diagnosis_date_puerperal_mental_disorder</stream_name>
+      </field>
     </fields>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -3161,21 +3671,21 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3944</xloc>
-      <yloc>378</yloc>
+      <xloc>4544</xloc>
+      <yloc>80</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>alcohol_date_last_used Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>alcohol_years_exposed Merge</step1>
@@ -3192,8 +3702,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>location</key>
       <key>obs_group_id_alcohol_exposure</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -3209,13 +3719,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>alcohol_exposure Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>other_complaints_date Merge</step1>
@@ -3230,8 +3740,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -3247,13 +3757,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>alcohol_years_exposed Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>alcohol_exposure Merge</step1>
@@ -3270,8 +3780,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>location</key>
       <key>obs_group_id_alcohol_exposure</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -3287,13 +3797,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>art_start_date Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>hiv_test_date Merge</step1>
@@ -3308,8 +3818,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -3325,13 +3835,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>behavior_problems_family_history Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>mental_history_family_history Merge</step1>
@@ -3346,8 +3856,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -3355,21 +3865,21 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3936</xloc>
-      <yloc>112</yloc>
+      <xloc>3536</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>delusions Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>hallucinations_date Merge</step1>
@@ -3384,8 +3894,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -3401,13 +3911,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>delusions_date Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>delusions Merge</step1>
@@ -3424,8 +3934,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>location</key>
       <key>obs_group_id_delusions</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -3441,13 +3951,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>depressive_symptoms Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>disorganised_speech_date Merge</step1>
@@ -3462,8 +3972,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -3479,13 +3989,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>depressive_symptoms_date Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>depressive_symptoms Merge</step1>
@@ -3502,8 +4012,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>location</key>
       <key>obs_group_id_depressive_disorder</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -3517,15 +4027,53 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>diagnosis_Schizophrenia Merge</name>
+    <name>diadnosis_bipolar_mood_disorder Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>behavior_problems_family_history Merge</step1>
+    <step2>Import diagnosis_bipolar_mood_disorder</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>3808</xloc>
+      <yloc>32</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>diagnosis_Schizophrenia Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Import Encounters</step1>
@@ -3540,8 +4088,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -3557,13 +4105,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>diagnosis_acute_and_transient_psychotic Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Diagnosis_date_mood_affective_disorder Merge</step1>
@@ -3578,8 +4126,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -3595,13 +4143,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>diagnosis_alcohol_use_mental_disorder Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>diagnosis_date_drug_use_mental_disorder Merge</step1>
@@ -3616,8 +4164,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -3633,13 +4181,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>diagnosis_anxiety_disorder Merge </name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1> diagnosis_date_schizoaffective_disorder Merge </step1>
@@ -3654,8 +4202,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -3671,13 +4219,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>diagnosis_date_acute_and_transient_psychotic Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>diagnosis_acute_and_transient_psychotic Merge</step1>
@@ -3694,8 +4242,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>location</key>
       <key>obs_group_id_acute</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -3711,13 +4259,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>diagnosis_date_alcohol_use_mental_disorder Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>diagnosis_alcohol_use_mental_disorder Merge</step1>
@@ -3734,8 +4282,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>location</key>
       <key>obs_group_id_alcohol_disorder</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -3751,13 +4299,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>diagnosis_date_anxiety_disorder Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>diagnosis_anxiety_disorder Merge </step1>
@@ -3774,8 +4322,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>location</key>
       <key>obs_group_id_anxiety</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -3789,15 +4337,95 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>diagnosis_date_drug_use_mental_disorder Merge</name>
+    <name>diagnosis_date_bipolar_mood_disorder Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>diadnosis_bipolar_mood_disorder Merge</step1>
+    <step2>Import diagnosis_date_bipolar_mood_disorder</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>obs_group_id_bipolar</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>obs_group_id_bipolar</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>3808</xloc>
+      <yloc>400</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>diagnosis_date_dissociative_mood_disorder Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>diagnosis_dissociative_mood_disorder Merge</step1>
+    <step2>Import diagnosis_date_dissociative_mood_disorder</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>obs_group_id_dissociative</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>obs_group_id_dissociative</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>4288</xloc>
+      <yloc>1072</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>diagnosis_date_drug_use_mental_disorder Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>diagnosis_drug_use_mental_disorder Merge</step1>
@@ -3814,8 +4442,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>location</key>
       <key>obs_group_id_drug_disorder</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -3829,15 +4457,55 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>diagnosis_date_mood affective_disorder_manic Merge</name>
+    <name>diagnosis_date_hyperkinetic_disorder</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>diagnosis_hyperkinetic_disorder Merge</step1>
+    <step2>Import diagnosis_date_hyperkinetic_disorder</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>obs_group_id_hyperkinetic</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>obs_group_id_hyperkinetic</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>4288</xloc>
+      <yloc>512</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>diagnosis_date_mood affective_disorder_manic Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>diagnosis_mood_affective_disorder_manic Merge</step1>
@@ -3854,8 +4522,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>location</key>
       <key>obs_group_id_manic</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -3871,13 +4539,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>diagnosis_date_organic_mental_disorder_acute Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>diagnosis_organic_mental_disorder_acute Merge</step1>
@@ -3894,8 +4562,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>location</key>
       <key>obs_group_id_mental_acute</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -3911,13 +4579,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>diagnosis_date_organic_mental_disorder_chronic Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>diagnosis_organic_mental_disorder_chronic Merge</step1>
@@ -3934,8 +4602,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>location</key>
       <key>obs_group_id_mental_chronic</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -3951,13 +4619,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>diagnosis_date_other_1 Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>diagnosis_other_1 Merge</step1>
@@ -3974,8 +4642,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>location</key>
       <key>obs_group_id_diagnosis_other_1</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -3991,13 +4659,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>diagnosis_date_other_2 Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>diagnosis_other_2 Merge</step1>
@@ -4014,8 +4682,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>location</key>
       <key>obs_group_id_diagnosis_other_2</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -4029,15 +4697,133 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>diagnosis_drug_use_mental_disorder Merge</name>
+    <name>diagnosis_date_puerperal_mental_disorder</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>diagnosis_puerperal_mental_disorder Merge</step1>
+    <step2>Import diagnosis_date_puerperal_mental_disorder</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>obs_group_id_puerperal</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>obs_group_id_puerperal</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>4288</xloc>
+      <yloc>32</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>diagnosis_date_stress_reative_adjustment_disorder Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>diagnosis_stress_reactive_adjustment_disorder Merge</step1>
+    <step2>Import diagnosis__date_stress_reactive_adjustment_disorder</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>obs_group_id_stress_reactive</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>obs_group_id_stress_reactive</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>3808</xloc>
+      <yloc>816</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>diagnosis_dissociative_mood_disorder Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>diagnosis_date_stress_reative_adjustment_disorder Merge</step1>
+    <step2>Import diagnosis_dissociative_mood_disorder</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>3808</xloc>
+      <yloc>1056</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>diagnosis_drug_use_mental_disorder Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>diagnosis_date_organic_mental_disorder_chronic Merge</step1>
@@ -4052,8 +4838,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -4067,15 +4853,53 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>diagnosis_mood_affective_disorder_depression Merge</name>
+    <name>diagnosis_hyperkinetic_disorder Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>diagnosis_date_dissociative_mood_disorder Merge</step1>
+    <step2>Import diagnosis_hyperkinetic_disorder</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>4288</xloc>
+      <yloc>816</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>diagnosis_mood_affective_disorder_depression Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>diagnosis_date_mood affective_disorder_manic Merge</step1>
@@ -4090,8 +4914,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -4107,13 +4931,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>diagnosis_mood_affective_disorder_manic Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1> diagnosis_date_Schizophrenia Merge</step1>
@@ -4128,8 +4952,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -4145,13 +4969,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>diagnosis_organic_mental_disorder_acute Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>diagnosis_date_anxiety_disorder Merge</step1>
@@ -4167,8 +4991,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -4184,13 +5008,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>diagnosis_organic_mental_disorder_chronic Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>diagnosis_date_organic_mental_disorder_acute Merge</step1>
@@ -4205,8 +5029,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -4222,13 +5046,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>diagnosis_other_1 Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>diagnosis_date_alcohol_use_mental_disorder Merge</step1>
@@ -4243,8 +5067,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -4260,13 +5084,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>diagnosis_other_2 Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>diagnosis_date_other_1 Merge</step1>
@@ -4281,8 +5105,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -4298,13 +5122,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>diagnosis_other_3 Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>diagnosis_date_other_2 Merge</step1>
@@ -4319,8 +5143,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -4334,15 +5158,91 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>disorganised_or_disruptive_behaviour Merge</name>
+    <name>diagnosis_puerperal_mental_disorder Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>diagnosis_date_hyperkinetic_disorder</step1>
+    <step2>Import diagnosis_puerperal_mental_disorder</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>4288</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>diagnosis_stress_reactive_adjustment_disorder Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>diagnosis_date_bipolar_mood_disorder Merge</step1>
+    <step2>Import diagnosis_stress_reactive_adjustment_disorder</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>3808</xloc>
+      <yloc>608</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>disorganised_or_disruptive_behaviour Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>delusions_date Merge</step1>
@@ -4357,8 +5257,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -4374,13 +5274,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>disorganised_speech Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1> disorganised_or_disruptive_behaviour_date Merge</step1>
@@ -4395,8 +5295,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -4412,13 +5312,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>disorganised_speech_date Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>disorganised_speech Merge</step1>
@@ -4435,8 +5335,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>location</key>
       <key>obs_group_id_abnormal_speech</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -4452,13 +5352,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>epilepsy_family_history Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>traditional_med_date_last_used Merge</step1>
@@ -4473,8 +5373,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -4482,21 +5382,21 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3440</xloc>
-      <yloc>192</yloc>
+      <xloc>3248</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>hallucinations Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>tb_year Merge</step1>
@@ -4511,8 +5411,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -4528,13 +5428,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>hallucinations_date Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>hallucinations Merge</step1>
@@ -4551,8 +5451,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>location</key>
       <key>obs_group_id_hallucinations</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -4568,13 +5468,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>hiv_status Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>import diagnosis_date_other_3 Merge</step1>
@@ -4589,8 +5489,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -4606,13 +5506,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>hiv_test_date Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>hiv_status Merge</step1>
@@ -4627,8 +5527,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -4644,13 +5544,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import  diagnosis_other_3</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as diagnosis_other_3, o.obs_group_id as obs_group_id_diagnosis_other_3
@@ -4660,12 +5560,12 @@ where		o.concept = 'Chronic care diagnosis'   and e.encounter_type in ('MENTAL_H
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -4681,13 +5581,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import art_start_date</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as art_start_date
@@ -4697,12 +5597,12 @@ where		o.concept = 'Date antiretrovirals started'  and e.encounter_type in ('MEN
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -4718,13 +5618,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import delusions</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as delusions, o.obs_group_id as obs_group_id_delusions
@@ -4734,12 +5634,12 @@ where		o.concept = 'Mental health chief complaint' AND o.value_coded = 'Delusion
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -4755,13 +5655,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import diagnosis_alcohol_use_mental_disorder</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as diagnosis_alcohol_use_mental_disorder, 
@@ -4772,12 +5672,12 @@ where		o.concept = 'Chronic care diagnosis' AND o.value_coded = 'Alcohol-induced
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -4793,13 +5693,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import diagnosis_date_alcohol_use_mental_disorder</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as diagnosis_date_alcohol_use_mental_disorder, o.obs_group_id as obs_group_id_alcohol_disorder
@@ -4809,12 +5709,12 @@ where		o.concept = 'Diagnosis date'   and e.encounter_type in ('MENTAL_HEALTH_IN
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -4830,13 +5730,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import diagnosis_date_other_1</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as diagnosis_date_other_1, o.obs_group_id as obs_group_id_diagnosis_other_1
@@ -4846,12 +5746,12 @@ where		o.concept = 'Diagnosis date'  and e.encounter_type in ('MENTAL_HEALTH_INI
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -4867,13 +5767,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import diagnosis_date_other_2</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as diagnosis_date_other_2, o.obs_group_id as obs_group_id_diagnosis_other_2
@@ -4883,12 +5783,12 @@ where		o.concept = 'Diagnosis date'  and e.encounter_type in ('MENTAL_HEALTH_INI
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -4904,13 +5804,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import diagnosis_date_other_3</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as diagnosis_date_other_3, o.obs_group_id as obs_group_id_diagnosis_other_3
@@ -4920,12 +5820,12 @@ where		o.concept = 'Diagnosis date'  and e.encounter_type in ('MENTAL_HEALTH_INI
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -4941,13 +5841,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import diagnosis_date_other_3 Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>diagnosis_other_3 Merge</step1>
@@ -4964,8 +5864,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>location</key>
       <key>obs_group_id_diagnosis_other_3</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -4981,13 +5881,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import diagnosis_other_1</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_text as diagnosis_other_1, o.obs_group_id as obs_group_id_diagnosis_other_1
@@ -4997,12 +5897,12 @@ where		o.concept = 'Other non-coded (text)'   and e.encounter_type in ('MENTAL_H
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -5018,13 +5918,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import diagnosis_other_2</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_text as diagnosis_other_2, o.obs_group_id as obs_group_id_diagnosis_other_2
@@ -5034,12 +5934,12 @@ where		o.concept = 'Other non-coded (text)'  and e.encounter_type in ('MENTAL_HE
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -5055,13 +5955,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import disorganised_or_disruptive_behaviour_date</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as disorganised_or_disruptive_behaviour_date, o.obs_group_id as obs_group_id_disruptive_behavior
@@ -5071,12 +5971,12 @@ where		o.concept = 'Diagnosis date'  and e.encounter_type in ('MENTAL_HEALTH_INI
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -5092,13 +5992,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import disorganised_speech_date</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as disorganised_speech_date, o.obs_group_id as obs_group_id_abnormal_speech
@@ -5108,12 +6008,12 @@ where		o.concept = 'Diagnosis date'  and e.encounter_type in ('MENTAL_HEALTH_INI
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -5129,13 +6029,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import hallucinations</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as hallucinations, o.obs_group_id as obs_group_id_hallucinations
@@ -5145,12 +6045,12 @@ where		o.concept = 'Mental health chief complaint' AND o.value_coded = 'Hallucin
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -5166,13 +6066,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import hiv_status</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as hiv_status
@@ -5182,12 +6082,12 @@ where		o.concept = 'HIV status'  and e.encounter_type in ('MENTAL_HEALTH_INITIAL
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -5203,13 +6103,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import hiv_test_date</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as hiv_test_date
@@ -5219,12 +6119,12 @@ where		o.concept = 'HIV test date'  and e.encounter_type in ('MENTAL_HEALTH_INIT
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -5240,13 +6140,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import tb_status</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as tb_status
@@ -5256,12 +6156,12 @@ where		o.concept = 'TB status'  and e.encounter_type in ('MENTAL_HEALTH_INITIAL'
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -5277,13 +6177,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import tb_year</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as tb_year
@@ -5293,12 +6193,12 @@ where		o.concept = 'Year of Tuberculosis diagnosis'  and e.encounter_type in ('M
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -5314,13 +6214,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>marijuana_date_last_used Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>marijuana_years_exposed Merge</step1>
@@ -5337,8 +6237,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>location</key>
       <key>obs_group_id_marijuana_exposure</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -5354,13 +6254,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>marijuana_exposure Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>alcohol_date_last_used Merge</step1>
@@ -5375,8 +6275,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -5392,13 +6292,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>marijuana_years_exposed Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>marijuana_exposure Merge</step1>
@@ -5415,8 +6315,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>location</key>
       <key>obs_group_id_marijuana_exposure</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -5432,13 +6332,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>mental_history_family_history Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>epilepsy_family_history Merge</step1>
@@ -5453,8 +6353,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -5462,21 +6362,21 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3440</xloc>
-      <yloc>64</yloc>
+      <xloc>3248</xloc>
+      <yloc>32</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>other_complaints Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>depressive_symptoms_date Merge</step1>
@@ -5491,8 +6391,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -5508,13 +6408,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>other_complaints_date Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>other_complaints Merge</step1>
@@ -5531,8 +6431,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>location</key>
       <key>obs_group_id_other_complaints</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -5548,13 +6448,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>other_drugs_date_last_used Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>other_drugs_years_exposed Merge</step1>
@@ -5571,8 +6471,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>location</key>
       <key>obs_group_id_drugs_exposure</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -5580,21 +6480,21 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3528</xloc>
-      <yloc>1160</yloc>
+      <xloc>3248</xloc>
+      <yloc>1200</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>other_drugs_exposure Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>marijuana_date_last_used Merge</step1>
@@ -5609,8 +6509,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -5618,7 +6518,7 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3600</xloc>
+      <xloc>3248</xloc>
       <yloc>1760</yloc>
       <draw>Y</draw>
     </GUI>
@@ -5626,13 +6526,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>other_drugs_years_exposed Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>other_drugs_exposure Merge</step1>
@@ -5649,8 +6549,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>location</key>
       <key>obs_group_id_drugs_exposure</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -5658,21 +6558,21 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3572</xloc>
-      <yloc>1500</yloc>
+      <xloc>3248</xloc>
+      <yloc>1504</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>tb_status Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>art_start_date Merge</step1>
@@ -5687,8 +6587,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -5704,13 +6604,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>tb_year Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>tb_status Merge</step1>
@@ -5725,8 +6625,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -5742,13 +6642,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>traditional_med_date_last_used Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>traditional_med_years_exposed Merge</step1>
@@ -5765,8 +6665,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>location</key>
       <key>obs_group_id_trad_med_exposure</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -5774,21 +6674,21 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3476</xloc>
-      <yloc>348</yloc>
+      <xloc>3248</xloc>
+      <yloc>336</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>traditional_med_exposure Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>other_drugs_date_last_used Merge</step1>
@@ -5803,8 +6703,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -5812,21 +6712,21 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3520</xloc>
-      <yloc>880</yloc>
+      <xloc>3248</xloc>
+      <yloc>976</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
     <name>traditional_med_years_exposed Merge</name>
     <type>MergeJoin</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>traditional_med_exposure Merge</step1>
@@ -5843,8 +6743,8 @@ order by 	patient_id, visit_date, location</sql>
       <key>location</key>
       <key>obs_group_id_trad_med_exposure</key>
     </keys_2>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -5852,8 +6752,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>3504</xloc>
-      <yloc>608</yloc>
+      <xloc>3248</xloc>
+      <yloc>624</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5862,5 +6762,5 @@ order by 	patient_id, visit_date, location</sql>
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>
   <slave_transformation>N</slave_transformation>
-  <attributes />
+  <attributes/>
 </transformation>
