@@ -10,6 +10,7 @@ CREATE PROCEDURE create_rpt_active_ncd(IN _endDate DATE, IN _location VARCHAR(25
     patient_id        INT NOT NULL,
     ncd_number        VARCHAR(50),
     last_visit_date   DATE,
+    last_visit_type VARCHAR(255),
     last_visit_days   INT,
     last_appt_date    DATE,
     days_late_appt    INT,
@@ -34,7 +35,7 @@ CREATE PROCEDURE create_rpt_active_ncd(IN _endDate DATE, IN _location VARCHAR(25
 
   UPDATE      rpt_active_ncd t
   INNER JOIN  mw_ncd_visits v ON t.patient_id = v.patient_id and t.last_visit_date = v.visit_date
-  SET         t.last_appt_date = v.next_appointment_date;
+  SET         t.last_appt_date = v.next_appointment_date,t.last_visit_type=v.visit_types;
 
   UPDATE      rpt_active_ncd
   SET         days_late_appt = datediff(_endDate, last_appt_date)
