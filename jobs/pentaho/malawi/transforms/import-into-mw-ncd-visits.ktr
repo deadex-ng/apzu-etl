@@ -7,7 +7,7 @@
     <trans_version/>
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
-    <directory>&#x2f;</directory>
+    <directory>/</directory>
     <parameters>
     </parameters>
     <log>
@@ -428,19 +428,47 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2016&#x2f;10&#x2f;18 17&#x3a;16&#x3a;32.611</created_date>
+    <created_date>2016/10/18 17:16:32.611</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2016&#x2f;10&#x2f;18 17&#x3a;16&#x3a;32.611</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
+    <modified_date>2016/10/18 17:16:32.611</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
     <notepad>
-      <note>mw_ncd_visits &#x28;&#xa;  ncd_visit_id           INT NOT NULL AUTO_INCREMENT PRIMARY KEY,&#xa;  patient_id             INT NOT NULL,&#xa;  visit_date             DATE,&#xa;  location               VARCHAR&#x28;255&#x29;,&#xa;  visit_types            VARCHAR&#x28;255&#x29;,&#xa;  cc_initial             BOOLEAN,&#xa;  cc_followup            BOOLEAN,&#xa;  diabetes_htn_initial   BOOLEAN,&#xa;  diabetes_htn_followup  BOOLEAN,&#xa;  asthma_initial         BOOLEAN,&#xa;  asthma_followup        BOOLEAN,&#xa;  epilepsy_initial       BOOLEAN,&#xa;  epilepsy_followup      BOOLEAN,&#xa;  mental_health_initial  BOOLEAN,&#xa;  mental_health_followup BOOLEAN,&#xa;  next_appointment_date  DATE,&#xa;  systolic_bp            DOUBLE,&#xa;  diastolic_bp           DOUBLE,&#xa;  on_insulin             BOOLEAN,&#xa;  asthma_classification  VARCHAR&#x28;100&#x29;,&#xa;  num_seizures           DOUBLE&#xa;&#x29;</note>
+      <note>mw_ncd_visits (
+  ncd_visit_id           INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  patient_id             INT NOT NULL,
+  visit_date             DATE,
+  location               VARCHAR(255),
+  visit_types            VARCHAR(255),
+  cc_initial             BOOLEAN,
+  cc_followup            BOOLEAN,
+  diabetes_htn_initial   BOOLEAN,
+  diabetes_htn_followup  BOOLEAN,
+  asthma_initial         BOOLEAN,
+  asthma_followup        BOOLEAN,
+  epilepsy_initial       BOOLEAN,
+  epilepsy_followup      BOOLEAN,
+  mental_health_initial  BOOLEAN,
+  mental_health_followup BOOLEAN,
+  ckd_initial			     BOOLEAN,
+  ckd_followup			     BOOLEAN,
+  chf_initial			     BOOLEAN,
+  chf_followup			     BOOLEAN,
+  ncd_other_initial                 BOOLEAN,
+  ncd_other_followup                BOOLEAN,
+  next_appointment_date  DATE,
+  systolic_bp            DOUBLE,
+  diastolic_bp           DOUBLE,
+  on_insulin             BOOLEAN,
+  asthma_classification  VARCHAR(100),
+  num_seizures           DOUBLE
+)</note>
       <xloc>976</xloc>
       <yloc>80</yloc>
-      <width>459</width>
-      <heigth>401</heigth>
+      <width>452</width>
+      <heigth>503</heigth>
       <fontname>Ubuntu</fontname>
       <fontsize>11</fontsize>
       <fontbold>N</fontbold>
@@ -470,22 +498,70 @@
     <data_tablespace/>
     <index_tablespace/>
     <attributes>
-      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.rewriteBatchedStatements</code><attribute>true</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.tcpKeepAlive</code><attribute>true</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCompression</code><attribute>true</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
-      <attribute><code>EXTRA_OPTION_MYSQL.userServerPrepStmts</code><attribute>false</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
-      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>${warehouse.db.port}</attribute></attribute>
-      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>Y</attribute></attribute>
-      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
-      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
-      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.defaultFetchSize</code>
+        <attribute>500</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.rewriteBatchedStatements</code>
+        <attribute>true</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.tcpKeepAlive</code>
+        <attribute>true</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.useCompression</code>
+        <attribute>true</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.useCursorFetch</code>
+        <attribute>true</attribute>
+      </attribute>
+      <attribute>
+        <code>EXTRA_OPTION_MYSQL.userServerPrepStmts</code>
+        <attribute>false</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>FORCE_IDENTIFIERS_TO_UPPERCASE</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>IS_CLUSTERED</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>PORT_NUMBER</code>
+        <attribute>${warehouse.db.port}</attribute>
+      </attribute>
+      <attribute>
+        <code>PRESERVE_RESERVED_WORD_CASE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>QUOTE_ALL_FIELDS</code>
+        <attribute>N</attribute>
+      </attribute>
+      <attribute>
+        <code>STREAM_RESULTS</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_BOOLEAN_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>SUPPORTS_TIMESTAMP_DATA_TYPE</code>
+        <attribute>Y</attribute>
+      </attribute>
+      <attribute>
+        <code>USE_POOLING</code>
+        <attribute>N</attribute>
+      </attribute>
     </attributes>
   </connection>
   <order>
@@ -731,9 +807,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<join_type>LEFT OUTER</join_type>
-<step1>Check Encounter Types</step1>
-<step2>Import Appointment Date</step2>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Check Encounter Types</step1>
+    <step2>Import Appointment Date</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -744,6 +820,7 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -756,8 +833,7 @@
       <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Asthma Severity Merge</name>
     <type>MergeJoin</type>
@@ -769,9 +845,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<join_type>LEFT OUTER</join_type>
-<step1>Insulin Merge</step1>
-<step2>Import Asthma Severity</step2>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Insulin Merge</step1>
+    <step2>Import Asthma Severity</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -782,6 +858,7 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -794,8 +871,7 @@
       <yloc>1808</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Cardiovascular Risk Merge</name>
     <type>MergeJoin</type>
@@ -807,9 +883,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<join_type>LEFT OUTER</join_type>
-<step1>Visual Acuity Merge</step1>
-<step2>Import Cardiovascular Risk</step2>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Visual Acuity Merge</step1>
+    <step2>Import Cardiovascular Risk</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -820,6 +896,7 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -832,8 +909,7 @@
       <yloc>1088</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Check Encounter Types</name>
     <type>ScriptValueMod</type>
@@ -847,70 +923,241 @@
     </partitioning>
     <compatible>N</compatible>
     <optimizationLevel>9</optimizationLevel>
-    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+    <jsScripts>
+      <jsScript>
+        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>var cc_initial &#x3d; visit_types.indexOf&#x28;&#x27;CHRONIC_CARE_INITIAL&#x27;&#x29; &#x21;&#x3d; -1&#x3b;&#xa;var cc_followup &#x3d; visit_types.indexOf&#x28;&#x27;CHRONIC_CARE_FOLLOWUP&#x27;&#x29; &#x21;&#x3d; -1&#x3b;&#xa;var diabetes_htn_initial &#x3d; visit_types.indexOf&#x28;&#x27;DIABETES HYPERTENSION INITIAL VISIT&#x27;&#x29; &#x21;&#x3d; -1&#x3b;&#xa;var diabetes_htn_followup &#x3d; visit_types.indexOf&#x28;&#x27;DIABETES HYPERTENSION FOLLOWUP&#x27;&#x29; &#x21;&#x3d; -1&#x3b;&#xa;var asthma_initial &#x3d; visit_types.indexOf&#x28;&#x27;ASTHMA_INITIAL&#x27;&#x29; &#x21;&#x3d; -1&#x3b;&#xa;var asthma_followup &#x3d; visit_types.indexOf&#x28;&#x27;ASTHMA_FOLLOWUP&#x27;&#x29; &#x21;&#x3d; -1&#x3b;&#xa;var epilepsy_initial &#x3d; visit_types.indexOf&#x28;&#x27;EPILEPSY_INITIAL&#x27;&#x29; &#x21;&#x3d; -1&#x3b;&#xa;var epilepsy_followup &#x3d; visit_types.indexOf&#x28;&#x27;EPILEPSY_FOLLOWUP&#x27;&#x29; &#x21;&#x3d; -1&#x3b;&#xa;var mental_health_initial &#x3d; visit_types.indexOf&#x28;&#x27;MENTAL_HEALTH_INITIAL&#x27;&#x29; &#x21;&#x3d; -1&#x3b;&#xa;var mental_health_followup &#x3d; visit_types.indexOf&#x28;&#x27;MENTAL_HEALTH_FOLLOWUP&#x27;&#x29; &#x21;&#x3d; -1&#x3b;&#xa;</jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>cc_initial</name>
+        <jsScript_script>var cc_initial = visit_types.indexOf('CHRONIC_CARE_INITIAL') != -1;
+var cc_followup = visit_types.indexOf('CHRONIC_CARE_FOLLOWUP') != -1;
+var diabetes_htn_initial = visit_types.indexOf('DIABETES HYPERTENSION INITIAL VISIT') != -1;
+var diabetes_htn_followup = visit_types.indexOf('DIABETES HYPERTENSION FOLLOWUP') != -1;
+var asthma_initial = visit_types.indexOf('ASTHMA_INITIAL') != -1;
+var asthma_followup = visit_types.indexOf('ASTHMA_FOLLOWUP') != -1;
+var epilepsy_initial = visit_types.indexOf('EPILEPSY_INITIAL') != -1;
+var epilepsy_followup = visit_types.indexOf('EPILEPSY_FOLLOWUP') != -1;
+var mental_health_initial = visit_types.indexOf('MENTAL_HEALTH_INITIAL') != -1;
+var mental_health_followup = visit_types.indexOf('MENTAL_HEALTH_FOLLOWUP') != -1;
+var ckd_initial = visit_types.indexOf('CKD_INITIAL') != -1;
+var ckd_followup = visit_types.indexOf('CKD_FOLLOWUP') != -1;
+var chf_initial = visit_types.indexOf('CHF_INITIAL') != -1;
+var chf_followup = visit_types.indexOf('CHF_FOLLOWUP') != -1;
+var ncd_other_initial = visit_types.indexOf('NCD_OTHER_INITIAL') != -1;
+var ncd_other_followup = visit_types.indexOf('NCD_OTHER_FOLLOWUP') != -1;
+</jsScript_script>
+      </jsScript>
+    </jsScripts>
+    <fields>
+      <field>
+        <name>cc_initial</name>
         <rename>cc_initial</rename>
         <type>Boolean</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>cc_followup</name>
+      </field>
+      <field>
+        <name>cc_followup</name>
         <rename>cc_followup</rename>
         <type>Boolean</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>diabetes_htn_initial</name>
+      </field>
+      <field>
+        <name>diabetes_htn_initial</name>
         <rename>diabetes_htn_initial</rename>
         <type>Boolean</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>diabetes_htn_followup</name>
+      </field>
+      <field>
+        <name>diabetes_htn_followup</name>
         <rename>diabetes_htn_followup</rename>
         <type>Boolean</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>asthma_initial</name>
+      </field>
+      <field>
+        <name>asthma_initial</name>
         <rename>asthma_initial</rename>
         <type>Boolean</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>asthma_followup</name>
+      </field>
+      <field>
+        <name>asthma_followup</name>
         <rename>asthma_followup</rename>
         <type>Boolean</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>epilepsy_initial</name>
+      </field>
+      <field>
+        <name>epilepsy_initial</name>
         <rename>epilepsy_initial</rename>
         <type>Boolean</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>epilepsy_followup</name>
+      </field>
+      <field>
+        <name>epilepsy_followup</name>
         <rename>epilepsy_followup</rename>
         <type>Boolean</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>mental_health_initial</name>
+      </field>
+      <field>
+        <name>mental_health_initial</name>
         <rename>mental_health_initial</rename>
         <type>Boolean</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>mental_health_followup</name>
+      </field>
+      <field>
+        <name>mental_health_followup</name>
         <rename>mental_health_followup</rename>
         <type>Boolean</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>    </fields>    <cluster_schema/>
+      </field>
+      <field>
+        <name>cc_initial</name>
+        <rename>cc_initial</rename>
+        <type>Boolean</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>cc_followup</name>
+        <rename>cc_followup</rename>
+        <type>Boolean</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>diabetes_htn_initial</name>
+        <rename>diabetes_htn_initial</rename>
+        <type>Boolean</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>diabetes_htn_followup</name>
+        <rename>diabetes_htn_followup</rename>
+        <type>Boolean</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>asthma_initial</name>
+        <rename>asthma_initial</rename>
+        <type>Boolean</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>asthma_followup</name>
+        <rename>asthma_followup</rename>
+        <type>Boolean</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>epilepsy_initial</name>
+        <rename>epilepsy_initial</rename>
+        <type>Boolean</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>epilepsy_followup</name>
+        <rename>epilepsy_followup</rename>
+        <type>Boolean</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>mental_health_initial</name>
+        <rename>mental_health_initial</rename>
+        <type>Boolean</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>mental_health_followup</name>
+        <rename>mental_health_followup</rename>
+        <type>Boolean</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>ckd_initial</name>
+        <rename>ckd_initial</rename>
+        <type>Boolean</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>ckd_followup</name>
+        <rename>ckd_followup</rename>
+        <type>Boolean</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>chf_initial</name>
+        <rename>chf_initial</rename>
+        <type>Boolean</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>chf_followup</name>
+        <rename>chf_followup</rename>
+        <type>Boolean</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>ncd_other_initial</name>
+        <rename>ncd_other_initial</rename>
+        <type>Boolean</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+      <field>
+        <name>ncd_other_followup</name>
+        <rename>ncd_other_followup</rename>
+        <type>Boolean</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -922,8 +1169,7 @@
       <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Creatinine Merge</name>
     <type>MergeJoin</type>
@@ -935,9 +1181,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<join_type>LEFT OUTER</join_type>
-<step1>Proteinuria Merge</step1>
-<step2>Import Creatinine</step2>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Proteinuria Merge</step1>
+    <step2>Import Creatinine</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -948,6 +1194,7 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -960,8 +1207,7 @@
       <yloc>848</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Diastolic BP Merge</name>
     <type>MergeJoin</type>
@@ -973,9 +1219,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<join_type>LEFT OUTER</join_type>
-<step1>Systolic BP Merge</step1>
-<step2>Import Diastolic BP</step2>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Systolic BP Merge</step1>
+    <step2>Import Diastolic BP</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -986,6 +1232,7 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -998,8 +1245,7 @@
       <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Foot Check</name>
     <type>TableInput</type>
@@ -1012,12 +1258,23 @@
       <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>SELECT e.patient_id, &#xa;e.encounter_date as visit_date,&#xa;e.location,&#xa;CASE WHEN &#x28;neuroPVD &#x2b; deformity &#x2b; footUlcer&#x29; &#x3d; 3 THEN 1 end as foot_exam&#xa;from omrs_encounter e &#xa;LEFT JOIN &#x28;SELECT encounter_id, 1 AS neuroPVD from omrs_obs where concept &#x3d; &#x27;Neuropathy and Peripheral Vascular Disease&#x27;&#x29; neuroPVD ON neuroPVD.encounter_id &#x3d; e.encounter_id&#xa;LEFT JOIN &#x28;SELECT encounter_id, 1 AS deformity from omrs_obs where concept &#x3d; &#x27;Deformity of foot&#x27;&#x29; deformity ON deformity.encounter_id &#x3d; e.encounter_id&#xa;LEFT JOIN &#x28;SELECT encounter_id, 1 AS footUlcer from omrs_obs where concept &#x3d; &#x27;Foot ulcer or infection&#x27;&#x29; footUlcer ON footUlcer.encounter_id &#x3d; e.encounter_id&#xa;WHERE e.encounter_type &#x3d; &#x27;DIABETES HYPERTENSION FOLLOWUP&#x27;&#xa;group by 	e.patient_id, e.encounter_date, e.location&#xa;order by 	patient_id, visit_date, location&#x3b;</sql>
+    <sql>SELECT e.patient_id, 
+e.encounter_date as visit_date,
+e.location,
+CASE WHEN (neuroPVD + deformity + footUlcer) = 3 THEN 1 end as foot_exam
+from omrs_encounter e 
+LEFT JOIN (SELECT encounter_id, 1 AS neuroPVD from omrs_obs where concept = 'Neuropathy and Peripheral Vascular Disease') neuroPVD ON neuroPVD.encounter_id = e.encounter_id
+LEFT JOIN (SELECT encounter_id, 1 AS deformity from omrs_obs where concept = 'Deformity of foot') deformity ON deformity.encounter_id = e.encounter_id
+LEFT JOIN (SELECT encounter_id, 1 AS footUlcer from omrs_obs where concept = 'Foot ulcer or infection') footUlcer ON footUlcer.encounter_id = e.encounter_id
+WHERE e.encounter_type = 'DIABETES HYPERTENSION FOLLOWUP'
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1030,8 +1287,7 @@
       <yloc>608</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Foot Check Merge</name>
     <type>MergeJoin</type>
@@ -1043,9 +1299,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<join_type>LEFT OUTER</join_type>
-<step1>Serum Glucose Merge</step1>
-<step2>Foot Check</step2>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Serum Glucose Merge</step1>
+    <step2>Foot Check</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -1056,6 +1312,7 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1068,8 +1325,7 @@
       <yloc>608</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Fundoscopy Merge</name>
     <type>MergeJoin</type>
@@ -1081,9 +1337,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<join_type>LEFT OUTER</join_type>
-<step1>Stable Merge</step1>
-<step2>Import Fundoscopy</step2>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Stable Merge</step1>
+    <step2>Import Fundoscopy</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -1094,6 +1350,7 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1106,8 +1363,7 @@
       <yloc>1568</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>HIV Test Merge</name>
     <type>MergeJoin</type>
@@ -1119,9 +1375,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<join_type>LEFT OUTER</join_type>
-<step1>Creatinine Merge</step1>
-<step2>Import HIV Test Result</step2>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Creatinine Merge</step1>
+    <step2>Import HIV Test Result</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -1132,6 +1388,7 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1144,8 +1401,7 @@
       <yloc>928</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>HbA1c Merge</name>
     <type>MergeJoin</type>
@@ -1157,9 +1413,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<join_type>LEFT OUTER</join_type>
-<step1>Diastolic BP Merge</step1>
-<step2>Import HbA1c</step2>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Diastolic BP Merge</step1>
+    <step2>Import HbA1c</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -1170,6 +1426,7 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1182,8 +1439,7 @@
       <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Hospitalization Merge</name>
     <type>MergeJoin</type>
@@ -1195,9 +1451,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<join_type>LEFT OUTER</join_type>
-<step1>Cardiovascular Risk Merge</step1>
-<step2>Import Hospitalization</step2>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Cardiovascular Risk Merge</step1>
+    <step2>Import Hospitalization</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -1208,6 +1464,7 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1220,8 +1477,7 @@
       <yloc>1168</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Import Appointment Date</name>
     <type>TableInput</type>
@@ -1234,12 +1490,18 @@
       <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, min&#x28;o.value_date&#x29; as next_appointment_date&#xa;from		omrs_encounter e&#xa;inner join 	omrs_obs o on e.encounter_id &#x3d; o.encounter_id&#xa;where		o.concept &#x3d; &#x27;Appointment date&#x27;&#xa;group by 	e.patient_id, e.encounter_date, e.location&#xa;order by 	patient_id, visit_date, location</sql>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, min(o.value_date) as next_appointment_date
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Appointment date'
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1252,8 +1514,7 @@
       <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Import Asthma Severity</name>
     <type>TableInput</type>
@@ -1266,12 +1527,18 @@
       <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as asthma_classification&#xa;from		omrs_encounter e&#xa;inner join 	omrs_obs o on e.encounter_id &#x3d; o.encounter_id&#xa;where		o.concept &#x3d; &#x27;Asthma classification&#x27;&#xa;group by 	e.patient_id, e.encounter_date, e.location&#xa;order by 	patient_id, visit_date, location</sql>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as asthma_classification
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Asthma classification'
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1284,8 +1551,7 @@
       <yloc>1808</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Import Cardiovascular Risk</name>
     <type>TableInput</type>
@@ -1298,12 +1564,18 @@
       <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, max&#x28;o.value_numeric&#x29; as cv_risk&#xa;from		omrs_encounter e&#xa;inner join 	omrs_obs o on e.encounter_id &#x3d; o.encounter_id&#xa;where		o.concept &#x3d; &#x27;Cardiovascular risk score&#x27;&#xa;group by 	e.patient_id, e.encounter_date, e.location&#xa;order by 	patient_id, visit_date, location</sql>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, max(o.value_numeric) as cv_risk
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Cardiovascular risk score'
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1316,8 +1588,7 @@
       <yloc>1088</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Import Creatinine</name>
     <type>TableInput</type>
@@ -1330,12 +1601,18 @@
       <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, max&#x28;o.value_numeric&#x29; as creatinine&#xa;from		omrs_encounter e&#xa;inner join 	omrs_obs o on e.encounter_id &#x3d; o.encounter_id&#xa;where		o.concept &#x3d; &#x27;Creatinine&#x27;&#xa;group by 	e.patient_id, e.encounter_date, e.location&#xa;order by 	patient_id, visit_date, location</sql>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, max(o.value_numeric) as creatinine
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Creatinine'
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1348,8 +1625,7 @@
       <yloc>848</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Import Diastolic BP</name>
     <type>TableInput</type>
@@ -1362,12 +1638,18 @@
       <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, max&#x28;o.value_numeric&#x29; as diastolic_bp&#xa;from		omrs_encounter e&#xa;inner join 	omrs_obs o on e.encounter_id &#x3d; o.encounter_id&#xa;where		o.concept &#x3d; &#x27;Diastolic blood pressure&#x27;&#xa;group by 	e.patient_id, e.encounter_date, e.location&#xa;order by 	patient_id, visit_date, location</sql>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, max(o.value_numeric) as diastolic_bp
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Diastolic blood pressure'
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1380,8 +1662,7 @@
       <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Import Encounters</name>
     <type>TableInput</type>
@@ -1394,12 +1675,42 @@
       <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>&#x2f;&#x2a;&#xa;	Extract superset of all NCD encounters&#xa;&#x2a;&#x2f;&#xa;select      e.patient_id,&#xa;			e.encounter_date as visit_date,&#xa;			e.location,&#xa;			group_concat&#x28;distinct e.encounter_type order by encounter_type asc SEPARATOR &#x27;, &#x27;&#x29; as visit_types&#xa;from        omrs_encounter e&#xa;where 		e.encounter_type in &#x28;&#xa;  &#x27;CHRONIC_CARE_INITIAL&#x27;,&#xa;  &#x27;CHRONIC_CARE_FOLLOWUP&#x27;,&#xa;  &#x27;DIABETES HYPERTENSION INITIAL VISIT&#x27;,&#xa;  &#x27;DIABETES HYPERTENSION FOLLOWUP&#x27;,&#xa;  &#x27;ASTHMA_INITIAL&#x27;,&#xa;  &#x27;ASTHMA_FOLLOWUP&#x27;,&#xa;  &#x27;EPILEPSY_INITIAL&#x27;,&#xa;  &#x27;EPILEPSY_FOLLOWUP&#x27;,&#xa;  &#x27;MENTAL_HEALTH_INITIAL&#x27;,&#xa;  &#x27;MENTAL_HEALTH_FOLLOWUP&#x27;&#xa;&#x29;&#xa;group by 	e.patient_id, e.encounter_date, e.location&#xa;order by 	patient_id, visit_date, location&#xa;</sql>
+    <sql>/*
+	Extract superset of all NCD encounters
+*/
+select      e.patient_id,
+			e.encounter_date as visit_date,
+			e.location,
+			group_concat(distinct e.encounter_type order by encounter_type asc SEPARATOR ', ') as visit_types
+from        omrs_encounter e
+where 		e.encounter_type in (
+  'CHRONIC_CARE_INITIAL',
+  'CHRONIC_CARE_FOLLOWUP',
+  'DIABETES HYPERTENSION INITIAL VISIT',
+  'DIABETES HYPERTENSION FOLLOWUP',
+  'ASTHMA_INITIAL',
+  'ASTHMA_FOLLOWUP',
+  'EPILEPSY_INITIAL',
+  'EPILEPSY_FOLLOWUP',
+  'MENTAL_HEALTH_INITIAL',
+  'MENTAL_HEALTH_FOLLOWUP',
+  'CKD_INITIAL',
+  'CKD_FOLLOWUP',
+  'CHF_INITIAL',
+  'CHF_FOLLOWUP',
+  'NCD_OTHER_INITIAL',
+  'NCD_OTHER_FOLLOWUP'
+  
+)
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location
+</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1412,8 +1723,7 @@
       <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Import Fundoscopy</name>
     <type>TableInput</type>
@@ -1426,12 +1736,18 @@
       <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_text as fundoscopy&#xa;from		omrs_encounter e&#xa;inner join 	omrs_obs o on e.encounter_id &#x3d; o.encounter_id&#xa;where		o.concept &#x3d; &#x27;Fundoscopy&#x27;&#xa;group by 	e.patient_id, e.encounter_date, e.location&#xa;order by 	patient_id, visit_date, location</sql>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_text as fundoscopy
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Fundoscopy'
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1444,8 +1760,7 @@
       <yloc>1568</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Import HIV Test Result</name>
     <type>TableInput</type>
@@ -1458,12 +1773,18 @@
       <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, max&#x28;o.value_coded&#x29; as hiv_test_result&#xa;from		omrs_encounter e&#xa;inner join 	omrs_obs o on e.encounter_id &#x3d; o.encounter_id&#xa;where		o.concept &#x3d; &#x27;Result of HIV test&#x27;&#xa;group by 	e.patient_id, e.encounter_date, e.location&#xa;order by 	patient_id, visit_date, location</sql>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, max(o.value_coded) as hiv_test_result
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Result of HIV test'
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1476,8 +1797,7 @@
       <yloc>928</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Import HbA1c</name>
     <type>TableInput</type>
@@ -1490,12 +1810,18 @@
       <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, max&#x28;o.value_numeric&#x29; as hba1c&#xa;from		omrs_encounter e&#xa;inner join 	omrs_obs o on e.encounter_id &#x3d; o.encounter_id&#xa;where		o.concept &#x3d; &#x27;Glycated hemoglobin&#x27;&#xa;group by 	e.patient_id, e.encounter_date, e.location&#xa;order by 	patient_id, visit_date, location</sql>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, max(o.value_numeric) as hba1c
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Glycated hemoglobin'
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1508,8 +1834,7 @@
       <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Import Hospitalization</name>
     <type>TableInput</type>
@@ -1522,12 +1847,19 @@
       <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, max&#x28;o.value_coded&#x29; as hospitalized&#xa;from		omrs_encounter e&#xa;inner join 	omrs_obs o on e.encounter_id &#x3d; o.encounter_id&#xa;where		o.concept &#x3d; &#x27;Patient hospitalized since last visit&#x27;&#xa;or	 		o.concept &#x3d; &#x27;Hospitalized for mental health since last visit&#x27;&#xa;group by 	e.patient_id, e.encounter_date, e.location&#xa;order by 	patient_id, visit_date, location</sql>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, max(o.value_coded) as hospitalized
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Patient hospitalized since last visit'
+or	 		o.concept = 'Hospitalized for mental health since last visit'
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1540,8 +1872,7 @@
       <yloc>1168</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Import Mental Health Drug Side Effect</name>
     <type>TableInput</type>
@@ -1554,12 +1885,19 @@
       <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as mental_health_drug_side_effect&#xa;from		omrs_encounter e&#xa;inner join 	omrs_obs o on e.encounter_id &#x3d; o.encounter_id&#xa;where		o.concept &#x3d; &#x27;Does patient have adverse effects&#x27;&#xa;and 		e.encounter_type &#x3d; &#x27;MENTAL_HEALTH_FOLLOWUP&#x27;&#xa;group by 	e.patient_id, e.encounter_date, e.location&#xa;order by 	patient_id, visit_date, location</sql>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as mental_health_drug_side_effect
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Does patient have adverse effects'
+and 		e.encounter_type = 'MENTAL_HEALTH_FOLLOWUP'
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1572,8 +1910,7 @@
       <yloc>1408</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Import Mental Health Drugs</name>
     <type>TableInput</type>
@@ -1586,12 +1923,19 @@
       <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, group_concat&#x28;o.value_coded&#x29; as mental_health_drugs&#xa;from		omrs_encounter e&#xa;inner join 	omrs_obs o on e.encounter_id &#x3d; o.encounter_id&#xa;where		o.concept &#x3d; &#x27;Current drugs used&#x27;&#xa;and 		e.encounter_type &#x3d; &#x27;MENTAL_HEALTH_FOLLOWUP&#x27;&#xa;group by 	e.patient_id, e.encounter_date, e.location&#xa;order by 	patient_id, visit_date, location</sql>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, group_concat(o.value_coded) as mental_health_drugs
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Current drugs used'
+and 		e.encounter_type = 'MENTAL_HEALTH_FOLLOWUP'
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1604,8 +1948,7 @@
       <yloc>1328</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Import Mental Status Exam</name>
     <type>TableInput</type>
@@ -1618,12 +1961,28 @@
       <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>SELECT e.patient_id, &#xa;e.encounter_date as visit_date,&#xa;e.location,&#xa;CASE WHEN &#x28;depressive &#x2b; hypomania &#x2b; disrupt &#x2b; abnormal &#x2b; delusion &#x2b; hallucinate &#x2b; lackInsight &#x2b; other&#x29; &#x3d; 8 THEN &#x27;Normal&#x27; end as mental_status_exam&#xa;from omrs_encounter e &#xa;LEFT JOIN &#x28;SELECT encounter_id, 1 AS depressive from omrs_obs where concept &#x3d; &#x27;Mental health chief complaint absent&#x27; AND value_coded &#x3d; &#x22;Depressive Disorder&#x22;&#x29; depressive ON depressive.encounter_id &#x3d; e.encounter_id&#xa;LEFT JOIN &#x28;SELECT encounter_id, 1 AS hypomania from omrs_obs where concept &#x3d; &#x27;Mental health chief complaint absent&#x27; AND value_coded &#x3d; &#x22;Hypomania&#x22;&#x29; hypomania ON hypomania.encounter_id &#x3d; e.encounter_id&#xa;LEFT JOIN &#x28;SELECT encounter_id, 1 AS disrupt from omrs_obs where concept &#x3d; &#x27;Mental health chief complaint absent&#x27; AND value_coded &#x3d; &#x22;Disruptive Behavior Disorder&#x22;&#x29; disrupt ON disrupt.encounter_id &#x3d; e.encounter_id&#xa;LEFT JOIN &#x28;SELECT encounter_id, 1 AS abnormal from omrs_obs where concept &#x3d; &#x27;Mental health chief complaint absent&#x27; AND value_coded &#x3d; &#x22;Abnormal speech&#x22;&#x29; abnormal ON abnormal.encounter_id &#x3d; e.encounter_id&#xa;LEFT JOIN &#x28;SELECT encounter_id, 1 AS delusion from omrs_obs where concept &#x3d; &#x27;Mental health chief complaint absent&#x27; AND value_coded &#x3d; &#x22;Delusions&#x22;&#x29; delusion ON delusion.encounter_id &#x3d; e.encounter_id&#xa;LEFT JOIN &#x28;SELECT encounter_id, 1 AS hallucinate from omrs_obs where concept &#x3d; &#x27;Mental health chief complaint absent&#x27; AND value_coded &#x3d; &#x22;Hallucinations&#x22;&#x29; hallucinate ON hallucinate.encounter_id &#x3d; e.encounter_id&#xa;LEFT JOIN &#x28;SELECT encounter_id, 1 AS lackInsight from omrs_obs where concept &#x3d; &#x27;Mental health chief complaint absent&#x27; AND value_coded &#x3d; &#x22;Lack of insight&#x22;&#x29; lackInsight ON lackInsight.encounter_id &#x3d; e.encounter_id&#xa;LEFT JOIN &#x28;SELECT encounter_id, 1 AS other from omrs_obs where concept &#x3d; &#x27;Mental health chief complaint absent&#x27; AND value_coded &#x3d; &#x22;Other non-coded&#x22;&#x29; other ON other.encounter_id &#x3d; e.encounter_id&#xa;WHERE e.encounter_type &#x3d; &#x27;MENTAL_HEALTH_FOLLOWUP&#x27;&#xa;group by 	e.patient_id, e.encounter_date, e.location&#xa;order by 	patient_id, visit_date, location&#x3b;</sql>
+    <sql>SELECT e.patient_id, 
+e.encounter_date as visit_date,
+e.location,
+CASE WHEN (depressive + hypomania + disrupt + abnormal + delusion + hallucinate + lackInsight + other) = 8 THEN 'Normal' end as mental_status_exam
+from omrs_encounter e 
+LEFT JOIN (SELECT encounter_id, 1 AS depressive from omrs_obs where concept = 'Mental health chief complaint absent' AND value_coded = "Depressive Disorder") depressive ON depressive.encounter_id = e.encounter_id
+LEFT JOIN (SELECT encounter_id, 1 AS hypomania from omrs_obs where concept = 'Mental health chief complaint absent' AND value_coded = "Hypomania") hypomania ON hypomania.encounter_id = e.encounter_id
+LEFT JOIN (SELECT encounter_id, 1 AS disrupt from omrs_obs where concept = 'Mental health chief complaint absent' AND value_coded = "Disruptive Behavior Disorder") disrupt ON disrupt.encounter_id = e.encounter_id
+LEFT JOIN (SELECT encounter_id, 1 AS abnormal from omrs_obs where concept = 'Mental health chief complaint absent' AND value_coded = "Abnormal speech") abnormal ON abnormal.encounter_id = e.encounter_id
+LEFT JOIN (SELECT encounter_id, 1 AS delusion from omrs_obs where concept = 'Mental health chief complaint absent' AND value_coded = "Delusions") delusion ON delusion.encounter_id = e.encounter_id
+LEFT JOIN (SELECT encounter_id, 1 AS hallucinate from omrs_obs where concept = 'Mental health chief complaint absent' AND value_coded = "Hallucinations") hallucinate ON hallucinate.encounter_id = e.encounter_id
+LEFT JOIN (SELECT encounter_id, 1 AS lackInsight from omrs_obs where concept = 'Mental health chief complaint absent' AND value_coded = "Lack of insight") lackInsight ON lackInsight.encounter_id = e.encounter_id
+LEFT JOIN (SELECT encounter_id, 1 AS other from omrs_obs where concept = 'Mental health chief complaint absent' AND value_coded = "Other non-coded") other ON other.encounter_id = e.encounter_id
+WHERE e.encounter_type = 'MENTAL_HEALTH_FOLLOWUP'
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location;</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1636,8 +1995,7 @@
       <yloc>1248</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Import Num Seizures</name>
     <type>TableInput</type>
@@ -1650,12 +2008,18 @@
       <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, max&#x28;o.value_numeric&#x29; as num_seizures&#xa;from		omrs_encounter e&#xa;inner join 	omrs_obs o on e.encounter_id &#x3d; o.encounter_id&#xa;where		o.concept &#x3d; &#x27;NUMBER OF SEIZURES&#x27;&#xa;group by 	e.patient_id, e.encounter_date, e.location&#xa;order by 	patient_id, visit_date, location</sql>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, max(o.value_numeric) as num_seizures
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'NUMBER OF SEIZURES'
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1668,8 +2032,7 @@
       <yloc>1888</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Import On Insulin</name>
     <type>TableInput</type>
@@ -1682,12 +2045,22 @@
       <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, &#x28;count&#x28;&#x2a;&#x29; &#x3e; 0&#x29; as on_insulin&#xa;from		omrs_encounter e&#xa;inner join 	omrs_obs o on e.encounter_id &#x3d; o.encounter_id&#xa;where		o.concept &#x3d; &#x27;Current drugs used&#x27;&#xa;and			o.value_coded &#x3d; &#x27;Insulin&#x27;&#xa;group by 	e.patient_id, e.encounter_date, e.location&#xa;order by 	patient_id, visit_date, location&#xa;&#xa;&#xa;</sql>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, (count(*) > 0) as on_insulin
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Current drugs used'
+and			o.value_coded = 'Insulin'
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location
+
+
+</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1700,8 +2073,7 @@
       <yloc>1728</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Import Proteinuria</name>
     <type>TableInput</type>
@@ -1714,12 +2086,18 @@
       <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, max&#x28;o.value_coded&#x29; as proteinuria&#xa;from		omrs_encounter e&#xa;inner join 	omrs_obs o on e.encounter_id &#x3d; o.encounter_id&#xa;where		o.concept &#x3d; &#x27;Urine protein&#x27;&#xa;group by 	e.patient_id, e.encounter_date, e.location&#xa;order by 	patient_id, visit_date, location</sql>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, max(o.value_coded) as proteinuria
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Urine protein'
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1732,8 +2110,7 @@
       <yloc>768</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Import Seizure Activity</name>
     <type>TableInput</type>
@@ -1746,12 +2123,20 @@
       <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, &#xa;			CASE WHEN value_coded IS NOT NULL THEN TRUE ELSE FALSE END AS seizure_activity_since_last_visit&#xa;from		omrs_encounter e&#xa;inner join 	omrs_obs o on e.encounter_id &#x3d; o.encounter_id&#xa;where		o.concept &#x3d; &#x27;Seizure activity&#x27;&#xa;and 			o.value_coded &#x3d; &#x27;Seizure since last visit&#x27;&#xa;group by 	e.patient_id, e.encounter_date, e.location&#xa;order by 	patient_id, visit_date, location</sql>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, 
+			CASE WHEN value_coded IS NOT NULL THEN TRUE ELSE FALSE END AS seizure_activity_since_last_visit
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Seizure activity'
+and 			o.value_coded = 'Seizure since last visit'
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1764,8 +2149,7 @@
       <yloc>1648</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Import Serum Glucose</name>
     <type>TableInput</type>
@@ -1778,12 +2162,18 @@
       <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, max&#x28;o.value_numeric&#x29; as serum_glucose&#xa;from		omrs_encounter e&#xa;inner join 	omrs_obs o on e.encounter_id &#x3d; o.encounter_id&#xa;where		o.concept &#x3d; &#x27;Serum glucose&#x27;&#xa;group by 	e.patient_id, e.encounter_date, e.location&#xa;order by 	patient_id, visit_date, location</sql>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, max(o.value_numeric) as serum_glucose
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Serum glucose'
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1796,8 +2186,7 @@
       <yloc>528</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Import Stable</name>
     <type>TableInput</type>
@@ -1810,12 +2199,19 @@
       <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, max&#x28;o.value_coded&#x29; as mental_stable&#xa;from		omrs_encounter e&#xa;inner join 	omrs_obs o on e.encounter_id &#x3d; o.encounter_id&#xa;where		o.concept &#x3d; &#x27;Stable&#x27;&#xa;and 		e.encounter_type &#x3d; &#x27;MENTAL_HEALTH_FOLLOWUP&#x27;&#xa;group by 	e.patient_id, e.encounter_date, e.location&#xa;order by 	patient_id, visit_date, location</sql>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, max(o.value_coded) as mental_stable
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Stable'
+and 		e.encounter_type = 'MENTAL_HEALTH_FOLLOWUP'
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1828,8 +2224,7 @@
       <yloc>1488</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Import Suicide Risk</name>
     <type>TableInput</type>
@@ -1842,12 +2237,18 @@
       <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, max&#x28;o.value_coded&#x29; as suicide_risk&#xa;from		omrs_encounter e&#xa;inner join 	omrs_obs o on e.encounter_id &#x3d; o.encounter_id&#xa;where		o.concept &#x3d; &#x27;Suicide risk&#x27;&#xa;group by 	e.patient_id, e.encounter_date, e.location&#xa;order by 	patient_id, visit_date, location</sql>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, max(o.value_coded) as suicide_risk
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Suicide risk'
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1860,8 +2261,7 @@
       <yloc>688</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Import Systolic BP</name>
     <type>TableInput</type>
@@ -1874,12 +2274,18 @@
       <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, max&#x28;o.value_numeric&#x29; as systolic_bp&#xa;from		omrs_encounter e&#xa;inner join 	omrs_obs o on e.encounter_id &#x3d; o.encounter_id&#xa;where		o.concept &#x3d; &#x27;Systolic blood pressure&#x27;&#xa;group by 	e.patient_id, e.encounter_date, e.location&#xa;order by 	patient_id, visit_date, location</sql>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, max(o.value_numeric) as systolic_bp
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Systolic blood pressure'
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1892,8 +2298,7 @@
       <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Import Visual Acuity</name>
     <type>TableInput</type>
@@ -1906,12 +2311,18 @@
       <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, max&#x28;o.value_text&#x29; as visual_acuity&#xa;from		omrs_encounter e&#xa;inner join 	omrs_obs o on e.encounter_id &#x3d; o.encounter_id&#xa;where		o.concept &#x3d; &#x27;Visual acuity &#x28;text&#x29;&#x27;&#xa;group by 	e.patient_id, e.encounter_date, e.location&#xa;order by 	patient_id, visit_date, location</sql>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, max(o.value_text) as visual_acuity
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Visual acuity (text)'
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1924,8 +2335,7 @@
       <yloc>1008</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Insulin Merge</name>
     <type>MergeJoin</type>
@@ -1937,9 +2347,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<join_type>LEFT OUTER</join_type>
-<step1>Seizure Activity Merge</step1>
-<step2>Import On Insulin</step2>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Seizure Activity Merge</step1>
+    <step2>Import On Insulin</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -1950,6 +2360,7 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -1962,8 +2373,7 @@
       <yloc>1728</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Mental Health Rx Merge</name>
     <type>MergeJoin</type>
@@ -1975,9 +2385,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<join_type>LEFT OUTER</join_type>
-<step1>Mental Status Merge</step1>
-<step2>Import Mental Health Drugs</step2>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Mental Status Merge</step1>
+    <step2>Import Mental Health Drugs</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -1988,6 +2398,7 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -2000,8 +2411,7 @@
       <yloc>1328</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Mental Health Rx Side Effect Merge</name>
     <type>MergeJoin</type>
@@ -2013,9 +2423,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<join_type>LEFT OUTER</join_type>
-<step1>Mental Health Rx Merge</step1>
-<step2>Import Mental Health Drug Side Effect</step2>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Mental Health Rx Merge</step1>
+    <step2>Import Mental Health Drug Side Effect</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -2026,6 +2436,7 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -2038,8 +2449,7 @@
       <yloc>1408</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Mental Status Merge</name>
     <type>MergeJoin</type>
@@ -2051,9 +2461,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<join_type>LEFT OUTER</join_type>
-<step1>Hospitalization Merge</step1>
-<step2>Import Mental Status Exam</step2>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Hospitalization Merge</step1>
+    <step2>Import Mental Status Exam</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -2064,6 +2474,7 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -2076,8 +2487,7 @@
       <yloc>1248</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Num Seizures Merge</name>
     <type>MergeJoin</type>
@@ -2089,9 +2499,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<join_type>LEFT OUTER</join_type>
-<step1>Asthma Severity Merge</step1>
-<step2>Import Num Seizures</step2>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Asthma Severity Merge</step1>
+    <step2>Import Num Seizures</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -2102,6 +2512,7 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -2114,8 +2525,7 @@
       <yloc>1888</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Proteinuria Merge</name>
     <type>MergeJoin</type>
@@ -2127,9 +2537,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<join_type>LEFT OUTER</join_type>
-<step1>Suicide Risk Merge</step1>
-<step2>Import Proteinuria</step2>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Suicide Risk Merge</step1>
+    <step2>Import Proteinuria</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -2140,6 +2550,7 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -2152,8 +2563,7 @@
       <yloc>768</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Seizure Activity Merge</name>
     <type>MergeJoin</type>
@@ -2165,9 +2575,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<join_type>LEFT OUTER</join_type>
-<step1>Fundoscopy Merge</step1>
-<step2>Import Seizure Activity</step2>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Fundoscopy Merge</step1>
+    <step2>Import Seizure Activity</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -2178,6 +2588,7 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -2190,8 +2601,7 @@
       <yloc>1648</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Serum Glucose Merge</name>
     <type>MergeJoin</type>
@@ -2203,9 +2613,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<join_type>LEFT OUTER</join_type>
-<step1>HbA1c Merge</step1>
-<step2>Import Serum Glucose</step2>
+    <join_type>LEFT OUTER</join_type>
+    <step1>HbA1c Merge</step1>
+    <step2>Import Serum Glucose</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -2216,6 +2626,7 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -2228,8 +2639,7 @@
       <yloc>528</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Stable Merge</name>
     <type>MergeJoin</type>
@@ -2241,9 +2651,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<join_type>LEFT OUTER</join_type>
-<step1>Mental Health Rx Side Effect Merge</step1>
-<step2>Import Stable</step2>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Mental Health Rx Side Effect Merge</step1>
+    <step2>Import Stable</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -2254,6 +2664,7 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -2266,8 +2677,7 @@
       <yloc>1488</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Suicide Risk Merge</name>
     <type>MergeJoin</type>
@@ -2279,9 +2689,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<join_type>LEFT OUTER</join_type>
-<step1>Foot Check Merge</step1>
-<step2>Import Suicide Risk</step2>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Foot Check Merge</step1>
+    <step2>Import Suicide Risk</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -2292,6 +2702,7 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -2304,8 +2715,7 @@
       <yloc>688</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Systolic BP Merge</name>
     <type>MergeJoin</type>
@@ -2317,9 +2727,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<join_type>LEFT OUTER</join_type>
-<step1>Appointment Date Merge</step1>
-<step2>Import Systolic BP</step2>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Appointment Date Merge</step1>
+    <step2>Import Systolic BP</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -2330,6 +2740,7 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -2342,8 +2753,7 @@
       <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Visual Acuity Merge</name>
     <type>MergeJoin</type>
@@ -2355,9 +2765,9 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-<join_type>LEFT OUTER</join_type>
-<step1>HIV Test Merge</step1>
-<step2>Import Visual Acuity</step2>
+    <join_type>LEFT OUTER</join_type>
+    <step1>HIV Test Merge</step1>
+    <step2>Import Visual Acuity</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -2368,6 +2778,7 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -2380,8 +2791,7 @@
       <yloc>1008</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step>
     <name>Write NCD Visit Table</name>
     <type>TableOutput</type>
@@ -2411,151 +2821,176 @@
     <return_keys>N</return_keys>
     <return_field/>
     <fields>
-        <field>
-          <column_name>patient_id</column_name>
-          <stream_name>patient_id</stream_name>
-        </field>
-        <field>
-          <column_name>visit_date</column_name>
-          <stream_name>visit_date</stream_name>
-        </field>
-        <field>
-          <column_name>location</column_name>
-          <stream_name>location</stream_name>
-        </field>
-        <field>
-          <column_name>next_appointment_date</column_name>
-          <stream_name>next_appointment_date</stream_name>
-        </field>
-        <field>
-          <column_name>visit_types</column_name>
-          <stream_name>visit_types</stream_name>
-        </field>
-        <field>
-          <column_name>cc_initial</column_name>
-          <stream_name>cc_initial</stream_name>
-        </field>
-        <field>
-          <column_name>cc_followup</column_name>
-          <stream_name>cc_followup</stream_name>
-        </field>
-        <field>
-          <column_name>diabetes_htn_initial</column_name>
-          <stream_name>diabetes_htn_initial</stream_name>
-        </field>
-        <field>
-          <column_name>diabetes_htn_followup</column_name>
-          <stream_name>diabetes_htn_followup</stream_name>
-        </field>
-        <field>
-          <column_name>asthma_initial</column_name>
-          <stream_name>asthma_initial</stream_name>
-        </field>
-        <field>
-          <column_name>asthma_followup</column_name>
-          <stream_name>asthma_followup</stream_name>
-        </field>
-        <field>
-          <column_name>epilepsy_initial</column_name>
-          <stream_name>epilepsy_initial</stream_name>
-        </field>
-        <field>
-          <column_name>epilepsy_followup</column_name>
-          <stream_name>epilepsy_followup</stream_name>
-        </field>
-        <field>
-          <column_name>mental_health_initial</column_name>
-          <stream_name>mental_health_initial</stream_name>
-        </field>
-        <field>
-          <column_name>mental_health_followup</column_name>
-          <stream_name>mental_health_followup</stream_name>
-        </field>
-        <field>
-          <column_name>systolic_bp</column_name>
-          <stream_name>systolic_bp</stream_name>
-        </field>
-        <field>
-          <column_name>diastolic_bp</column_name>
-          <stream_name>diastolic_bp</stream_name>
-        </field>
-        <field>
-          <column_name>on_insulin</column_name>
-          <stream_name>on_insulin</stream_name>
-        </field>
-        <field>
-          <column_name>asthma_classification</column_name>
-          <stream_name>asthma_classification</stream_name>
-        </field>
-        <field>
-          <column_name>num_seizures</column_name>
-          <stream_name>num_seizures</stream_name>
-        </field>
-        <field>
-          <column_name>hba1c</column_name>
-          <stream_name>hba1c</stream_name>
-        </field>
-        <field>
-          <column_name>serum_glucose</column_name>
-          <stream_name>serum_glucose</stream_name>
-        </field>
-        <field>
-          <column_name>proteinuria</column_name>
-          <stream_name>proteinuria</stream_name>
-        </field>
-        <field>
-          <column_name>visual_acuity</column_name>
-          <stream_name>visual_acuity</stream_name>
-        </field>
-        <field>
-          <column_name>hiv_result</column_name>
-          <stream_name>hiv_test_result</stream_name>
-        </field>
-        <field>
-          <column_name>creatinine</column_name>
-          <stream_name>creatinine</stream_name>
-        </field>
-        <field>
-          <column_name>suicide_risk</column_name>
-          <stream_name>suicide_risk</stream_name>
-        </field>
-        <field>
-          <column_name>cv_risk</column_name>
-          <stream_name>cv_risk</stream_name>
-        </field>
-        <field>
-          <column_name>mental_stable</column_name>
-          <stream_name>mental_stable</stream_name>
-        </field>
-        <field>
-          <column_name>mental_health_drug_side_effect</column_name>
-          <stream_name>mental_health_drug_side_effect</stream_name>
-        </field>
-        <field>
-          <column_name>mental_health_drugs</column_name>
-          <stream_name>mental_health_drugs</stream_name>
-        </field>
-        <field>
-          <column_name>hospitalized_since_last_visit</column_name>
-          <stream_name>hospitalized</stream_name>
-        </field>
-        <field>
-          <column_name>fundoscopy</column_name>
-          <stream_name>fundoscopy</stream_name>
-        </field>
-        <field>
-          <column_name>seizure_activity</column_name>
-          <stream_name>seizure_activity_since_last_visit</stream_name>
-        </field>
-        <field>
-          <column_name>mental_status_exam</column_name>
-          <stream_name>mental_status_exam</stream_name>
-        </field>
-        <field>
-          <column_name>foot_check</column_name>
-          <stream_name>foot_exam</stream_name>
-        </field>
+      <field>
+        <column_name>patient_id</column_name>
+        <stream_name>patient_id</stream_name>
+      </field>
+      <field>
+        <column_name>visit_date</column_name>
+        <stream_name>visit_date</stream_name>
+      </field>
+      <field>
+        <column_name>location</column_name>
+        <stream_name>location</stream_name>
+      </field>
+      <field>
+        <column_name>visit_types</column_name>
+        <stream_name>visit_types</stream_name>
+      </field>
+      <field>
+        <column_name>cc_initial</column_name>
+        <stream_name>cc_initial</stream_name>
+      </field>
+      <field>
+        <column_name>cc_followup</column_name>
+        <stream_name>cc_followup</stream_name>
+      </field>
+      <field>
+        <column_name>diabetes_htn_initial</column_name>
+        <stream_name>diabetes_htn_initial</stream_name>
+      </field>
+      <field>
+        <column_name>diabetes_htn_followup</column_name>
+        <stream_name>diabetes_htn_followup</stream_name>
+      </field>
+      <field>
+        <column_name>asthma_initial</column_name>
+        <stream_name>asthma_initial</stream_name>
+      </field>
+      <field>
+        <column_name>asthma_followup</column_name>
+        <stream_name>asthma_followup</stream_name>
+      </field>
+      <field>
+        <column_name>epilepsy_initial</column_name>
+        <stream_name>epilepsy_initial</stream_name>
+      </field>
+      <field>
+        <column_name>epilepsy_followup</column_name>
+        <stream_name>epilepsy_followup</stream_name>
+      </field>
+      <field>
+        <column_name>mental_health_initial</column_name>
+        <stream_name>mental_health_initial</stream_name>
+      </field>
+      <field>
+        <column_name>mental_health_followup</column_name>
+        <stream_name>mental_health_followup</stream_name>
+      </field>
+      <field>
+        <column_name>ckd_initial</column_name>
+        <stream_name>ckd_initial</stream_name>
+      </field>
+      <field>
+        <column_name>ckd_followup</column_name>
+        <stream_name>ckd_followup</stream_name>
+      </field>
+      <field>
+        <column_name>chf_initial</column_name>
+        <stream_name>chf_initial</stream_name>
+      </field>
+      <field>
+        <column_name>chf_followup</column_name>
+        <stream_name>chf_followup</stream_name>
+      </field>
+      <field>
+        <column_name>ncd_other_initial</column_name>
+        <stream_name>ncd_other_initial</stream_name>
+      </field>
+      <field>
+        <column_name>ncd_other_followup</column_name>
+        <stream_name>ncd_other_followup</stream_name>
+      </field>
+      <field>
+        <column_name>next_appointment_date</column_name>
+        <stream_name>next_appointment_date</stream_name>
+      </field>
+      <field>
+        <column_name>systolic_bp</column_name>
+        <stream_name>systolic_bp</stream_name>
+      </field>
+      <field>
+        <column_name>diastolic_bp</column_name>
+        <stream_name>diastolic_bp</stream_name>
+      </field>
+      <field>
+        <column_name>hba1c</column_name>
+        <stream_name>hba1c</stream_name>
+      </field>
+      <field>
+        <column_name>serum_glucose</column_name>
+        <stream_name>serum_glucose</stream_name>
+      </field>
+      <field>
+        <column_name>suicide_risk</column_name>
+        <stream_name>suicide_risk</stream_name>
+      </field>
+      <field>
+        <column_name>proteinuria</column_name>
+        <stream_name>proteinuria</stream_name>
+      </field>
+      <field>
+        <column_name>creatinine</column_name>
+        <stream_name>creatinine</stream_name>
+      </field>
+      <field>
+        <column_name>visual_acuity</column_name>
+        <stream_name>visual_acuity</stream_name>
+      </field>
+      <field>
+        <column_name>cv_risk</column_name>
+        <stream_name>cv_risk</stream_name>
+      </field>
+      <field>
+        <column_name>mental_status_exam</column_name>
+        <stream_name>mental_status_exam</stream_name>
+      </field>
+      <field>
+        <column_name>mental_health_drugs</column_name>
+        <stream_name>mental_health_drugs</stream_name>
+      </field>
+      <field>
+        <column_name>mental_health_drug_side_effect</column_name>
+        <stream_name>mental_health_drug_side_effect</stream_name>
+      </field>
+      <field>
+        <column_name>mental_stable</column_name>
+        <stream_name>mental_stable</stream_name>
+      </field>
+      <field>
+        <column_name>fundoscopy</column_name>
+        <stream_name>fundoscopy</stream_name>
+      </field>
+      <field>
+        <column_name>on_insulin</column_name>
+        <stream_name>on_insulin</stream_name>
+      </field>
+      <field>
+        <column_name>asthma_classification</column_name>
+        <stream_name>asthma_classification</stream_name>
+      </field>
+      <field>
+        <column_name>num_seizures</column_name>
+        <stream_name>num_seizures</stream_name>
+      </field>
+      <field>
+        <column_name>seizure_activity</column_name>
+        <stream_name>seizure_activity_since_last_visit</stream_name>
+      </field>
+      <field>
+        <column_name>hospitalized_since_last_visit</column_name>
+        <stream_name>hospitalized</stream_name>
+      </field>
+      <field>
+        <column_name>hiv_result</column_name>
+        <stream_name>hiv_test_result</stream_name>
+      </field>
+      <field>
+        <column_name>foot_check</column_name>
+        <stream_name>foot_exam</stream_name>
+      </field>
     </fields>
+    <attributes/>
     <cluster_schema/>
     <remotesteps>
       <input>
@@ -2568,11 +3003,11 @@
       <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
-    </step>
-
+  </step>
   <step_error_handling>
   </step_error_handling>
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>
   <slave_transformation>N</slave_transformation>
+  <attributes/>
 </transformation>
