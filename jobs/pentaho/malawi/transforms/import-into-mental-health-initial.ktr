@@ -1199,6 +1199,86 @@
     </hop>
     <hop>
       <from>diagnosis_date_puerperal_mental_disorder</from>
+      <to>diagnosis_somatoform_disorder_merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>import diagnosis_somatoform_disorder</from>
+      <to>diagnosis_somatoform_disorder_merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>diagnosis_somatoform_disorder_merge</from>
+      <to>diagnosis_date_somatoform_disorder_merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>import diagnosis_date_somatoform_disorder</from>
+      <to>diagnosis_date_somatoform_disorder_merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>diagnosis_date_somatoform_disorder_merge</from>
+      <to>diagnosis_personality_disorder_merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>diagnosis_personality_disorder_merge</from>
+      <to>diagnosis_date_personality_disorder_merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>import diagnosis_personality_disorder</from>
+      <to>diagnosis_personality_disorder_merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>import diagnosis_date_personality_disorder</from>
+      <to>diagnosis_date_personality_disorder_merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>diagnosis_date_personality_disorder_merge</from>
+      <to>diagnosis_mental_retardation_disorder_merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>diagnosis_mental_retardation_disorder_merge</from>
+      <to>diagnosis_date_mental_retardation_disorder_merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>import diagnosis_mental_retardation_disorder</from>
+      <to>diagnosis_mental_retardation_disorder_merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>import diagnosis_date_mental_retardation_disorder</from>
+      <to>diagnosis_date_mental_retardation_disorder_merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>diagnosis_date_mental_retardation_disorder_merge</from>
+      <to>diagnosis_psych_development_disorder_merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>import diagnosis_psych_development_disorder</from>
+      <to>diagnosis_psych_development_disorder_merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>diagnosis_psych_development_disorder_merge</from>
+      <to>diagnosis_date_psych_development_disorder_merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>import diagnosis_date_psych_development_disorder</from>
+      <to>diagnosis_date_psych_development_disorder_merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>diagnosis_date_psych_development_disorder_merge</from>
       <to>Write Mental Health Initial Table</to>
       <enabled>Y</enabled>
     </hop>
@@ -3661,6 +3741,38 @@ order by 	patient_id, visit_date, location</sql>
         <column_name>diagnosis_date_puerperal_mental_disorder</column_name>
         <stream_name>diagnosis_date_puerperal_mental_disorder</stream_name>
       </field>
+      <field>
+        <column_name>diagnosis_somatoform_disorder</column_name>
+        <stream_name>diagnosis_somatoform_disorder</stream_name>
+      </field>
+      <field>
+        <column_name>diagnosis_date_somatoform_disorder</column_name>
+        <stream_name>diagnosis_date_somatoform_disorder</stream_name>
+      </field>
+      <field>
+        <column_name>diagnosis_personality_disorder</column_name>
+        <stream_name>diagnosis_personality_disorder</stream_name>
+      </field>
+      <field>
+        <column_name>diagnosis_date_personality_disorder</column_name>
+        <stream_name>diagnosis_date_personality_disorder</stream_name>
+      </field>
+      <field>
+        <column_name>diagnosis_mental_retardation_disorder</column_name>
+        <stream_name>diagnosis_mental_retardation_disorder</stream_name>
+      </field>
+      <field>
+        <column_name>diagnosis_date_mental_retardation_disorder</column_name>
+        <stream_name>diagnosis_date_mental_retardation_disorder</stream_name>
+      </field>
+      <field>
+        <column_name>diagnosis_psych_development_disorder</column_name>
+        <stream_name>diagnosis_psych_development_disorder</stream_name>
+      </field>
+      <field>
+        <column_name>diagnosis_date_psych_development_disorder</column_name>
+        <stream_name>diagnosis_date_psych_development_disorder</stream_name>
+      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -3671,8 +3783,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>4544</xloc>
-      <yloc>80</yloc>
+      <xloc>5248</xloc>
+      <yloc>112</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4497,6 +4609,46 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
+    <name>diagnosis_date_mental_retardation_disorder_merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>diagnosis_mental_retardation_disorder_merge</step1>
+    <step2>import diagnosis_date_mental_retardation_disorder</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>obs_group_id_retardation</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>obs_group_id_retardation</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>5248</xloc>
+      <yloc>1056</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>diagnosis_date_mood affective_disorder_manic Merge</name>
     <type>MergeJoin</type>
     <description/>
@@ -4697,6 +4849,86 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
+    <name>diagnosis_date_personality_disorder_merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>diagnosis_personality_disorder_merge</step1>
+    <step2>import diagnosis_date_personality_disorder</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>obs_group_id_personality</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>obs_group_id_personality</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>4768</xloc>
+      <yloc>784</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>diagnosis_date_psych_development_disorder_merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>diagnosis_psych_development_disorder_merge</step1>
+    <step2>import diagnosis_date_psych_development_disorder</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>obs_group_id_psych</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>obs_group_id_psych</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>5248</xloc>
+      <yloc>560</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>diagnosis_date_puerperal_mental_disorder</name>
     <type>MergeJoin</type>
     <description/>
@@ -4733,6 +4965,46 @@ order by 	patient_id, visit_date, location</sql>
     <GUI>
       <xloc>4288</xloc>
       <yloc>32</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>diagnosis_date_somatoform_disorder_merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>diagnosis_somatoform_disorder_merge</step1>
+    <step2>import diagnosis_date_somatoform_disorder</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>obs_group_id_somatoform</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>obs_group_id_somatoform</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>4768</xloc>
+      <yloc>256</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -4887,6 +5159,44 @@ order by 	patient_id, visit_date, location</sql>
     <GUI>
       <xloc>4288</xloc>
       <yloc>816</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>diagnosis_mental_retardation_disorder_merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>diagnosis_date_personality_disorder_merge</step1>
+    <step2>import diagnosis_mental_retardation_disorder</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>4768</xloc>
+      <yloc>1056</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5158,6 +5468,82 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
+    <name>diagnosis_personality_disorder_merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>diagnosis_date_somatoform_disorder_merge</step1>
+    <step2>import diagnosis_personality_disorder</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>4768</xloc>
+      <yloc>560</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>diagnosis_psych_development_disorder_merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>diagnosis_date_mental_retardation_disorder_merge</step1>
+    <step2>import diagnosis_psych_development_disorder</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>5248</xloc>
+      <yloc>784</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>diagnosis_puerperal_mental_disorder Merge</name>
     <type>MergeJoin</type>
     <description/>
@@ -5192,6 +5578,44 @@ order by 	patient_id, visit_date, location</sql>
     <GUI>
       <xloc>4288</xloc>
       <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>diagnosis_somatoform_disorder_merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>diagnosis_date_puerperal_mental_disorder</step1>
+    <step2>import diagnosis_somatoform_disorder</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>4768</xloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5728,6 +6152,43 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
+    <name>import diagnosis_date_mental_retardation_disorder</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as diagnosis_date_mental_retardation_disorder, o.obs_group_id as obs_group_id_retardation
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Diagnosis date'  and e.encounter_type in ('MENTAL_HEALTH_INITIAL')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>4976</xloc>
+      <yloc>976</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>import diagnosis_date_other_1</name>
     <type>TableInput</type>
     <description/>
@@ -5879,6 +6340,154 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
+    <name>import diagnosis_date_personality_disorder</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as diagnosis_date_personality_disorder, o.obs_group_id as obs_group_id_personality
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Diagnosis date'  and e.encounter_type in ('MENTAL_HEALTH_INITIAL')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>4496</xloc>
+      <yloc>880</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>import diagnosis_date_psych_development_disorder</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as diagnosis_date_psych_development_disorder, o.obs_group_id as obs_group_id_psych
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Diagnosis date'  and e.encounter_type in ('MENTAL_HEALTH_INITIAL')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>4960</xloc>
+      <yloc>608</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>import diagnosis_date_somatoform_disorder</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as diagnosis_date_somatoform_disorder, o.obs_group_id as obs_group_id_somatoform
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Diagnosis date'  and e.encounter_type in ('MENTAL_HEALTH_INITIAL')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>4528</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>import diagnosis_mental_retardation_disorder</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as diagnosis_mental_retardation_disorder, o.obs_group_id as obs_group_id_retardation
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Chronic care diagnosis' and o.value_coded = 'Mental retardation' and e.encounter_type in ('MENTAL_HEALTH_INITIAL')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>4480</xloc>
+      <yloc>992</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>import diagnosis_other_1</name>
     <type>TableInput</type>
     <description/>
@@ -5949,6 +6558,117 @@ order by 	patient_id, visit_date, location</sql>
     <GUI>
       <xloc>1120</xloc>
       <yloc>1152</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>import diagnosis_personality_disorder</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as diagnosis_personality_disorder, o.obs_group_id as obs_group_id_personality
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Chronic care diagnosis' and o.value_coded = 'Personality Disorder' and e.encounter_type in ('MENTAL_HEALTH_INITIAL')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>4496</xloc>
+      <yloc>576</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>import diagnosis_psych_development_disorder</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as diagnosis_psych_development_disorder, o.obs_group_id as obs_group_id_psych
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Chronic care diagnosis' and o.value_coded = 'Psychological development disorder' and e.encounter_type in ('MENTAL_HEALTH_INITIAL')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>4960</xloc>
+      <yloc>880</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>import diagnosis_somatoform_disorder</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as diagnosis_somatoform_disorder, o.obs_group_id as obs_group_id_somatoform
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Chronic care diagnosis' and o.value_coded = 'Somatoform Disorder' and e.encounter_type in ('MENTAL_HEALTH_INITIAL')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>4512</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
