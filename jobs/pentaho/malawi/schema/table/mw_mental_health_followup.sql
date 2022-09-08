@@ -34,6 +34,7 @@ CREATE TABLE mw_mental_health_followup (
   med_clozapine 			varchar(255) DEFAULT NULL,
   med_trifluoperazine 			varchar(255) DEFAULT NULL,
   med_clopixol 			varchar(255) DEFAULT NULL,
+  med_amitriptyline                    varchar(255) DEFAULT NULL,
   med_other 				varchar(255) DEFAULT NULL,
   comments 				varchar(2000) DEFAULT NULL,
   next_appointment_date 		date DEFAULT NULL,
