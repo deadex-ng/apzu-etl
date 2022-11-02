@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>import-into-pdc-trisomy-21-followup</name>
+    <name>import-into-mw-developmental-delay-followup</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -517,27 +517,27 @@
   </connection>
   <order>
     <hop>
-      <from>Import Weight</from>
-      <to>Weight Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Import Encounters</from>
-      <to>Weight Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Weight Merge</from>
-      <to>Height Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Import Height</from>
       <to>Height Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
+      <from>Import Encounters</from>
+      <to>Height Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>Height Merge</from>
+      <to>Weight Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Weight</from>
+      <to>Weight Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Weight Merge</from>
       <to>MUAC Merge</to>
       <enabled>Y</enabled>
     </hop>
@@ -548,6 +548,26 @@
     </hop>
     <hop>
       <from>MUAC Merge</from>
+      <to>Weight Against Age Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Weight Against Age</from>
+      <to>Weight Against Age Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Weight Against Age Merge</from>
+      <to>Weight Against Height Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Weight Against Height</from>
+      <to>Weight Against Height Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Weight Against Height Merge</from>
       <to>Malnutrition Merge</to>
       <enabled>Y</enabled>
     </hop>
@@ -557,97 +577,97 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
+      <from>Import Malawi Developmental Assessment Tool Summary</from>
+      <to>Malawi Developmental Assessment Tool Summary Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>Malnutrition Merge</from>
-      <to>Passion Normal Merge</to>
+      <to>Malawi Developmental Assessment Tool Summary Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Import Passage Normal</from>
-      <to>Passion Normal Merge</to>
+      <from>Malawi Developmental Assessment Tool Summary Merge</from>
+      <to>Tone - Normal Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Passion Normal Merge</from>
-      <to>Diarrhea Persistent Merge</to>
+      <from>Import Tone - Normal</from>
+      <to>Tone - Normal Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Import Diarrhea Persistent</from>
-      <to>Diarrhea Persistent Merge</to>
+      <from>Tone - Normal Merge</from>
+      <to>Tone - Hypo Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Import Vomiting</from>
-      <to>Vomiting Merge</to>
+      <from>Import Tone - Hypo</from>
+      <to>Tone - Hypo Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Diarrhea Persistent Merge</from>
-      <to>Vomiting Merge</to>
+      <from>Tone - Hypo Merge</from>
+      <to>Tone - Hyper Merge </to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Vomiting Merge</from>
-      <to>Ear - Pain Merge</to>
+      <from>Import Tone - Hyper</from>
+      <to>Tone - Hyper Merge </to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Import Ear - Pain</from>
-      <to>Ear - Pain Merge</to>
+      <from>Tone - Hyper Merge </from>
+      <to>Feeding - Sucking Merge </to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Ear - Pain Merge</from>
-      <to>Ear - Discharge Merge</to>
+      <from>Import Feeding - Sucking</from>
+      <to>Feeding - Sucking Merge </to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Import Ear - Discharge</from>
-      <to>Ear - Discharge Merge</to>
+      <from>Feeding - Sucking Merge </from>
+      <to>Feeding - Cup Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Ear - Discharge Merge</from>
-      <to>Sleep - Apnea Merge </to>
+      <from>Import Feeding - Cup</from>
+      <to>Feeding - Cup Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Import Sleep - Apnea</from>
-      <to>Sleep - Apnea Merge </to>
+      <from>Feeding - Cup Merge</from>
+      <to>Feeding - Tube Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sleep - Apnea Merge </from>
-      <to>Sleep - Chocking Merge </to>
+      <from>Import Feeding - Tube</from>
+      <to>Feeding - Tube Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Import Sleep - Choking</from>
-      <to>Sleep - Chocking Merge </to>
+      <from>Feeding - Tube Merge</from>
+      <to>Signs of Cerebral Palsy Merge </to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Sleep - Chocking Merge </from>
-      <to>Extremities - Pain Merge</to>
+      <from>Import Signs of Cerebral Palsy</from>
+      <to>Signs of Cerebral Palsy Merge </to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Import Extremities - Pain</from>
-      <to>Extremities - Pain Merge</to>
+      <from>Signs of Cerebral Palsy Merge </from>
+      <to>Under Mental Health Care Program Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Extremities - Pain Merge</from>
-      <to>Extremities - Weakness Merge</to>
+      <from>Import Under Mental health Care Program</from>
+      <to>Under Mental Health Care Program Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Import Extremities - Weakness</from>
-      <to>Extremities - Weakness Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Extremities - Weakness Merge</from>
+      <from>Under Mental Health Care Program Merge</from>
       <to>Anticonvulsant Merge</to>
       <enabled>Y</enabled>
     </hop>
@@ -658,46 +678,26 @@
     </hop>
     <hop>
       <from>Anticonvulsant Merge</from>
-      <to>Drug and Dose Merge</to>
+      <to>Dose and Drug Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Import Drug and Dose</from>
-      <to>Drug and Dose Merge</to>
+      <from>Import Dose and Drug</from>
+      <to>Dose and Drug Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Drug and Dose Merge</from>
-      <to>Adjust Dose Merge</to>
+      <from>Dose and Drug Merge</from>
+      <to>Dose Adjusted Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Import Adjust Dose</from>
-      <to>Adjust Dose Merge</to>
+      <from>Import Dose Adjusted</from>
+      <to>Dose Adjusted Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Adjust Dose Merge</from>
-      <to>Individual Counselling Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Import Individual Counselling</from>
-      <to>Individual Counselling Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Individual Counselling Merge</from>
-      <to>Feeding Counselling Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Import Feeding Counselling</from>
-      <to>Feeding Counselling Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Feeding Counselling Merge</from>
+      <from>Dose Adjusted Merge</from>
       <to>Continue Followup Merge</to>
       <enabled>Y</enabled>
     </hop>
@@ -708,32 +708,22 @@
     </hop>
     <hop>
       <from>Continue Followup Merge</from>
-      <to>Physiotherapy Merge</to>
+      <to>Feeding Counselling Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Import Physiotherapy</from>
-      <to>Physiotherapy Merge</to>
+      <from>Import Feeding Counselling</from>
+      <to>Feeding Counselling Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Physiotherapy Merge</from>
-      <to>Group Counselling and Play Therapy Merge</to>
+      <from>Feeding Counselling Merge</from>
+      <to>Play Therapy and Group Counselling Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Group Counselling and Play Therapy Merge</from>
-      <to>Malawi Developmental Assessment Summary Tool Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Malawi Developmental Assessment Summary Tool Merge</from>
+      <from>Play Therapy and Group Counselling Merge</from>
       <to>Referred to POSER Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Referred Out Merge</from>
-      <to>Referred Out (Specify) Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -747,13 +737,18 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Import Group Counselling and Play Therapy</from>
-      <to>Group Counselling and Play Therapy Merge</to>
+      <from>Referred Out Merge</from>
+      <to>Referred Out (Specify) Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Import Malawi Developmental Assessment Tool Summary</from>
-      <to>Malawi Developmental Assessment Summary Tool Merge</to>
+      <from>If Referred Out Merge</from>
+      <to>If Referred Out (Specify) Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Play Therapy and Group Counselling</from>
+      <to>Play Therapy and Group Counselling Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -767,7 +762,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Import Referred Out (specify) </from>
+      <from>Import Referred Out (Specify)</from>
       <to>Referred Out (Specify) Merge</to>
       <enabled>Y</enabled>
     </hop>
@@ -777,33 +772,28 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>If Referred Out Merge</from>
-      <to> If Referred Out (Specify) Merge</to>
+      <from>Import If Referred Out (Specify)</from>
+      <to>If Referred Out (Specify) Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Import If Referred Out (Specify)</from>
-      <to> If Referred Out (Specify) Merge</to>
+      <from>If Referred Out (Specify) Merge</from>
+      <to>Next Appointment Date Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Import Next Appointment Date</from>
-      <to>Next Appointment Date  Merge</to>
+      <to>Next Appointment Date Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from> If Referred Out (Specify) Merge</from>
-      <to>Next Appointment Date  Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Next Appointment Date  Merge</from>
-      <to>Write PDC Trisomy 21 Table</to>
+      <from>Next Appointment Date Merge</from>
+      <to>Write PDC Developmental Delay FollowupTable</to>
       <enabled>Y</enabled>
     </hop>
   </order>
   <step>
-    <name> If Referred Out (Specify) Merge</name>
+    <name>Anticonvulsant Merge</name>
     <type>MergeJoin</type>
     <description/>
     <distribute>N</distribute>
@@ -814,46 +804,8 @@
       <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1>If Referred Out Merge</step1>
-    <step2>Import If Referred Out (Specify)</step2>
-    <keys_1>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_1>
-    <keys_2>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_2>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1296</xloc>
-      <yloc>512</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Adjust Dose Merge</name>
-    <type>MergeJoin</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <join_type>LEFT OUTER</join_type>
-    <step1>Drug and Dose Merge</step1>
-    <step2>Import Adjust Dose</step2>
+    <step1>Under Mental Health Care Program Merge</step1>
+    <step2>Import Anticonvulsant</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -879,44 +831,6 @@
     </GUI>
   </step>
   <step>
-    <name>Anticonvulsant Merge</name>
-    <type>MergeJoin</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <join_type>LEFT OUTER</join_type>
-    <step1>Extremities - Weakness Merge</step1>
-    <step2>Import Anticonvulsant</step2>
-    <keys_1>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_1>
-    <keys_2>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_2>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>704</xloc>
-      <yloc>224</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Continue Followup Merge</name>
     <type>MergeJoin</type>
     <description/>
@@ -928,7 +842,7 @@
       <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1>Feeding Counselling Merge</step1>
+    <step1>Dose Adjusted Merge</step1>
     <step2>Import Continue Followup</step2>
     <keys_1>
       <key>patient_id</key>
@@ -955,7 +869,7 @@
     </GUI>
   </step>
   <step>
-    <name>Diarrhea Persistent Merge</name>
+    <name>Dose Adjusted Merge</name>
     <type>MergeJoin</type>
     <description/>
     <distribute>N</distribute>
@@ -966,8 +880,8 @@
       <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1>Passion Normal Merge</step1>
-    <step2>Import Diarrhea Persistent</step2>
+    <step1>Dose and Drug Merge</step1>
+    <step2>Import Dose Adjusted</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -987,13 +901,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>336</xloc>
-      <yloc>928</yloc>
+      <xloc>960</xloc>
+      <yloc>480</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Drug and Dose Merge</name>
+    <name>Dose and Drug Merge</name>
     <type>MergeJoin</type>
     <description/>
     <distribute>N</distribute>
@@ -1005,7 +919,7 @@
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Anticonvulsant Merge</step1>
-    <step2>Import Drug and Dose</step2>
+    <step2>Import Dose and Drug</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -1025,13 +939,13 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>704</xloc>
-      <yloc>48</yloc>
+      <xloc>960</xloc>
+      <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Ear - Discharge Merge</name>
+    <name>Feeding - Cup Merge</name>
     <type>MergeJoin</type>
     <description/>
     <distribute>N</distribute>
@@ -1042,84 +956,8 @@
       <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1>Ear - Pain Merge</step1>
-    <step2>Import Ear - Discharge</step2>
-    <keys_1>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_1>
-    <keys_2>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_2>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>704</xloc>
-      <yloc>1264</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Ear - Pain Merge</name>
-    <type>MergeJoin</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <join_type>LEFT OUTER</join_type>
-    <step1>Vomiting Merge</step1>
-    <step2>Import Ear - Pain</step2>
-    <keys_1>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_1>
-    <keys_2>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_2>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>336</xloc>
-      <yloc>1264</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Extremities - Pain Merge</name>
-    <type>MergeJoin</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <join_type>LEFT OUTER</join_type>
-    <step1>Sleep - Chocking Merge </step1>
-    <step2>Import Extremities - Pain</step2>
+    <step1>Feeding - Sucking Merge </step1>
+    <step2>Import Feeding - Cup</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -1145,7 +983,7 @@
     </GUI>
   </step>
   <step>
-    <name>Extremities - Weakness Merge</name>
+    <name>Feeding - Sucking Merge </name>
     <type>MergeJoin</type>
     <description/>
     <distribute>N</distribute>
@@ -1156,8 +994,46 @@
       <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1>Extremities - Pain Merge</step1>
-    <step2>Import Extremities - Weakness</step2>
+    <step1>Tone - Hyper Merge </step1>
+    <step2>Import Feeding - Sucking</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>704</xloc>
+      <yloc>864</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Feeding - Tube Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Feeding - Cup Merge</step1>
+    <step2>Import Feeding - Tube</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -1194,7 +1070,7 @@
       <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1>Individual Counselling Merge</step1>
+    <step1>Continue Followup Merge</step1>
     <step2>Import Feeding Counselling</step2>
     <keys_1>
       <key>patient_id</key>
@@ -1216,12 +1092,12 @@
     </remotesteps>
     <GUI>
       <xloc>960</xloc>
-      <yloc>480</yloc>
+      <yloc>848</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Group Counselling and Play Therapy Merge</name>
+    <name>Height Merge</name>
     <type>MergeJoin</type>
     <description/>
     <distribute>N</distribute>
@@ -1232,45 +1108,7 @@
       <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1>Physiotherapy Merge</step1>
-    <step2>Import Group Counselling and Play Therapy</step2>
-    <keys_1>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_1>
-    <keys_2>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_2>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>960</xloc>
-      <yloc>1040</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Height Merge</name>
-    <type>MergeJoin</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <join_type>LEFT OUTER</join_type>
-    <step1>Weight Merge</step1>
+    <step1>Import Encounters</step1>
     <step2>Import Height</step2>
     <keys_1>
       <key>patient_id</key>
@@ -1292,7 +1130,45 @@
     </remotesteps>
     <GUI>
       <xloc>336</xloc>
-      <yloc>192</yloc>
+      <yloc>16</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>If Referred Out (Specify) Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>If Referred Out Merge</step1>
+    <step2>Import If Referred Out (Specify)</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1296</xloc>
+      <yloc>688</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1330,12 +1206,12 @@
     </remotesteps>
     <GUI>
       <xloc>1296</xloc>
-      <yloc>688</yloc>
+      <yloc>880</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Import Adjust Dose</name>
+    <name>Import Anticonvulsant</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1346,12 +1222,13 @@
       <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as adjust_dose
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as anticonvulsant
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Adjust dose' and e.encounter_type in ('PDC_TRISOMY21_FOLLOWUP')
+where		o.concept = 'Anticonvulsant' and e.encounter_type in ('PDC_DEVELOPMENTAL_DELAY_FOLLOWUP')
 group by 	e.patient_id, e.encounter_date, e.location
-order by 	patient_id, visit_date, location</sql>
+order by 	patient_id, visit_date, location
+</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -1372,43 +1249,6 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>Import Anticonvulsant</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as anticonvulsant
-from		omrs_encounter e
-inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Anticonvulsant' and e.encounter_type in ('PDC_TRISOMY21_FOLLOWUP')
-group by 	e.patient_id, e.encounter_date, e.location
-order by 	patient_id, visit_date, location</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>560</xloc>
-      <yloc>336</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Import Continue Followup</name>
     <type>TableInput</type>
     <description/>
@@ -1423,9 +1263,10 @@ order by 	patient_id, visit_date, location</sql>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as continue_followup
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Continue followup' and e.encounter_type in ('PDC_TRISOMY21_FOLLOWUP')
+where		o.concept = 'Continue followup' and e.encounter_type in ('PDC_DEVELOPMENTAL_DELAY_FOLLOWUP')
 group by 	e.patient_id, e.encounter_date, e.location
-order by 	patient_id, visit_date, location</sql>
+order by 	patient_id, visit_date, location
+</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -1446,7 +1287,7 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>Import Diarrhea Persistent</name>
+    <name>Import Dose Adjusted</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1457,12 +1298,13 @@ order by 	patient_id, visit_date, location</sql>
       <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as diarrhea_persistent
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as dose_adjusted
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Diarrhea Persistent' and e.encounter_type in ('PDC_TRISOMY21_FOLLOWUP')
+where		o.concept = 'Adjust dose' and e.encounter_type in ('PDC_DEVELOPMENTAL_DELAY_FOLLOWUP')
 group by 	e.patient_id, e.encounter_date, e.location
-order by 	patient_id, visit_date, location</sql>
+order by 	patient_id, visit_date, location
+</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -1477,13 +1319,13 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>128</xloc>
-      <yloc>832</yloc>
+      <xloc>864</xloc>
+      <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Import Drug and Dose</name>
+    <name>Import Dose and Drug</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1494,12 +1336,13 @@ order by 	patient_id, visit_date, location</sql>
       <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_text as drug_and_dose
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_text as dose_and_drug
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Medications dispensed' and e.encounter_type in ('PDC_TRISOMY21_FOLLOWUP')
+where		o.concept = 'Medications dispensed' and e.encounter_type in ('PDC_DEVELOPMENTAL_DELAY_FOLLOWUP')
 group by 	e.patient_id, e.encounter_date, e.location
-order by 	patient_id, visit_date, location</sql>
+order by 	patient_id, visit_date, location
+</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -1514,84 +1357,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>544</xloc>
-      <yloc>0</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Import Ear - Discharge</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as ear_discharge
-from		omrs_encounter e
-inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-join 		omrs_obs_group obg on o.obs_group_id = obg.obs_group_id
-where		obg.concept = 'Other Concerns - Ear' and o.concept="Discharge" and e.encounter_type in ('PDC_TRISOMY21_FOLLOWUP')
-group by 	e.patient_id, e.encounter_date, e.location
-order by 	patient_id, visit_date, location</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>512</xloc>
-      <yloc>1152</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Import Ear - Pain</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as ear_pain
-from		omrs_encounter e
-inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-join 		omrs_obs_group obg on o.obs_group_id = obg.obs_group_id
-where		obg.concept = 'Other Concerns - Ear' and o.concept="Pain" and e.encounter_type in ('PDC_TRISOMY21_FOLLOWUP')
-group by 	e.patient_id, e.encounter_date, e.location
-order by 	patient_id, visit_date, location</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>192</xloc>
-      <yloc>1360</yloc>
+      <xloc>848</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1608,13 +1375,13 @@ order by 	patient_id, visit_date, location</sql>
     </partitioning>
     <connection>Warehouse</connection>
     <sql>/*
-	Extract superset of all PDC Initial /Intake encounters
+	Extract superset of all PDC developmental delay initial and pdc developmental delay followup
 */
 select      e.patient_id,
 			e.encounter_date as visit_date,
 			e.location
 from        omrs_encounter e
-where 		e.encounter_type in ('PDC_TRISOMY21_FOLLOWUP')
+where 		e.encounter_type in ('PDC_DEVELOPMENTAL_DELAY_FOLLOWUP')
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location
 </sql>
@@ -1638,7 +1405,7 @@ order by 	patient_id, visit_date, location
     </GUI>
   </step>
   <step>
-    <name>Import Extremities - Pain</name>
+    <name>Import Feeding - Cup</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1649,11 +1416,11 @@ order by 	patient_id, visit_date, location
       <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as extremities_pain
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as feeding_cup
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
 join 		omrs_obs_group obg on o.obs_group_id = obg.obs_group_id
-where		obg.concept = 'Other Concerns - Extremities' and o.concept="Pain" and e.encounter_type in ('PDC_TRISOMY21_FOLLOWUP')
+where		obg.concept = 'Feeding Set' and o.concept="Cup-feeding" and e.encounter_type in ('PDC_DEVELOPMENTAL_DELAY_FOLLOWUP')
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
@@ -1676,7 +1443,7 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>Import Extremities - Weakness</name>
+    <name>Import Feeding - Sucking</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1687,11 +1454,49 @@ order by 	patient_id, visit_date, location</sql>
       <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as extremities_weakness
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as feeding_sucking
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
 join 		omrs_obs_group obg on o.obs_group_id = obg.obs_group_id
-where		obg.concept = 'Other Concerns - Extremities' and o.concept="Weak" and e.encounter_type in ('PDC_TRISOMY21_FOLLOWUP')
+where		obg.concept = 'Feeding Set' and o.concept="Breast feeding" and e.encounter_type in ('PDC_DEVELOPMENTAL_DELAY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>480</xloc>
+      <yloc>848</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Feeding - Tube</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as feeding_tube
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join 		omrs_obs_group obg on o.obs_group_id = obg.obs_group_id
+where		obg.concept = 'Feeding Set' and o.concept="Orogastric tube" and e.encounter_type in ('PDC_DEVELOPMENTAL_DELAY_FOLLOWUP')
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
@@ -1728,9 +1533,10 @@ order by 	patient_id, visit_date, location</sql>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as feeding_counselling
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Food supplement' and e.encounter_type in ('PDC_TRISOMY21_FOLLOWUP')
+where		o.concept = 'Food supplement' and e.encounter_type in ('PDC_DEVELOPMENTAL_DELAY_FOLLOWUP')
 group by 	e.patient_id, e.encounter_date, e.location
-order by 	patient_id, visit_date, location</sql>
+order by 	patient_id, visit_date, location
+</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -1745,45 +1551,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>864</xloc>
-      <yloc>400</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Import Group Counselling and Play Therapy</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as group_counselling_and_play_therapy
-from		omrs_encounter e
-inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Play therapy' and e.encounter_type in ('PDC_TRISOMY21_FOLLOWUP')
-group by 	e.patient_id, e.encounter_date, e.location
-order by 	patient_id, visit_date, location</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>832</xloc>
-      <yloc>928</yloc>
+      <xloc>848</xloc>
+      <yloc>736</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1802,9 +1571,10 @@ order by 	patient_id, visit_date, location</sql>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as height
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Height (cm)' and e.encounter_type in ('PDC_TRISOMY21_FOLLOWUP')
+where		o.concept = 'Height (cm)' and e.encounter_type in ('PDC_DEVELOPMENTAL_DELAY_FOLLOWUP')
 group by 	e.patient_id, e.encounter_date, e.location
-order by 	patient_id, visit_date, location</sql>
+order by 	patient_id, visit_date, location
+</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -1819,8 +1589,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>64</xloc>
-      <yloc>160</yloc>
+      <xloc>80</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1840,7 +1610,7 @@ order by 	patient_id, visit_date, location</sql>
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
 join 		omrs_obs_group obg on o.obs_group_id = obg.obs_group_id
-where		obg.concept = 'Source Of Referral Set' and o.concept="Referred out" and e.encounter_type in ('PDC_TRISOMY21_FOLLOWUP')
+where		obg.concept = 'Source Of Referral Set' and o.concept="Referred out" and e.encounter_type in ('PDC_DEVELOPMENTAL_DELAY_FOLLOWUP')
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
@@ -1857,8 +1627,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1120</xloc>
-      <yloc>592</yloc>
+      <xloc>1104</xloc>
+      <yloc>784</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1878,7 +1648,7 @@ order by 	patient_id, visit_date, location</sql>
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
 join 		omrs_obs_group obg on o.obs_group_id = obg.obs_group_id
-where		obg.concept = 'Source Of Referral Set' and o.concept="Other non-coded (text)" and e.encounter_type in ('PDC_TRISOMY21_FOLLOWUP')
+where		obg.concept = 'Source Of Referral Set' and o.concept="Other non-coded (text)" and e.encounter_type in ('PDC_DEVELOPMENTAL_DELAY_FOLLOWUP')
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
@@ -1895,45 +1665,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1136</xloc>
-      <yloc>448</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Import Individual Counselling</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as individual_counselling
-from		omrs_encounter e
-inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Counseling' and e.encounter_type in ('PDC_TRISOMY21_FOLLOWUP')
-group by 	e.patient_id, e.encounter_date, e.location
-order by 	patient_id, visit_date, location</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>816</xloc>
-      <yloc>272</yloc>
+      <xloc>1104</xloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1952,9 +1685,10 @@ order by 	patient_id, visit_date, location</sql>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as muac
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Middle upper arm circumference (cm)' and e.encounter_type in ('PDC_TRISOMY21_FOLLOWUP')
+where		o.concept = 'Middle upper arm circumference (cm)' and e.encounter_type in ('PDC_DEVELOPMENTAL_DELAY_FOLLOWUP')
 group by 	e.patient_id, e.encounter_date, e.location
-order by 	patient_id, visit_date, location</sql>
+order by 	patient_id, visit_date, location
+</sql>
     <limit>0</limit>
     <lookup/>
     <execute_each_row>N</execute_each_row>
@@ -1989,388 +1723,7 @@ order by 	patient_id, visit_date, location</sql>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as mdat
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Malawi Developmental Assessment Tool Summary (Normal)-(Coded)' and e.encounter_type in ('PDC_TRISOMY21_FOLLOWUP')
-group by 	e.patient_id, e.encounter_date, e.location
-order by 	patient_id, visit_date, location</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>832</xloc>
-      <yloc>1136</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Import Malnutrition</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>Warehouse</connection>
-    <sql>select patient_id, visit_date, location,
-	case when malnutrition = 'Moderate unexplained malnutrition' then 'Moderate'
-		 when malnutrition = 'Malnutrition M3' then 'Severe'
-	else malnutrition end as malnutrition
-from
-(
-select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as malnutrition
-from		omrs_encounter e
-inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Wasting/malnutrition' and e.encounter_type in ('PDC_TRISOMY21_FOLLOWUP')
-group by 	e.patient_id, e.encounter_date, e.location
-order by 	patient_id, visit_date, location
-)x</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>192</xloc>
-      <yloc>464</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Import Next Appointment Date</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as next_appointment_date
-from		omrs_encounter e
-inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Appointment date' and e.encounter_type in ('PDC_TRISOMY21_FOLLOWUP')
-group by 	e.patient_id, e.encounter_date, e.location
-order by 	patient_id, visit_date, location</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1136</xloc>
-      <yloc>304</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Import Passage Normal</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as passage_normal
-from		omrs_encounter e
-inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Normal(Generic)' and e.encounter_type in ('PDC_TRISOMY21_FOLLOWUP')
-group by 	e.patient_id, e.encounter_date, e.location
-order by 	patient_id, visit_date, location</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>192</xloc>
-      <yloc>672</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Import Physiotherapy</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as physiotherapy
-from		omrs_encounter e
-inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Physiotherapy' and e.encounter_type in ('PDC_TRISOMY21_FOLLOWUP')
-group by 	e.patient_id, e.encounter_date, e.location
-order by 	patient_id, visit_date, location</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>848</xloc>
-      <yloc>736</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Import Referred Out</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as referred_out
-from		omrs_encounter e
-inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-join 		omrs_obs_group obg on o.obs_group_id = obg.obs_group_id
-where		obg.concept = 'Referred Out Set' and o.concept="Referred out" and e.encounter_type in ('PDC_TRISOMY21_FOLLOWUP')
-group by 	e.patient_id, e.encounter_date, e.location
-order by 	patient_id, visit_date, location</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1088</xloc>
-      <yloc>960</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Import Referred Out (specify) </name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_text as referred_out_specify
-from		omrs_encounter e
-inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-join 		omrs_obs_group obg on o.obs_group_id = obg.obs_group_id
-where		obg.concept = 'Referred Out Set' and o.concept="Other non-coded (text)" and e.encounter_type in ('PDC_TRISOMY21_FOLLOWUP')
-group by 	e.patient_id, e.encounter_date, e.location
-order by 	patient_id, visit_date, location</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1104</xloc>
-      <yloc>784</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Import Referred to POSER</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as referred_to_poser
-from		omrs_encounter e
-inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Poor Growth' and e.encounter_type in ('PDC_TRISOMY21_FOLLOWUP')
-group by 	e.patient_id, e.encounter_date, e.location
-order by 	patient_id, visit_date, location</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>1120</xloc>
-      <yloc>1152</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Import Sleep - Apnea</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as sleep_apnea
-from		omrs_encounter e
-inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-join 		omrs_obs_group obg on o.obs_group_id = obg.obs_group_id
-where		obg.concept = 'Other Concerns - Sleep' and o.concept="Apnea" and e.encounter_type in ('PDC_TRISOMY21_FOLLOWUP')
-group by 	e.patient_id, e.encounter_date, e.location
-order by 	patient_id, visit_date, location</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>528</xloc>
-      <yloc>960</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Import Sleep - Choking</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as sleep_chocking
-from		omrs_encounter e
-inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-join 		omrs_obs_group obg on o.obs_group_id = obg.obs_group_id
-where		obg.concept = 'Other Concerns - Sleep' and o.concept="Choking" and e.encounter_type in ('PDC_TRISOMY21_FOLLOWUP')
-group by 	e.patient_id, e.encounter_date, e.location
-order by 	patient_id, visit_date, location</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>480</xloc>
-      <yloc>848</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Import Vomiting</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as vomiting
-from		omrs_encounter e
-inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Patient Vomiting' and e.encounter_type in ('PDC_TRISOMY21_FOLLOWUP')
+where		o.concept = 'Malawi Developmental Assessment Tool Summary (Normal)-(Coded)' and e.encounter_type in ('PDC_DEVELOPMENTAL_DELAY_FOLLOWUP')
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
@@ -2393,7 +1746,7 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>Import Weight</name>
+    <name>Import Malnutrition</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -2404,10 +1757,132 @@ order by 	patient_id, visit_date, location</sql>
       <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as weight
+    <sql>
+select patient_id, visit_date, location,
+	case when malnutrition = 'Moderate unexplained malnutrition' then 'Moderate'
+		 when malnutrition = 'Malnutrition M3' then 'Severe'
+	else malnutrition end as malnutrition
+from
+(
+select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as malnutrition
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Weight (kg)' and e.encounter_type in ('PDC_TRISOMY21_FOLLOWUP')
+where		o.concept = 'Wasting/malnutrition' and e.encounter_type in ('PDC_DEVELOPMENTAL_DELAY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location
+)sub</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>832</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Next Appointment Date</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_date as next_appointment_date
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Appointment date' and e.encounter_type in ('PDC_DEVELOPMENTAL_DELAY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1120</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Play Therapy and Group Counselling</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as group_counselling_and_play_therapy
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Play therapy' and e.encounter_type in ('PDC_DEVELOPMENTAL_DELAY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>832</xloc>
+      <yloc>928</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Referred Out</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as referred_out
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join 		omrs_obs_group obg on o.obs_group_id = obg.obs_group_id
+where		obg.concept = 'Referred Out Set' and o.concept="Referred out" and e.encounter_type in ('PDC_DEVELOPMENTAL_DELAY_FOLLOWUP')
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
@@ -2424,35 +1899,35 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>80</xloc>
-      <yloc>96</yloc>
+      <xloc>1120</xloc>
+      <yloc>1152</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Individual Counselling Merge</name>
-    <type>MergeJoin</type>
+    <name>Import Referred Out (Specify)</name>
+    <type>TableInput</type>
     <description/>
-    <distribute>N</distribute>
+    <distribute>Y</distribute>
     <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <join_type>LEFT OUTER</join_type>
-    <step1>Adjust Dose Merge</step1>
-    <step2>Import Individual Counselling</step2>
-    <keys_1>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_1>
-    <keys_2>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_2>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_text as referred_out_specify
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join 		omrs_obs_group obg on o.obs_group_id = obg.obs_group_id
+where		obg.concept = 'Referred Out Set' and o.concept="Other non-coded (text)" and e.encounter_type in ('PDC_DEVELOPMENTAL_DELAY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
     <attributes/>
     <cluster_schema/>
     <remotesteps>
@@ -2462,8 +1937,350 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>960</xloc>
-      <yloc>320</yloc>
+      <xloc>1088</xloc>
+      <yloc>976</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Referred to POSER</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as referred_to_poser
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Poor Growth' and e.encounter_type in ('PDC_DEVELOPMENTAL_DELAY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>832</xloc>
+      <yloc>1136</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Signs of Cerebral Palsy</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as signs_of_cerebral_palsy
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Signs of Cerebral Palsy' and e.encounter_type in ('PDC_DEVELOPMENTAL_DELAY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>560</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Tone - Hyper</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as tone_hyper
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join 		omrs_obs_group obg on o.obs_group_id = obg.obs_group_id
+where		obg.concept = 'Tone Set' and o.concept="Hyper" and e.encounter_type in ('PDC_DEVELOPMENTAL_DELAY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>528</xloc>
+      <yloc>960</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Tone - Hypo</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as tone_hypo
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join 		omrs_obs_group obg on o.obs_group_id = obg.obs_group_id
+where		obg.concept = 'Tone Set' and o.concept="Hypo" and e.encounter_type in ('PDC_DEVELOPMENTAL_DELAY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>512</xloc>
+      <yloc>1152</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Tone - Normal</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as tone_normal
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join 		omrs_obs_group obg on o.obs_group_id = obg.obs_group_id
+where		obg.concept = 'Tone Set' and o.concept="Normal(Generic)" and e.encounter_type in ('PDC_DEVELOPMENTAL_DELAY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>192</xloc>
+      <yloc>1360</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Under Mental health Care Program</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as under_mental_health_care_program
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Mental health referral' and e.encounter_type in ('PDC_DEVELOPMENTAL_DELAY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>544</xloc>
+      <yloc>0</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Weight</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as weight
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Weight (kg)' and e.encounter_type in ('PDC_DEVELOPMENTAL_DELAY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>64</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Weight Against Age</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as weight_against_age
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join 		omrs_obs_group obg on o.obs_group_id = obg.obs_group_id
+where		o.concept = 'Numeric value or result' and obg.concept="W/A" and e.encounter_type in ('PDC_DEVELOPMENTAL_DELAY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>192</xloc>
+      <yloc>464</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Weight Against Height</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as weight_against_height
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join 		omrs_obs_group obg on o.obs_group_id = obg.obs_group_id
+where		o.concept = 'Numeric value or result' and obg.concept="W/H" and e.encounter_type in ('PDC_DEVELOPMENTAL_DELAY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>192</xloc>
+      <yloc>672</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2479,7 +2296,7 @@ order by 	patient_id, visit_date, location</sql>
       <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1>Height Merge</step1>
+    <step1>Weight Merge</step1>
     <step2>Import MUAC</step2>
     <keys_1>
       <key>patient_id</key>
@@ -2506,7 +2323,7 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>Malawi Developmental Assessment Summary Tool Merge</name>
+    <name>Malawi Developmental Assessment Tool Summary Merge</name>
     <type>MergeJoin</type>
     <description/>
     <distribute>N</distribute>
@@ -2517,7 +2334,7 @@ order by 	patient_id, visit_date, location</sql>
       <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1>Group Counselling and Play Therapy Merge</step1>
+    <step1>Malnutrition Merge</step1>
     <step2>Import Malawi Developmental Assessment Tool Summary</step2>
     <keys_1>
       <key>patient_id</key>
@@ -2538,8 +2355,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>960</xloc>
-      <yloc>1248</yloc>
+      <xloc>336</xloc>
+      <yloc>1072</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2555,7 +2372,7 @@ order by 	patient_id, visit_date, location</sql>
       <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1>MUAC Merge</step1>
+    <step1>Weight Against Height Merge</step1>
     <step2>Import Malnutrition</step2>
     <keys_1>
       <key>patient_id</key>
@@ -2577,12 +2394,12 @@ order by 	patient_id, visit_date, location</sql>
     </remotesteps>
     <GUI>
       <xloc>336</xloc>
-      <yloc>544</yloc>
+      <yloc>928</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Next Appointment Date  Merge</name>
+    <name>Next Appointment Date Merge</name>
     <type>MergeJoin</type>
     <description/>
     <distribute>N</distribute>
@@ -2593,7 +2410,7 @@ order by 	patient_id, visit_date, location</sql>
       <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1> If Referred Out (Specify) Merge</step1>
+    <step1>If Referred Out (Specify) Merge</step1>
     <step2>Import Next Appointment Date</step2>
     <keys_1>
       <key>patient_id</key>
@@ -2615,12 +2432,12 @@ order by 	patient_id, visit_date, location</sql>
     </remotesteps>
     <GUI>
       <xloc>1296</xloc>
-      <yloc>336</yloc>
+      <yloc>432</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Passion Normal Merge</name>
+    <name>Play Therapy and Group Counselling Merge</name>
     <type>MergeJoin</type>
     <description/>
     <distribute>N</distribute>
@@ -2631,46 +2448,8 @@ order by 	patient_id, visit_date, location</sql>
       <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1>Malnutrition Merge</step1>
-    <step2>Import Passage Normal</step2>
-    <keys_1>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_1>
-    <keys_2>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_2>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>336</xloc>
-      <yloc>768</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Physiotherapy Merge</name>
-    <type>MergeJoin</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <join_type>LEFT OUTER</join_type>
-    <step1>Continue Followup Merge</step1>
-    <step2>Import Physiotherapy</step2>
+    <step1>Feeding Counselling Merge</step1>
+    <step2>Import Play Therapy and Group Counselling</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -2691,7 +2470,7 @@ order by 	patient_id, visit_date, location</sql>
     </remotesteps>
     <GUI>
       <xloc>960</xloc>
-      <yloc>848</yloc>
+      <yloc>1040</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2708,7 +2487,7 @@ order by 	patient_id, visit_date, location</sql>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Referred Out Merge</step1>
-    <step2>Import Referred Out (specify) </step2>
+    <step2>Import Referred Out (Specify)</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -2729,7 +2508,7 @@ order by 	patient_id, visit_date, location</sql>
     </remotesteps>
     <GUI>
       <xloc>1296</xloc>
-      <yloc>880</yloc>
+      <yloc>1024</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2767,7 +2546,7 @@ order by 	patient_id, visit_date, location</sql>
     </remotesteps>
     <GUI>
       <xloc>1296</xloc>
-      <yloc>1024</yloc>
+      <yloc>1248</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2783,7 +2562,7 @@ order by 	patient_id, visit_date, location</sql>
       <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1>Malawi Developmental Assessment Summary Tool Merge</step1>
+    <step1>Play Therapy and Group Counselling Merge</step1>
     <step2>Import Referred to POSER</step2>
     <keys_1>
       <key>patient_id</key>
@@ -2804,13 +2583,13 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1296</xloc>
+      <xloc>960</xloc>
       <yloc>1248</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Sleep - Apnea Merge </name>
+    <name>Signs of Cerebral Palsy Merge </name>
     <type>MergeJoin</type>
     <description/>
     <distribute>N</distribute>
@@ -2821,8 +2600,46 @@ order by 	patient_id, visit_date, location</sql>
       <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1>Ear - Discharge Merge</step1>
-    <step2>Import Sleep - Apnea</step2>
+    <step1>Feeding - Tube Merge</step1>
+    <step2>Import Signs of Cerebral Palsy</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>704</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Tone - Hyper Merge </name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Tone - Hypo Merge</step1>
+    <step2>Import Tone - Hyper</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -2848,7 +2665,7 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>Sleep - Chocking Merge </name>
+    <name>Tone - Hypo Merge</name>
     <type>MergeJoin</type>
     <description/>
     <distribute>N</distribute>
@@ -2859,8 +2676,8 @@ order by 	patient_id, visit_date, location</sql>
       <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1>Sleep - Apnea Merge </step1>
-    <step2>Import Sleep - Choking</step2>
+    <step1>Tone - Normal Merge</step1>
+    <step2>Import Tone - Hypo</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -2881,12 +2698,12 @@ order by 	patient_id, visit_date, location</sql>
     </remotesteps>
     <GUI>
       <xloc>704</xloc>
-      <yloc>864</yloc>
+      <yloc>1264</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Vomiting Merge</name>
+    <name>Tone - Normal Merge</name>
     <type>MergeJoin</type>
     <description/>
     <distribute>N</distribute>
@@ -2897,8 +2714,8 @@ order by 	patient_id, visit_date, location</sql>
       <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1>Diarrhea Persistent Merge</step1>
-    <step2>Import Vomiting</step2>
+    <step1>Malawi Developmental Assessment Tool Summary Merge</step1>
+    <step2>Import Tone - Normal</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -2919,12 +2736,12 @@ order by 	patient_id, visit_date, location</sql>
     </remotesteps>
     <GUI>
       <xloc>336</xloc>
-      <yloc>1072</yloc>
+      <yloc>1264</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Weight Merge</name>
+    <name>Under Mental Health Care Program Merge</name>
     <type>MergeJoin</type>
     <description/>
     <distribute>N</distribute>
@@ -2935,7 +2752,121 @@ order by 	patient_id, visit_date, location</sql>
       <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1>Import Encounters</step1>
+    <step1>Signs of Cerebral Palsy Merge </step1>
+    <step2>Import Under Mental health Care Program</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>704</xloc>
+      <yloc>48</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Weight Against Age Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>MUAC Merge</step1>
+    <step2>Import Weight Against Age</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>336</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Weight Against Height Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Weight Against Age Merge</step1>
+    <step2>Import Weight Against Height</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>336</xloc>
+      <yloc>768</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Weight Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Height Merge</step1>
     <step2>Import Weight</step2>
     <keys_1>
       <key>patient_id</key>
@@ -2957,12 +2888,12 @@ order by 	patient_id, visit_date, location</sql>
     </remotesteps>
     <GUI>
       <xloc>336</xloc>
-      <yloc>16</yloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Write PDC Trisomy 21 Table</name>
+    <name>Write PDC Developmental Delay FollowupTable</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -2974,7 +2905,7 @@ order by 	patient_id, visit_date, location</sql>
     </partitioning>
     <connection>Warehouse</connection>
     <schema/>
-    <table>mw_pdc_trisomy_21_followup</table>
+    <table>mw_pdc_developmental_delay_followup</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -3003,92 +2934,88 @@ order by 	patient_id, visit_date, location</sql>
         <stream_name>location</stream_name>
       </field>
       <field>
-        <column_name>weight</column_name>
-        <stream_name>weight</stream_name>
-      </field>
-      <field>
         <column_name>height</column_name>
         <stream_name>height</stream_name>
+      </field>
+      <field>
+        <column_name>weight</column_name>
+        <stream_name>weight</stream_name>
       </field>
       <field>
         <column_name>muac</column_name>
         <stream_name>muac</stream_name>
       </field>
       <field>
+        <column_name>weight_against_age</column_name>
+        <stream_name>weight_against_age</stream_name>
+      </field>
+      <field>
+        <column_name>weight_against_height</column_name>
+        <stream_name>weight_against_height</stream_name>
+      </field>
+      <field>
         <column_name>malnutrition</column_name>
         <stream_name>malnutrition</stream_name>
       </field>
       <field>
-        <column_name>passage_normal</column_name>
-        <stream_name>passage_normal</stream_name>
+        <column_name>mdat</column_name>
+        <stream_name>mdat</stream_name>
       </field>
       <field>
-        <column_name>diarrhea_persistent</column_name>
-        <stream_name>diarrhea_persistent</stream_name>
+        <column_name>tone_normal</column_name>
+        <stream_name>tone_normal</stream_name>
       </field>
       <field>
-        <column_name>vomiting</column_name>
-        <stream_name>vomiting</stream_name>
+        <column_name>tone_hypo</column_name>
+        <stream_name>tone_hypo</stream_name>
       </field>
       <field>
-        <column_name>ear_pain</column_name>
-        <stream_name>ear_pain</stream_name>
+        <column_name>tone_hyper</column_name>
+        <stream_name>tone_hyper</stream_name>
       </field>
       <field>
-        <column_name>ear_discharge</column_name>
-        <stream_name>ear_discharge</stream_name>
+        <column_name>feeding_sucking</column_name>
+        <stream_name>feeding_sucking</stream_name>
       </field>
       <field>
-        <column_name>sleep_apnea</column_name>
-        <stream_name>sleep_apnea</stream_name>
+        <column_name>feeding_cup</column_name>
+        <stream_name>feeding_cup</stream_name>
       </field>
       <field>
-        <column_name>sleep_chocking</column_name>
-        <stream_name>sleep_chocking</stream_name>
+        <column_name>feeding_tube</column_name>
+        <stream_name>feeding_tube</stream_name>
       </field>
       <field>
-        <column_name>extremities_pain</column_name>
-        <stream_name>extremities_pain</stream_name>
+        <column_name>signs_of_cerebral_palsy</column_name>
+        <stream_name>signs_of_cerebral_palsy</stream_name>
       </field>
       <field>
-        <column_name>extremities_weakness</column_name>
-        <stream_name>extremities_weakness</stream_name>
+        <column_name>under_mental_health_care_program</column_name>
+        <stream_name>under_mental_health_care_program</stream_name>
       </field>
       <field>
         <column_name>anticonvulsant</column_name>
         <stream_name>anticonvulsant</stream_name>
       </field>
       <field>
-        <column_name>drug_and_dose</column_name>
-        <stream_name>drug_and_dose</stream_name>
+        <column_name>dose_and_drug</column_name>
+        <stream_name>dose_and_drug</stream_name>
       </field>
       <field>
-        <column_name>adjust_dose</column_name>
-        <stream_name>adjust_dose</stream_name>
-      </field>
-      <field>
-        <column_name>individual_counselling</column_name>
-        <stream_name>individual_counselling</stream_name>
-      </field>
-      <field>
-        <column_name>feeding_counselling</column_name>
-        <stream_name>feeding_counselling</stream_name>
+        <column_name>dose_adjusted</column_name>
+        <stream_name>dose_adjusted</stream_name>
       </field>
       <field>
         <column_name>continue_followup</column_name>
         <stream_name>continue_followup</stream_name>
       </field>
       <field>
-        <column_name>physiotherapy</column_name>
-        <stream_name>physiotherapy</stream_name>
+        <column_name>feeding_counselling</column_name>
+        <stream_name>feeding_counselling</stream_name>
       </field>
       <field>
         <column_name>group_counselling_and_play_therapy</column_name>
         <stream_name>group_counselling_and_play_therapy</stream_name>
-      </field>
-      <field>
-        <column_name>mdat</column_name>
-        <stream_name>mdat</stream_name>
       </field>
       <field>
         <column_name>referred_to_poser</column_name>
@@ -3125,7 +3052,7 @@ order by 	patient_id, visit_date, location</sql>
     </remotesteps>
     <GUI>
       <xloc>1296</xloc>
-      <yloc>96</yloc>
+      <yloc>166</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
