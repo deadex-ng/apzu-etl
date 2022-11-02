@@ -78,6 +78,7 @@ configuration:
     - tableName: "mw_pdc_initial"
     - tableName: "mw_pdc_trisomy_21_followup"
     - tableName: "mw_pdc_developmental_delay_followup"
+    - tableName: "mw_pdc_other_diagnosis_followup"
     - tableName: "omrs_encounter"
     - tableName: "omrs_encounter_provider"
     - tableName: "omrs_obs"
