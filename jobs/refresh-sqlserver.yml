@@ -75,6 +75,7 @@ configuration:
     - tableName: "mw_patient"
     - tableName: "mw_pre_art_register"
     - tableName: "mw_pre_art_visits"
+    - tableName: "mw_pdc_initial"
     - tableName: "omrs_encounter"
     - tableName: "omrs_encounter_provider"
     - tableName: "omrs_obs"
