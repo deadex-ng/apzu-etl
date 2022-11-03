@@ -85,6 +85,7 @@ configuration:
     - tableName: "mw_pdc_vision_test"
     - tableName: "mw_pdc_radiology"
     - tableName: "mw_pdc_complications"
+    - tableName: "mw_pdc_hearing_test"
     - tableName: "omrs_encounter"
     - tableName: "omrs_encounter_provider"
     - tableName: "omrs_obs"
