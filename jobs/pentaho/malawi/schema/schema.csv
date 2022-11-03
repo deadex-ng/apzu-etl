@@ -61,3 +61,5 @@ table,mw_pdc_other_diagnosis_followup
 table,mw_pdc_history_of_hospitalization
 table,mw_pdc_cleft_lip_palate_followup
 table,mw_pdc_diagnoses
+table,mw_pdc_vision_test
+table,mw_pdc_radiology
