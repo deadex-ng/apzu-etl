@@ -83,6 +83,7 @@ configuration:
     - tableName: "mw_pdc_cleft_lip_palate_followup"
     - tableName: "mw_pdc_diagnoses"
     - tableName: "mw_pdc_vision_test"
+    - tableName: "mw_pdc_radiology"
     - tableName: "omrs_encounter"
     - tableName: "omrs_encounter_provider"
     - tableName: "omrs_obs"
