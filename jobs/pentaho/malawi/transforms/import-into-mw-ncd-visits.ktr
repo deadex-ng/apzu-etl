@@ -1493,7 +1493,26 @@ order by 	patient_id, visit_date, location;</sql>
     <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, min(o.value_date) as next_appointment_date
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Appointment date'
+where		o.concept = 'Appointment date' and 
+e.encounter_type in (
+  'CHRONIC_CARE_INITIAL',
+  'CHRONIC_CARE_FOLLOWUP',
+  'DIABETES HYPERTENSION INITIAL VISIT',
+  'DIABETES HYPERTENSION FOLLOWUP',
+  'ASTHMA_INITIAL',
+  'ASTHMA_FOLLOWUP',
+  'EPILEPSY_INITIAL',
+  'EPILEPSY_FOLLOWUP',
+  'MENTAL_HEALTH_INITIAL',
+  'MENTAL_HEALTH_FOLLOWUP',
+  'CKD_INITIAL',
+  'CKD_FOLLOWUP',
+  'CHF_INITIAL',
+  'CHF_FOLLOWUP',
+  'NCD_OTHER_INITIAL',
+  'NCD_OTHER_FOLLOWUP'
+  
+)
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
