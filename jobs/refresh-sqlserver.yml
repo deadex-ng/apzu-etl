@@ -60,6 +60,7 @@ configuration:
     - tableName: "mw_eid_initial"
     - tableName: "mw_eid_register"
     - tableName: "mw_eid_visits"
+    - tableName: "mw_eid_result_tests"
     - tableName: "mw_epilepsy_followup"
     - tableName: "mw_epilepsy_initial"
     - tableName: "mw_lab_tests"
