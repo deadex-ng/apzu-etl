@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>import-into-mw-eid-test-results</name>
+    <name>import-into-mw-eid-lab-test</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -1087,7 +1087,7 @@ order by 	patient_id, visit_date, location</sql>
     </partitioning>
     <connection>Warehouse</connection>
     <schema/>
-    <table>mw_eid_result_tests</table>
+    <table>mw_eid_lab_tests</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
