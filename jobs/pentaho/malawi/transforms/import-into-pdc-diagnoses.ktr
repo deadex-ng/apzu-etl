@@ -437,13 +437,13 @@
   </notepads>
   <connection>
     <name>Warehouse</name>
-    <server> ${warehouse.db.host}</server>
+    <server>${warehouse.db.host}</server>
     <type>MYSQL</type>
     <access>Native</access>
-    <database> ${warehouse.db.name}</database>
-    <port> ${warehouse.db.port}</port>
-    <username> ${warehouse.db.user}</username>
-    <password> ${warehouse.db.password}</password>
+    <database>${warehouse.db.name}</database>
+    <port>${warehouse.db.port}</port>
+    <username>${warehouse.db.user}</username>
+    <password>${warehouse.db.password}</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -462,7 +462,7 @@
       </attribute>
       <attribute>
         <code>PORT_NUMBER</code>
-        <attribute> ${warehouse.db.port}</attribute>
+        <attribute>${warehouse.db.port}</attribute>
       </attribute>
       <attribute>
         <code>PRESERVE_RESERVED_WORD_CASE</code>
