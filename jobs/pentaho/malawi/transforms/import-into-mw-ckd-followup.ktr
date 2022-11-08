@@ -878,16 +878,16 @@
     </hop>
     <hop>
       <from>diet_recommendations Merge   </from>
-      <to>diuretic_furo Merge    4 3 2</to>
+      <to>Next Appointment Date Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>Import next_appointment_date</from>
-      <to>diuretic_furo Merge    4 3 2</to>
+      <to>Next Appointment Date Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>diuretic_furo Merge    4 3 2</from>
+      <from>Next Appointment Date Merge</from>
       <to>Write CKD_FOLLOWUP Table  </to>
       <enabled>Y</enabled>
     </hop>
@@ -2140,7 +2140,7 @@ order by 	patient_id, visit_date, location</sql>
 
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Appointment date' and e.encounter_type in ('CKD_FOLLOWUP'
+where		o.concept = 'Appointment date' and e.encounter_type in ('CKD_FOLLOWUP')
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
@@ -3309,8 +3309,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1888</xloc>
-      <yloc>184</yloc>
+      <xloc>1904</xloc>
+      <yloc>176</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3353,7 +3353,7 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>diuretic_furo Merge    4 3 2</name>
+    <name>Next Appointment Date Merge</name>
     <type>MergeJoin</type>
     <description/>
     <distribute>N</distribute>
