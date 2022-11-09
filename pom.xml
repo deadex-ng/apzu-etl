@@ -5,7 +5,7 @@
     <artifactId>apzu-etl</artifactId>
     <name>AZPU ETL</name>
     <description>ETL Project for APZU OpenMRS instances</description>
-    <version>1.2.0-SNAPSHOT</version>
+    <version>1.2.0</version>
     <packaging>jar</packaging>
 
     <developers>
