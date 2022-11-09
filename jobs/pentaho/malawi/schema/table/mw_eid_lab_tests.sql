@@ -1,4 +1,4 @@
-CREATE TABLE mw_eid_result_tests (
+CREATE TABLE mw_eid_lab_tests (
   eid_result_tests_id 			int NOT NULL AUTO_INCREMENT,
   patient_id 				int NOT NULL,
   visit_date 				date DEFAULT NULL,
