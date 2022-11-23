@@ -27,6 +27,8 @@ CREATE TABLE mw_art_followup (
   inh_300_pills		     		DECIMAL(10,2),
   rfp_150					VARCHAR(255),
   rfp_150_pills		     		DECIMAL(10,2),
+  rfp_inh					VARCHAR(255),
+  rfp_inh_pills				DECIMAL(10,2),
   pyridoxine					VARCHAR(255),
   pyridoxine_pills		     		DECIMAL(10,2),
   depo_given					VARCHAR(255),
