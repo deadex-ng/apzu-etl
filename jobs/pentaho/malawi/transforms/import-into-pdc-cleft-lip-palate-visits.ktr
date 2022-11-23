@@ -2091,7 +2091,7 @@ order by 	patient_id, visit_date, location</sql>
       <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_text as plan
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_text as clinical_plan
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
 where		o.concept = 'Clinical impression comments' and e.encounter_type in ('PDC_CLEFT_CLIP_PALLET_FOLLOWUP')
@@ -3016,8 +3016,8 @@ order by 	patient_id, visit_date, location</sql>
         <stream_name>if_referred_out_specify</stream_name>
       </field>
       <field>
-        <column_name>plan</column_name>
-        <stream_name>plan</stream_name>
+        <column_name>clinical_plan</column_name>
+        <stream_name>clinical_plan</stream_name>
       </field>
       <field>
         <column_name>next_appointment_date</column_name>

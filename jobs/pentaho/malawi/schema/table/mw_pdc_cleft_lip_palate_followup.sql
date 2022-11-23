@@ -28,7 +28,7 @@ CREATE TABLE mw_pdc_cleft_lip_palate_followup (
   referred_out_specify			varchar(255) DEFAULT NULL,
   if_referred_out			varchar(255) DEFAULT NULL,
   if_referred_out_specify		varchar(255) DEFAULT NULL,
-  plan					varchar(255) DEFAULT NULL,
+  clinical_plan			varchar(255) DEFAULT NULL,
   next_appointment_date		date DEFAULT NULL,
   PRIMARY KEY (pdc_cleft_lip_palate_visit_id)
 ) ;
