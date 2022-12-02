@@ -32,7 +32,7 @@ CREATE TABLE mw_pdc_other_diagnosis_followup (
   if_referred_out			varchar(255) DEFAULT NULL,
   if_referred_out_specify		varchar(255) DEFAULT NULL,
   mdat					varchar(255) DEFAULT NULL,
-  plan					varchar(255) DEFAULT NULL,
+  clinical_plan			varchar(255) DEFAULT NULL,
   next_appointment_date 		date DEFAULT NULL,
   PRIMARY KEY (pdc_other_diagnosis_visit_id)
 ) ;

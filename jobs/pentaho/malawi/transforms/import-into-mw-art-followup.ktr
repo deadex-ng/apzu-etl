@@ -460,8 +460,8 @@
   diastolic_bp							VARCHAR(255),
   condoms_given						VARCHAR(255)
 );</note>
-      <xloc>1408</xloc>
-      <yloc>48</yloc>
+      <xloc>1568</xloc>
+      <yloc>32</yloc>
       <width>511</width>
       <heigth>418</heigth>
       <fontname>Ubuntu</fontname>
@@ -781,11 +781,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>RFP 150 Pills Merge</from>
-      <to>Pyridoxine Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Import Pyridoxine</from>
       <to>Pyridoxine Merge</to>
       <enabled>Y</enabled>
@@ -803,6 +798,31 @@
     <hop>
       <from>Pyridoxine Pills Merge</from>
       <to>Write ART Visit Table</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>RFP/INH Merge</from>
+      <to>RFP/INH Pills Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>RFP/INH Pills Merge</from>
+      <to>Pyridoxine Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import RFP/INH Pills</from>
+      <to>RFP/INH Pills Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import RFP/INH</from>
+      <to>RFP/INH Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>RFP 150 Pills Merge</from>
+      <to>RFP/INH Merge</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1972,8 +1992,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>992</xloc>
-      <yloc>368</yloc>
+      <xloc>976</xloc>
+      <yloc>144</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2010,8 +2030,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>992</xloc>
-      <yloc>256</yloc>
+      <xloc>976</xloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2086,6 +2106,81 @@ order by 	patient_id, visit_date, location</sql>
     <GUI>
       <xloc>992</xloc>
       <yloc>496</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import RFP/INH</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as rfp_inh, o.obs_group_id as obs_group_id_rfp_inh_pills
+from		omrs_encounter e
+
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'HIV Preventive Therapy' and o.value_coded = '3HP (Rifapentine and Isoniazid)'
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>976</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import RFP/INH Pills</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as rfp_inh_pills, o.obs_group_id as obs_group_id_rfp_inh_pills
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Amount Dispensed'  and e.encounter_type in ('ART_FOLLOWUP')
+order by 	patient_id, visit_date, location
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>992</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2381,7 +2476,7 @@ order by 	patient_id, visit_date, location</sql>
       <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1>RFP 150 Pills Merge</step1>
+    <step1>RFP/INH Pills Merge</step1>
     <step2>Import Pyridoxine</step2>
     <keys_1>
       <key>patient_id</key>
@@ -2403,7 +2498,7 @@ order by 	patient_id, visit_date, location</sql>
     </remotesteps>
     <GUI>
       <xloc>1152</xloc>
-      <yloc>368</yloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2443,7 +2538,7 @@ order by 	patient_id, visit_date, location</sql>
     </remotesteps>
     <GUI>
       <xloc>1152</xloc>
-      <yloc>256</yloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2522,6 +2617,84 @@ order by 	patient_id, visit_date, location</sql>
     <GUI>
       <xloc>1152</xloc>
       <yloc>496</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>RFP/INH Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>RFP 150 Pills Merge</step1>
+    <step2>Import RFP/INH</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1152</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>RFP/INH Pills Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>RFP/INH Merge</step1>
+    <step2>Import RFP/INH Pills</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>obs_group_id_rfp_inh_pills</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>obs_group_id_rfp_inh_pills</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1152</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2747,6 +2920,26 @@ order by 	patient_id, visit_date, location</sql>
         <stream_name>no_side_effect</stream_name>
       </field>
       <field>
+        <column_name>peripheral_neuropathy_side_effect</column_name>
+        <stream_name>peripheral_neuropathy_side_effect</stream_name>
+      </field>
+      <field>
+        <column_name>hepatitis_side_effect</column_name>
+        <stream_name>hepatitis_side_effect</stream_name>
+      </field>
+      <field>
+        <column_name>skin_rash_side_effect</column_name>
+        <stream_name>skin_rash_side_effect</stream_name>
+      </field>
+      <field>
+        <column_name>lipodystrophy_side_effect</column_name>
+        <stream_name>lipodystrophy_side_effect</stream_name>
+      </field>
+      <field>
+        <column_name>other_side_effect</column_name>
+        <stream_name>other_side_effect</stream_name>
+      </field>
+      <field>
         <column_name>pill_count</column_name>
         <stream_name>pill_count</stream_name>
       </field>
@@ -2783,52 +2976,40 @@ order by 	patient_id, visit_date, location</sql>
         <stream_name>condoms_given</stream_name>
       </field>
       <field>
-        <column_name>peripheral_neuropathy_side_effect</column_name>
-        <stream_name>peripheral_neuropathy_side_effect</stream_name>
-      </field>
-      <field>
-        <column_name>hepatitis_side_effect</column_name>
-        <stream_name>hepatitis_side_effect</stream_name>
-      </field>
-      <field>
-        <column_name>skin_rash_side_effect</column_name>
-        <stream_name>skin_rash_side_effect</stream_name>
-      </field>
-      <field>
-        <column_name>lipodystrophy_side_effect</column_name>
-        <stream_name>lipodystrophy_side_effect</stream_name>
-      </field>
-      <field>
-        <column_name>other_side_effect</column_name>
-        <stream_name>other_side_effect</stream_name>
-      </field>
-      <field>
         <column_name>ctx_960</column_name>
         <stream_name>ctx_960</stream_name>
-      </field>
-      <field>
-        <column_name>inh_300</column_name>
-        <stream_name>inh_300</stream_name>
-      </field>
-      <field>
-        <column_name>rfp_150</column_name>
-        <stream_name>rfp_150</stream_name>
-      </field>
-      <field>
-        <column_name>pyridoxine</column_name>
-        <stream_name>pyridoxine</stream_name>
       </field>
       <field>
         <column_name>ctx_960_pills</column_name>
         <stream_name>ctx_960_pills</stream_name>
       </field>
       <field>
+        <column_name>inh_300</column_name>
+        <stream_name>inh_300</stream_name>
+      </field>
+      <field>
         <column_name>inh_300_pills</column_name>
         <stream_name>inh_300_pills</stream_name>
       </field>
       <field>
+        <column_name>rfp_150</column_name>
+        <stream_name>rfp_150</stream_name>
+      </field>
+      <field>
         <column_name>rfp_150_pills</column_name>
         <stream_name>rfp_150_pills</stream_name>
+      </field>
+      <field>
+        <column_name>rfp_inh</column_name>
+        <stream_name>rfp_inh</stream_name>
+      </field>
+      <field>
+        <column_name>rfp_inh_pills</column_name>
+        <stream_name>rfp_inh_pills</stream_name>
+      </field>
+      <field>
+        <column_name>pyridoxine</column_name>
+        <stream_name>pyridoxine</stream_name>
       </field>
       <field>
         <column_name>pyridoxine_pills</column_name>
@@ -2844,8 +3025,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1152</xloc>
-      <yloc>112</yloc>
+      <xloc>1424</xloc>
+      <yloc>16</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
