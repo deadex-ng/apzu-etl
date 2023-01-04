@@ -66,3 +66,4 @@ table,mw_pdc_radiology
 table,mw_pdc_complications
 table,mw_pdc_hearing_test
 table,mw_eid_lab_tests
+table,mw_pdc_visits
