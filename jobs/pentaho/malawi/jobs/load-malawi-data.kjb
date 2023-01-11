@@ -2143,7 +2143,7 @@
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>${PIH_PENTAHO_HOME}/malawi/transforms/import-into-mw-eid-test-results.ktr</filename>
+      <filename>${PIH_PENTAHO_HOME}/malawi/transforms/import-into-mw-eid-lab-test.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -2642,6 +2642,24 @@
       <to>Load PDC Visits</to>
       <from_nr>0</from_nr>
       <to_nr>0</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Load ART Followup</from>
+      <to>Load EID Initial</to>
+      <from_nr>2</from_nr>
+      <to_nr>1</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Load EID Followup</from>
+      <to>Load ART Viral Load</to>
+      <from_nr>2</from_nr>
+      <to_nr>1</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
