@@ -56,6 +56,7 @@ configuration:
     - tableName: "mw_ckd_initial"
     - tableName: "mw_diabetes_hypertension_followup"
     - tableName: "mw_diabetes_hypertension_initial"
+    - tableName: "mw_diabetes_hypertension_annual_lab_tests"
     - tableName: "mw_eid_followup"
     - tableName: "mw_eid_initial"
     - tableName: "mw_eid_register"
