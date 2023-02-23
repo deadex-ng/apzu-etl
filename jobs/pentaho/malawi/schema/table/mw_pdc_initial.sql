@@ -13,6 +13,7 @@ CREATE TABLE mw_pdc_initial (
   level_of_education				varchar(255) DEFAULT NULL,
   number_of_children				int DEFAULT NULL,
   income_source					varchar(255) DEFAULT NULL,
+  source_of_referral				varchar(255) DEFAULT NULL,
   mother_hiv_reactive				varchar(255) DEFAULT NULL,
   mother_on_art					varchar(255) DEFAULT NULL,
   child_hiv_reactive				varchar(255) DEFAULT NULL,
