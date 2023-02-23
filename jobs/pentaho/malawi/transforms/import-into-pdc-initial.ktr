@@ -627,21 +627,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Income Source Merge </from>
-      <to>Source of Referral Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Import Source Of Referral</from>
-      <to>Source of Referral Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Source of Referral Merge</from>
-      <to>Mother HIV Reactive Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Import Mother HIV Reactive</from>
       <to>Mother HIV Reactive Merge</to>
       <enabled>Y</enabled>
@@ -1219,6 +1204,21 @@
     <hop>
       <from>Import Other Support Merge </from>
       <to>Write PDC Initial Table</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Income Source Merge </from>
+      <to>Income Source of Referral Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Source of Referral</from>
+      <to>Income Source of Referral Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Income Source of Referral Merge</from>
+      <to>Mother HIV Reactive Merge</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -5097,7 +5097,7 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>Import Source Of Referral</name>
+    <name>Import Source of Referral</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -5128,8 +5128,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>496</xloc>
-      <yloc>608</yloc>
+      <xloc>500</xloc>
+      <yloc>660</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5465,7 +5465,45 @@ order by 	patient_id, visit_date, location</sql>
     </remotesteps>
     <GUI>
       <xloc>704</xloc>
-      <yloc>864</yloc>
+      <yloc>832</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Income Source of Referral Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Income Source Merge </step1>
+    <step2>Import Source of Referral</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>704</xloc>
+      <yloc>672</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -5595,7 +5633,7 @@ order by 	patient_id, visit_date, location</sql>
       <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1>Source of Referral Merge</step1>
+    <step1>Income Source of Referral Merge</step1>
     <step2>Import Mother HIV Reactive</step2>
     <keys_1>
       <key>patient_id</key>
@@ -6344,44 +6382,6 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>Source of Referral Merge</name>
-    <type>MergeJoin</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <join_type>LEFT OUTER</join_type>
-    <step1>Income Source Merge </step1>
-    <step2>Import Source Of Referral</step2>
-    <keys_1>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_1>
-    <keys_2>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_2>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>704</xloc>
-      <yloc>640</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Transfer In Date Merge</name>
     <type>MergeJoin</type>
     <description/>
@@ -6613,6 +6613,10 @@ order by 	patient_id, visit_date, location</sql>
       <field>
         <column_name>income_source</column_name>
         <stream_name>income_source</stream_name>
+      </field>
+      <field>
+        <column_name>source_of_referral</column_name>
+        <stream_name>source_of_referral</stream_name>
       </field>
       <field>
         <column_name>mother_hiv_reactive</column_name>
