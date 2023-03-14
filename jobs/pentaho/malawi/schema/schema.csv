@@ -30,6 +30,7 @@ procedure,create_rpt_appt_alerts
 procedure,create_patients_next_appointment
 procedure,create_rpt_patients_expected
 procedure,create_rpt_ic3_data
+procedure,create_rpt_mh_data
 table,mw_lab_tests_recent_period
 table,mw_last_obs_in_period
 table,mw_selected_periods
