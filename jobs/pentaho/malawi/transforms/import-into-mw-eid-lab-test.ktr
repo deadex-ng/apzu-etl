@@ -752,7 +752,7 @@ select      e.patient_id,
 			e.encounter_date as visit_date,
 			e.location
 from        omrs_encounter e
-where 		e.encounter_type in ('EXPOSED_CHILD_FOLLOWUP')
+where 		e.encounter_type in ('EID Screening')
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location
 </sql>
