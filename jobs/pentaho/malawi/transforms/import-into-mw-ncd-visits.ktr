@@ -1490,7 +1490,7 @@ order by 	patient_id, visit_date, location;</sql>
       <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, min(o.value_date) as next_appointment_date
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, max(o.value_date) as next_appointment_date
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
 where		o.concept = 'Appointment date' and 
