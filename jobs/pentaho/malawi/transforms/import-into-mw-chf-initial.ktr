@@ -583,11 +583,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from> diagnosis_date_valvular Merge</from>
-      <to>diagnosis_unknown Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>diagnosis_unknown Merge</from>
       <to>diagnosis_date_unknown Merge</to>
       <enabled>Y</enabled>
@@ -890,6 +885,31 @@
     <hop>
       <from>ecg_test_date Merge  </from>
       <to>Write CHF_INITIAL Table</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import diagnosis_date_right_ventricular_failure</from>
+      <to> diagnosis_date_right_ventricular_failure Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import diagnosis_right_ventricular_failure</from>
+      <to>diagnosis_right_ventricular_failure Mege</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from> diagnosis_date_valvular Merge</from>
+      <to>diagnosis_right_ventricular_failure Mege</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>diagnosis_right_ventricular_failure Mege</from>
+      <to> diagnosis_date_right_ventricular_failure Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from> diagnosis_date_right_ventricular_failure Merge</from>
+      <to>diagnosis_unknown Merge</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -2192,8 +2212,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>96</xloc>
-      <yloc>624</yloc>
+      <xloc>480</xloc>
+      <yloc>976</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2604,6 +2624,14 @@ order by 	patient_id, visit_date, location</sql>
       <field>
         <column_name>diagnosis_date_valvular</column_name>
         <stream_name>diagnosis_date_valvular</stream_name>
+      </field>
+      <field>
+        <column_name>diagnosis_right_ventricular_failure</column_name>
+        <stream_name>diagnosis_right_ventricular_failure</stream_name>
+      </field>
+      <field>
+        <column_name>diagnosis_date_right_ventricular_failure</column_name>
+        <stream_name>diagnosis_date_right_ventricular_failure</stream_name>
       </field>
       <field>
         <column_name>diagnosis_unknown</column_name>
@@ -3235,7 +3263,7 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>544</xloc>
+      <xloc>560</xloc>
       <yloc>624</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3313,8 +3341,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>543</xloc>
-      <yloc>518</yloc>
+      <xloc>560</xloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3593,7 +3621,7 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>544</xloc>
+      <xloc>560</xloc>
       <yloc>752</yloc>
       <draw>Y</draw>
     </GUI>
@@ -3610,7 +3638,7 @@ order by 	patient_id, visit_date, location</sql>
       <schema_name />
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1> diagnosis_date_valvular Merge</step1>
+    <step1> diagnosis_date_right_ventricular_failure Merge</step1>
     <step2>Import diagnosis_unknown</step2>
     <keys_1>
       <key>patient_id</key>
@@ -3631,8 +3659,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>272</xloc>
-      <yloc>752</yloc>
+      <xloc>560</xloc>
+      <yloc>912</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -3980,6 +4008,158 @@ order by 	patient_id, visit_date, location</sql>
     <GUI>
       <xloc>1518</xloc>
       <yloc>474</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name> diagnosis_date_right_ventricular_failure Merge</name>
+    <type>MergeJoin</type>
+    <description />
+    <distribute>N</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>diagnosis_right_ventricular_failure Mege</step1>
+    <step2>Import diagnosis_date_right_ventricular_failure</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>obs_group_id_diagnosis_right_ventricular_failure</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>obs_group_id_diagnosis_right_ventricular_failure</key>
+    </keys_2>
+    <attributes />
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>288</xloc>
+      <yloc>912</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import diagnosis_date_right_ventricular_failure</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as diagnosis_date_right_ventricular_failure, o.obs_group_id as obs_group_id_diagnosis_right_ventricular_failure
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Diagnosis date'  and e.encounter_type in ('CHF_INITIAL')
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes />
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>112</xloc>
+      <yloc>784</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import diagnosis_right_ventricular_failure</name>
+    <type>TableInput</type>
+    <description />
+    <distribute>Y</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as diagnosis_right_ventricular_failure, o.obs_group_id as obs_group_id_diagnosis_right_ventricular_failure
+
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Chronic care diagnosis' AND o.value_coded = 'Right ventricular failure' and e.encounter_type in ('CHF_INITIAL')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup />
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes />
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>128</xloc>
+      <yloc>672</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>diagnosis_right_ventricular_failure Mege</name>
+    <type>MergeJoin</type>
+    <description />
+    <distribute>N</distribute>
+    <custom_distribution />
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name />
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1> diagnosis_date_valvular Merge</step1>
+    <step2>Import diagnosis_right_ventricular_failure</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes />
+    <cluster_schema />
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>288</xloc>
+      <yloc>752</yloc>
       <draw>Y</draw>
     </GUI>
   </step>

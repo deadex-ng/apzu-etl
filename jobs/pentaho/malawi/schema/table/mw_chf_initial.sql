@@ -9,6 +9,8 @@ CREATE TABLE mw_chf_initial (
   diagnosis_date_restricitive 	date DEFAULT NULL,
   diagnosis_valvular 			varchar(255) DEFAULT NULL,
   diagnosis_date_valvular 		date DEFAULT NULL,
+  diagnosis_right_ventricular_failure 	varchar(255) DEFAULT NULL,
+  diagnosis_date_right_ventricular_failure date DEFAULT NULL,
   diagnosis_unknown 			varchar(255) DEFAULT NULL,
   diagnosis_date_unknown 		date DEFAULT NULL,
   diagnosis_rheumatic 			varchar(255) DEFAULT NULL,
