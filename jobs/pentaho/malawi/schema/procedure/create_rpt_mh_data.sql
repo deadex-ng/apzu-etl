@@ -1,6 +1,7 @@
-CREATE PROCEDURE create_rpt_mh_data(IN _endDate DATE, IN _location VARCHAR(255)) BEGIN
+CREATE  PROCEDURE `create_rpt_mh_data`(IN _endDate DATE, IN _location VARCHAR(255))
+BEGIN
 
-  -- Get initial cohort to operate on (for convenience)
+  
   DROP TABLE IF EXISTS rpt_ic3_patient_ids;
   CREATE TEMPORARY TABLE rpt_ic3_patient_ids AS
     SELECT DISTINCT(patient_id)
@@ -23,10 +24,10 @@ CREATE PROCEDURE create_rpt_mh_data(IN _endDate DATE, IN _location VARCHAR(255))
 
   CREATE INDEX patient_id_index ON rpt_ic3_patient_ids(patient_id);
 
-  -- Create lookup (row-per-patient) table to calculate ic3 indicators
+  
   DROP TABLE IF EXISTS rpt_mh_data_table;
   CREATE TABLE rpt_mh_data_table AS
-    -- Define columns
+    
     SELECT
       ic3.patient_id,
       birthdate,
@@ -59,6 +60,15 @@ CREATE PROCEDURE create_rpt_mh_data(IN _endDate DATE, IN _location VARCHAR(255))
       dx_mood_affective_disorder_manic,
       dx_mood_affective_disorder_depression,
       dx_anxiety_disorder,
+      dx_bipolar_mood_disorder,
+      dx_dissociative_mood_disorder,
+      dx_hyperkinetic_disorder,
+      dx_puerperal_mental_disorder,
+      dx_stress_reactive_adjustment_disorder,
+      dx_psych_development_disorder,
+      dx_mental_retardation_disorder,
+      dx_personality_disorder,
+      dx_somatoform_disorder,
       dx_mh_other_1,
       dx_mh_other_2,
       dx_mh_other_3,
@@ -131,6 +141,15 @@ CREATE PROCEDURE create_rpt_mh_data(IN _endDate DATE, IN _location VARCHAR(255))
                              diagnosis_mood_affective_disorder_manic as dx_mood_affective_disorder_manic,
                              diagnosis_mood_affective_disorder_depression as dx_mood_affective_disorder_depression,
                              diagnosis_anxiety_disorder as dx_anxiety_disorder,
+                             diagnosis_bipolar_mood_disorder as dx_bipolar_mood_disorder,
+			     diagnosis_stress_reactive_adjustment_disorder as dx_stress_reactive_adjustment_disorder,
+			     diagnosis_dissociative_mood_disorder as dx_dissociative_mood_disorder,
+			     diagnosis_hyperkinetic_disorder as dx_hyperkinetic_disorder,
+			     diagnosis_puerperal_mental_disorder as dx_puerperal_mental_disorder,
+			     diagnosis_somatoform_disorder as dx_somatoform_disorder,
+			     diagnosis_personality_disorder as dx_personality_disorder,
+			     diagnosis_mental_retardation_disorder as dx_mental_retardation_disorder,
+			     diagnosis_psych_development_disorder as dx_psych_development_disorder,
                              diagnosis_other_1 as dx_mh_other_1,
                              diagnosis_other_2 as dx_mh_other_2,
                              diagnosis_other_3 as dx_mh_other_3
