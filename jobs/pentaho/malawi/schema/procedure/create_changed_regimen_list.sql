@@ -6,7 +6,7 @@ BEGIN
     current_regimen, dispense_date,arvs,arvs_given,location
     from (
 select x.identifier,x.gender,x.dob,
- DATE_FORMAT(mai.visit_date, "%b-%d-%y") as art_start_date,x.weight,x.previous_regimen, 
+ DATE_FORMAT(mai.visit_date, "%d-%b-%y") as art_start_date,x.weight,x.previous_regimen, 
 x.current_regimen,x.dispense_date,x.arvs,x.arvs_given, x.location 
 from
 mw_art_initial mai
@@ -14,8 +14,8 @@ join
 (
 select mav2.patient_id,opi.identifier,
 case when mwp.gender='F' then 'Female'
-else 'male' end as gender,DATE_FORMAT(mwp.birthdate, "%b-%d-%y") as dob,
- mav.weight,substring_index(mav2.art_regimen,':',1) as previous_regimen, DATE_FORMAT(mav.last_visit_date, "%b-%d-%y") as dispense_date,
+else 'Male' end as gender,DATE_FORMAT(mwp.birthdate, "%d-%b-%y") as dob,
+ mav.weight,substring_index(mav2.art_regimen,':',1) as previous_regimen, DATE_FORMAT(mav.last_visit_date, "%d-%b-%y") as dispense_date,
 substring_index(mav.current_regimen,':',1) as current_regimen,concat(substring_index(mav.current_regimen,':',-1)," (",mav.arvs_given,")") as arvs,mav.arvs_given, mav.location
              from mw_art_followup mav2
              JOIN 
