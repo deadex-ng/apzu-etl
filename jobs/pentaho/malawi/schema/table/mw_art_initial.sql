@@ -39,6 +39,6 @@ CREATE TABLE mw_art_initial (
   art_second_line_regimen			VARCHAR(255),
   art_second_line_regimen_start_date		DATE,
   transfer_in_date				DATE,
-  child_hcc_no					VARCHAR(255)
+  child_hcc_no					VARCHAR(255),
      PRIMARY KEY (art_initial_visit_id)
 );
