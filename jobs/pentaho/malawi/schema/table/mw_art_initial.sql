@@ -1,4 +1,3 @@
-
 CREATE TABLE mw_art_initial (
   art_initial_visit_id 			INT NOT NULL AUTO_INCREMENT,
   patient_id    				INT NOT NULL,
@@ -12,6 +11,13 @@ CREATE TABLE mw_art_initial (
   cd4_percentage				DECIMAL(6,2),
   ks_side_effects_worsening_on_arvs  		VARCHAR(255),
   cd4_date					DATE,
+  link_id                                       VARCHAR(255),
+  tb_xpert                                      VARCHAR(255),
+  tb_xpert_date                                 DATE,
+  urine_lam                                     VARCHAR(255),
+  urine_lam_date                                DATE,
+  crag_results                                  VARCHAR(255),
+  crag_test_date                                DATE,
   pregnant_or_lactating			VARCHAR(255),
   height					DECIMAL(10,2),
   weight					DECIMAL(10,2),
@@ -33,6 +39,6 @@ CREATE TABLE mw_art_initial (
   art_second_line_regimen			VARCHAR(255),
   art_second_line_regimen_start_date		DATE,
   transfer_in_date				DATE,
-  child_hcc_no					VARCHAR(255),
+  child_hcc_no					VARCHAR(255)
      PRIMARY KEY (art_initial_visit_id)
 );
