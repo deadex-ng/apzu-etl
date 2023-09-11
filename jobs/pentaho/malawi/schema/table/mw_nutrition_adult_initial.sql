@@ -1,4 +1,3 @@
-DROP TABLE IF EXISTS mw_nutrition_adults_initial;
 CREATE TABLE mw_nutrition_adults_initial (
     nutrition_initial_visit_id INT NOT NULL AUTO_INCREMENT,
     patient_id INT NOT NULL,
