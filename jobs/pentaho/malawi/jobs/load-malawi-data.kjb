@@ -2441,7 +2441,7 @@
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>Load Nutrition Teen Initial</name>
+      <name>Load Nutrition Pregnant Teen Initial</name>
       <description/>
       <type>TRANS</type>
       <attributes/>
@@ -2474,7 +2474,45 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>1</nr>
-      <xloc>1344</xloc>
+      <xloc>1392</xloc>
+      <yloc>448</yloc>
+      <attributes_kjc/>
+    </entry>
+    <entry>
+      <name>Load Nutrition Pregnant Teen Followup</name>
+      <description/>
+      <type>TRANS</type>
+      <attributes/>
+      <specification_method>filename</specification_method>
+      <trans_object_id/>
+      <filename>${PIH_PENTAHO_HOME}/malawi/transforms/import-into-mw-nutrition-teen-followup.ktr</filename>
+      <transname/>
+      <arg_from_previous>N</arg_from_previous>
+      <params_from_previous>N</params_from_previous>
+      <exec_per_row>N</exec_per_row>
+      <clear_rows>N</clear_rows>
+      <clear_files>N</clear_files>
+      <set_logfile>N</set_logfile>
+      <logfile/>
+      <logext/>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <loglevel>Basic</loglevel>
+      <cluster>N</cluster>
+      <slave_server_name/>
+      <set_append_logfile>N</set_append_logfile>
+      <wait_until_finished>Y</wait_until_finished>
+      <follow_abort_remote>N</follow_abort_remote>
+      <create_parent_folder>N</create_parent_folder>
+      <logging_remote_work>N</logging_remote_work>
+      <run_configuration>Pentaho local</run_configuration>
+      <parameters>
+        <pass_all_parameters>Y</pass_all_parameters>
+      </parameters>
+      <parallel>N</parallel>
+      <draw>Y</draw>
+      <nr>2</nr>
+      <xloc>1664</xloc>
       <yloc>448</yloc>
       <attributes_kjc/>
     </entry>
@@ -2986,9 +3024,18 @@
     </hop>
     <hop>
       <from>Load Nutrition PDC Followup</from>
-      <to>Load Nutrition Teen Initial</to>
+      <to>Load Nutrition Pregnant Teen Initial</to>
       <from_nr>2</from_nr>
       <to_nr>1</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Load Nutrition Pregnant Teen Initial</from>
+      <to>Load Nutrition Pregnant Teen Followup</to>
+      <from_nr>1</from_nr>
+      <to_nr>2</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
