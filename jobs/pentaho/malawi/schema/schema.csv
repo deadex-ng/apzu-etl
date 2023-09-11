@@ -69,3 +69,5 @@ table,mw_pdc_hearing_test
 table,mw_eid_lab_tests
 table,mw_pdc_visits
 table,mw_diabetes_hypertension_annual_lab_tests
+table,mw_nutrition_adult_initial
+table,mw_nutrition_adult_followup
