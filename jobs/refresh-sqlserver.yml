@@ -77,6 +77,8 @@ configuration:
     - tableName: "mw_ncd_visits"
     - tableName: "mw_nutrition_adult_initial"
     - tableName: "mw_nutrition_adult_followup"
+    - tableName: "mw_nutrition_pdc_initial"
+    - tableName: "mw_nutrition_pdc_followup"
     - tableName: "mw_patient"
     - tableName: "mw_pre_art_register"
     - tableName: "mw_pre_art_visits"
