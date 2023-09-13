@@ -1182,7 +1182,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>576</xloc>
+      <xloc>608</xloc>
       <yloc>688</yloc>
       <attributes_kjc/>
     </entry>
@@ -1372,7 +1372,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>2</nr>
-      <xloc>288</xloc>
+      <xloc>272</xloc>
       <yloc>864</yloc>
       <attributes_kjc/>
     </entry>
@@ -1410,7 +1410,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>1</nr>
-      <xloc>288</xloc>
+      <xloc>272</xloc>
       <yloc>768</yloc>
       <attributes_kjc/>
     </entry>
@@ -1524,7 +1524,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>1</nr>
-      <xloc>784</xloc>
+      <xloc>832</xloc>
       <yloc>768</yloc>
       <attributes_kjc/>
     </entry>
@@ -1562,7 +1562,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>2</nr>
-      <xloc>784</xloc>
+      <xloc>832</xloc>
       <yloc>688</yloc>
       <attributes_kjc/>
     </entry>
@@ -1714,7 +1714,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>1</nr>
-      <xloc>432</xloc>
+      <xloc>448</xloc>
       <yloc>768</yloc>
       <attributes_kjc/>
     </entry>
@@ -2246,7 +2246,7 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
-      <xloc>432</xloc>
+      <xloc>368</xloc>
       <yloc>688</yloc>
       <attributes_kjc/>
     </entry>
@@ -2937,7 +2937,7 @@
       <to>Load Epilepsy Initial</to>
       <from_nr>1</from_nr>
       <to_nr>2</to_nr>
-      <enabled>N</enabled>
+      <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
     </hop>
