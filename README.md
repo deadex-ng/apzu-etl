@@ -97,6 +97,17 @@ To execute the ETL pipeline, simply run from the installation directory:
 java -jar petl.jar
 ```
 
+# Troubleshooting
+
+1. Could not acquire change log lock.
+   - after launching petl the following error would be displayed:
+     ```bash
+      org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'liquibase' defined in class path resource [org/springframework/boot/autoconfigure/liquibase/LiquibaseAutoConfiguration$LiquibaseConfiguration.class]: Invocation of init method failed; nested exception is liquibase.exception.LockException: Could not acquire change log lock.  Currently locked by 25.60.164.30 (25.60.164.30) since 9/13/23 11:33 AM
+     ```
+     - "This happens sometimes if the system shuts down unexpectedly or another issue occurs when liquibase is updating, and the record that it writes to the PETL_DATABASE_CHANGE_LOG_LOCK table to indicate it is in the process of updating never gets reset. For Malawi, we use the default PETL configuration which connects to an H2 database for storing job execution history. "
+     - To fix this problem, just delete all files(petl H2 database files) in the /opt/petl/data/ and restart petl
+     - more details about this problem at https://pihemr.atlassian.net/browse/MLW-1560 
+
 # Pentaho Jobs and Transforms
 
 The "jobs/pentaho" directory represent the core Pentaho ETL jobs that are executed.  These are made up of:
