@@ -81,6 +81,7 @@ configuration:
     - tableName: "mw_nutrition_pdc_followup"
     - tableName: "mw_nutrition_teen_initial"
     - tableName: "mw_nutrition_teen_followup"
+    - tableName: "mw_nutrition_infant_initial"
     - tableName: "mw_patient"
     - tableName: "mw_pre_art_register"
     - tableName: "mw_pre_art_visits"
