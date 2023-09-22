@@ -4,8 +4,8 @@ call create_age_groups();
 call create_last_art_outcome_at_facility(_endDate,_location);
 call create_hiv_cohort(_startDate,_endDate,_location,_birthDateDivider);
 insert into moh_cohort_disaggregated(sort_value,age_group,gender,tx_new,tx_curr,tx_curr_ipt,tx_curr_screened_tb,
-0A,2A,4A,5A,6A,7A,8A,9A,10A,11A,12A,13A,14A,15A,16A,17A,0P,2P,4P,4PP,4PA,9P,9PP,9PA,11P,11PP,11PA,12PP,12PA,14PP,
-14PA,15PP,15PA,16P,17P,17PP,17PA,non_standard)
+0A,2A,4A,5A,6A,7A,8A,9A,10A,11A,12A,13A,14A,15A,16A,17A,0P,2P,4PP,4PA,9P,9PP,9PA,11P,11PP,11PA,12PP,12PA,14PP,
+14PA,15PP,15PA,16P,17PP,17PA,non_standard)
 select sort_value,x.age_group, x.gender_full, 
 CASE WHEN tx_new is null then 0 else tx_new end as tx_new,
 CASE WHEN active is null then 0 else active end as tx_curr,
@@ -29,7 +29,6 @@ CASE WHEN 16A is null then 0 else 16A end as 16A,
 CASE WHEN 17A is null then 0 else 17A end as 17A,
 CASE WHEN 0P is null then 0 else 0P end as 0P,
 CASE WHEN 2P is null then 0 else 2P end as 2P,
-CASE WHEN 4P is null then 0 else 4P end as 4P,
 CASE WHEN 4PP is null then 0 else 4PP end as 4PP,
 CASE WHEN 4PA is null then 0 else 4PA end as 4PA,
 CASE WHEN 9P is null then 0 else 9P end as 9P,
@@ -45,7 +44,6 @@ CASE WHEN 14PA is null then 0 else 14PA end as 14PA,
 CASE WHEN 15PP is null then 0 else 15PP end as 15PP,
 CASE WHEN 15PA is null then 0 else 15PA end as 15PA,
 CASE WHEN 16P is null then 0 else 16P end as 16P,
-CASE WHEN 17P is null then 0 else 17P end as 17P,
 CASE WHEN 17PP is null then 0 else 17PP end as 17PP,
 CASE WHEN 17PA is null then 0 else 17PA end as 17PA,
 CASE WHEN non_standard is null then 0 else non_standard end as non_standard
@@ -122,7 +120,6 @@ END as age_group,gender as "gender",
     COUNT(IF(state = 'On antiretrovirals' and floor(datediff(_endDate,last_appt_date)) <=  _defaultCutOff and current_regimen = '17A: ABC / 3TC + EFV', 1, NULL)) as 17A,
 COUNT(IF(state = 'On antiretrovirals' and floor(datediff(_endDate,last_appt_date)) <=  _defaultCutOff and current_regimen = '0P: ABC/3TC + NVP' , 1, NULL)) as 0P,
 COUNT(IF(state = 'On antiretrovirals' and floor(datediff(_endDate,last_appt_date)) <=  _defaultCutOff and current_regimen = '2P: AZT / 3TC / NVP' , 1, NULL)) as 2P,
-COUNT(IF(state = 'On antiretrovirals' and floor(datediff(_endDate,last_appt_date)) <=  _defaultCutOff and current_regimen = "4P: AZT / 3TC + EFV" , 1, NULL)) as 4P,
 COUNT(IF(state = 'On antiretrovirals' and floor(datediff(_endDate,last_appt_date)) <=  _defaultCutOff and current_regimen = "4PP: AZT 60 / 3TC 30 + EFV 200" , 1, NULL)) as 4PP,
 COUNT(IF(state = 'On antiretrovirals' and floor(datediff(_endDate,last_appt_date)) <=  _defaultCutOff and current_regimen = "4PA: AZT 300 / 3TC 150 + EFV 200", 1, NULL)) as 4PA,
 COUNT(IF(state = 'On antiretrovirals' and floor(datediff(_endDate,last_appt_date)) <=  _defaultCutOff and current_regimen = "9P: ABC / 3TC + LPV/r", 1, NULL)) as 9P,
@@ -138,7 +135,6 @@ COUNT(IF(state = 'On antiretrovirals' and floor(datediff(_endDate,last_appt_date
 COUNT(IF(state = 'On antiretrovirals' and floor(datediff(_endDate,last_appt_date)) <=  _defaultCutOff and current_regimen = '15PP: ABC / 3TC + DTG', 1, NULL)) as 15PP,
 COUNT(IF(state = 'On antiretrovirals' and floor(datediff(_endDate,last_appt_date)) <=  _defaultCutOff and current_regimen = "15PA: ABC 120 / 3TC 60 + DTG 50", 1, NULL)) as 15PA,
 COUNT(IF(state = 'On antiretrovirals' and floor(datediff(_endDate,last_appt_date)) <=  _defaultCutOff and current_regimen = "16P: ABC / 3TC + RAL", 1, NULL)) as 16P,
-COUNT(IF(state = 'On antiretrovirals' and floor(datediff(_endDate,last_appt_date)) <=  _defaultCutOff and current_regimen = "17P: ABC / 3TC + EFV", 1, NULL)) as 17P,
 COUNT(IF(state = 'On antiretrovirals' and floor(datediff(_endDate,last_appt_date)) <=  _defaultCutOff and current_regimen = "17PP: ABC 120 / 3TC 60 + EFV 200", 1, NULL)) as 17PP,
 COUNT(IF(state = 'On antiretrovirals' and floor(datediff(_endDate,last_appt_date)) <=  _defaultCutOff and current_regimen = "17PA: ABC 600 / 3TC 300 + EFV 200", 1, NULL)) as 17PA,
 COUNT(IF(state = 'On antiretrovirals' and floor(datediff(_endDate,last_appt_date)) <=  _defaultCutOff and current_regimen = 'Non standard', 1, NULL)) as non_standard
