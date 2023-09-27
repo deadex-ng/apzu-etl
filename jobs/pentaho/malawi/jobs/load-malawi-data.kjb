@@ -321,9 +321,9 @@
       <attributes />
       <specification_method>filename</specification_method>
       <job_object_id />
-      <filename>${PIH_PENTAHO_HOME}/jobs/load-configuration.kjb</filename>
+      <filename>${PIH_PENTAHO_HOME}/openmrs/load-configuration.kjb</filename>
       <jobname />
-      <directory />
+      <directory />s
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
       <exec_per_row>N</exec_per_row>
