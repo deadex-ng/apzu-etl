@@ -494,20 +494,154 @@
   <order>
     <hop>
       <from>Import Encounters</from>
-      <to>Merge join</to>
+      <to>Enrollment reason TB merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Import Enrollment Reason</from>
-      <to>Merge join</to>
+      <from>import Enrollment Reason TB</from>
+      <to>Enrollment reason TB merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Merge join</from>
+      <from>Enrollment reason TB merge</from>
+      <to>Enrollement reason HIV merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>import enrollment reason HIV</from>
+      <to>Enrollement reason HIV merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Enrollement reason HIV merge</from>
+      <to>Enrollment reason NCD merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>import enrollment reason NCD</from>
+      <to>Enrollment reason NCD merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Enrollment reason NCD merge</from>
       <to>Write Nutrition Adult Initial</to>
       <enabled>Y</enabled>
     </hop>
   </order>
+  <step>
+    <name>Enrollement reason HIV merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Enrollment reason TB merge</step1>
+    <step2>import enrollment reason HIV</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>704</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Enrollment reason NCD merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Enrollement reason HIV merge</step1>
+    <step2>import enrollment reason NCD</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>992</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Enrollment reason TB merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Import Encounters</step1>
+    <step2>import Enrollment Reason TB</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>400</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
   <step>
     <name>Import Encounters</name>
     <type>TableInput</type>
@@ -542,75 +676,6 @@ order by 	patient_id, visit_date, location</sql>
     </remotesteps>
     <GUI>
       <xloc>208</xloc>
-      <yloc>128</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Import Enrollment Reason</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as enrollment_reason
-from		omrs_encounter e
-inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Reason enrolled in food program'
-group by 	e.patient_id, e.encounter_date, e.location
-order by 	patient_id, visit_date, location</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>240</xloc>
-      <yloc>272</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Merge join</name>
-    <type>MergeJoin</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <join_type>LEFT OUTER</join_type>
-    <step1>Import Encounters</step1>
-    <step2>Import Enrollment Reason</step2>
-    <keys_1>
-    </keys_1>
-    <keys_2>
-    </keys_2>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>400</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -656,6 +721,18 @@ order by 	patient_id, visit_date, location</sql>
         <column_name>location</column_name>
         <stream_name>location</stream_name>
       </field>
+      <field>
+        <column_name>enrollment_reason_tb</column_name>
+        <stream_name>enrollment_reason_tb</stream_name>
+      </field>
+      <field>
+        <column_name>enrollment_reason_hiv</column_name>
+        <stream_name>enrollment_reason_hiv</stream_name>
+      </field>
+      <field>
+        <column_name>enrollment_reason_ncd</column_name>
+        <stream_name>enrollment_reason_ncd</stream_name>
+      </field>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -666,8 +743,119 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>640</xloc>
+      <xloc>1248</xloc>
       <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>import Enrollment Reason TB</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as enrollment_reason_tb
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Reason enrolled in food program' and e.encounter_type in ('NUTRITION_ADULTS_INITIAL') and o.value_coded ="Patient in tuberculosis treatment"
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>240</xloc>
+      <yloc>272</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>import enrollment reason HIV</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as enrollment_reason_hiv
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Reason enrolled in food program' and e.encounter_type in ('NUTRITION_ADULTS_INITIAL') and o.value_coded ="Patient in HIV treatment"
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>624</xloc>
+      <yloc>256</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>import enrollment reason NCD</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as enrollment_reason_ncd
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Reason enrolled in food program' and e.encounter_type in ('NUTRITION_ADULTS_INITIAL') and o.value_coded ="Enrolled in NCD"
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>960</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
