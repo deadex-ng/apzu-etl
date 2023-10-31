@@ -494,16 +494,46 @@
   <order>
     <hop>
       <from>Import Encounters</from>
-      <to>Merge Enrollment Reason</to>
+      <to>Merge Enrollment Reason Martenal Death</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Import Enrollemt Reason</from>
-      <to>Merge Enrollment Reason</to>
+      <from>Import Enrollemt Reason Martenal Death</from>
+      <to>Merge Enrollment Reason Martenal Death</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Merge Enrollment Reason</from>
+      <from>Merge Enrollment Reason Martenal Death</from>
+      <to>Merge enrollement reason malnutrition</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import enrollement reason malnutrition</from>
+      <to>Merge enrollement reason malnutrition</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge enrollement reason malnutrition</from>
+      <to>Merge enrollment reason poser</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>import enrollemnt reason poser support</from>
+      <to>Merge enrollment reason poser</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge enrollment reason poser</from>
+      <to>Merge enrollment reason other</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import enrollment reason other</from>
+      <to>Merge enrollment reason other</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge enrollment reason other</from>
       <to>Write Nutrition PDC Initial</to>
       <enabled>Y</enabled>
     </hop>
@@ -541,13 +571,13 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>208</xloc>
-      <yloc>144</yloc>
+      <xloc>176</xloc>
+      <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Import Enrollemt Reason</name>
+    <name>Import Enrollemt Reason Martenal Death</name>
     <type>TableInput</type>
     <description/>
     <distribute>Y</distribute>
@@ -558,10 +588,10 @@ order by 	patient_id, visit_date, location</sql>
       <schema_name/>
     </partitioning>
     <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as enrollment_reason
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as enrollment_reason_martenal_death
 from		omrs_encounter e
 inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Reason enrolled in food program'
+where		o.concept = 'Reason enrolled in food program' and e.encounter_type in ('NUTRITION_PDC_INITIAL') and o.value_coded ="Maternal Death"
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
@@ -578,13 +608,89 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>256</xloc>
-      <yloc>224</yloc>
+      <xloc>240</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Merge Enrollment Reason</name>
+    <name>Import enrollement reason malnutrition</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as enrollment_reason_malnutrition
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Reason enrolled in food program' and e.encounter_type in ('NUTRITION_PDC_INITIAL') and o.value_coded ="Malnutrition"
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>576</xloc>
+      <yloc>272</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import enrollment reason other</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as enrollment_reason_other
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Reason enrolled in food program' and e.encounter_type in ('NUTRITION_PDC_INITIAL') and o.value_coded ="Other non-coded (text)"
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location
+
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1120</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge Enrollment Reason Martenal Death</name>
     <type>MergeJoin</type>
     <description/>
     <distribute>Y</distribute>
@@ -596,7 +702,7 @@ order by 	patient_id, visit_date, location</sql>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Import Encounters</step1>
-    <step2>Import Enrollemt Reason</step2>
+    <step2>Import Enrollemt Reason Martenal Death</step2>
     <keys_1>
       <key>patient_id</key>
       <key>visit_date</key>
@@ -617,6 +723,125 @@ order by 	patient_id, visit_date, location</sql>
     </remotesteps>
     <GUI>
       <xloc>400</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge enrollement reason malnutrition</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Merge Enrollment Reason Martenal Death</step1>
+    <step2>Import enrollement reason malnutrition</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>688</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge enrollment reason other</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Merge enrollment reason poser</step1>
+    <step2>Import enrollment reason other</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1248</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge enrollment reason poser</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Merge enrollement reason malnutrition</step1>
+    <step2>import enrollemnt reason poser support</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+      <key>patient_id_1</key>
+      <key>visit_date_1</key>
+      <key>location_1</key>
+      <key>enrollment_reason_martenal_death</key>
+      <key>patient_id_2</key>
+      <key>visit_date_2</key>
+      <key>location_2</key>
+      <key>enrollment_reason_malnutrition</key>
+    </keys_1>
+    <keys_2>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>976</xloc>
       <yloc>128</yloc>
       <draw>Y</draw>
     </GUI>
@@ -663,8 +888,20 @@ order by 	patient_id, visit_date, location</sql>
         <stream_name>location</stream_name>
       </field>
       <field>
-        <column_name>enrollment_reason</column_name>
-        <stream_name>enrollment_reason</stream_name>
+        <column_name>enrollment_reason_martenal_death</column_name>
+        <stream_name>enrollment_reason_martenal_death</stream_name>
+      </field>
+      <field>
+        <column_name>enrollment_reason_malnutrition</column_name>
+        <stream_name>enrollment_reason_malnutrition</stream_name>
+      </field>
+      <field>
+        <column_name>enrollment_reason_poser_support</column_name>
+        <stream_name>enrollment_reason_poser_support</stream_name>
+      </field>
+      <field>
+        <column_name>enrollment_reason_other</column_name>
+        <stream_name>enrollment_reason_other</stream_name>
       </field>
     </fields>
     <attributes/>
@@ -676,8 +913,45 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>656</xloc>
-      <yloc>144</yloc>
+      <xloc>1248</xloc>
+      <yloc>448</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>import enrollemnt reason poser support</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as enrollment_reason_poser_support
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Reason enrolled in food program' and e.encounter_type in ('NUTRITION_PDC_INITIAL') and o.value_coded ="Poser Support"
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>880</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
