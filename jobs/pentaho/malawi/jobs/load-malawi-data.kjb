@@ -2626,18 +2626,18 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>1</nr>
-      <xloc>1776</xloc>
-      <yloc>640</yloc>
+      <xloc>1792</xloc>
+      <yloc>624</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
-      <name>Load Users</name>
+      <name>Load POC tables</name>
       <description/>
       <type>TRANS</type>
       <attributes/>
       <specification_method>filename</specification_method>
       <trans_object_id/>
-      <filename>${PIH_PENTAHO_HOME}/malawi/transforms/import-into-mw-users.ktr</filename>
+      <filename>${PIH_PENTAHO_HOME}/malawi/transforms/import-into-mw-poc.ktr</filename>
       <transname/>
       <arg_from_previous>N</arg_from_previous>
       <params_from_previous>N</params_from_previous>
@@ -2663,9 +2663,9 @@
       </parameters>
       <parallel>N</parallel>
       <draw>Y</draw>
-      <nr>0</nr>
-      <xloc>304</xloc>
-      <yloc>32</yloc>
+      <nr>2</nr>
+      <xloc>1760</xloc>
+      <yloc>752</yloc>
       <attributes_kjc/>
     </entry>
   </entries>
@@ -3220,10 +3220,10 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Load Patients</from>
-      <to>Load Users</to>
-      <from_nr>0</from_nr>
-      <to_nr>0</to_nr>
+      <from>Load Teen Club Followup</from>
+      <to>Load POC tables</to>
+      <from_nr>1</from_nr>
+      <to_nr>2</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>
       <unconditional>N</unconditional>
