@@ -81,3 +81,13 @@ table,mw_nutrition_infant_followup
 table,mw_teen_club_followup
 table,mw_users
 table,mw_poc
+table,mw_poc_checkin
+table,mw_poc_clinical_plan
+table,mw_poc_adherence_counseling
+table,mw_poc_bp
+table,mw_poc_cervical_cancer
+table,mw_poc_eid
+table,mw_poc_htc
+table,mw_poc_nutrition
+table,mw_poc_tb_screening
+table,mw_poc_viral_load_screening
