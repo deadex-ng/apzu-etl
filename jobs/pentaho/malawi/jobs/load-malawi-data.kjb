@@ -2702,8 +2702,8 @@
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>2</nr>
-      <xloc>1680</xloc>
-      <yloc>736</yloc>
+      <xloc>912</xloc>
+      <yloc>1104</yloc>
       <attributes_kjc/>
     </entry>
     <entry>
@@ -3647,15 +3647,6 @@
       <unconditional>N</unconditional>
     </hop>
     <hop>
-      <from>Load Teen Club Followup</from>
-      <to>Load POC table</to>
-      <from_nr>1</from_nr>
-      <to_nr>2</to_nr>
-      <enabled>Y</enabled>
-      <evaluation>Y</evaluation>
-      <unconditional>N</unconditional>
-    </hop>
-    <hop>
       <from>Load Patients</from>
       <to>Load POC Checkin </to>
       <from_nr>0</from_nr>
@@ -3740,6 +3731,15 @@
       <from>Load POC TB Screening</from>
       <to>Load POC VL Screening</to>
       <from_nr>1</from_nr>
+      <to_nr>2</to_nr>
+      <enabled>Y</enabled>
+      <evaluation>Y</evaluation>
+      <unconditional>N</unconditional>
+    </hop>
+    <hop>
+      <from>Load POC VL Screening</from>
+      <to>Load POC table</to>
+      <from_nr>2</from_nr>
       <to_nr>2</to_nr>
       <enabled>Y</enabled>
       <evaluation>Y</evaluation>

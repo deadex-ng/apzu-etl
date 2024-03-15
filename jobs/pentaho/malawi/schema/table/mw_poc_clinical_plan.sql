@@ -7,7 +7,7 @@ CREATE TABLE mw_poc_clinical_plan (
     appointment_date DATE,
     qualitative_time VARCHAR(255),
     outcome VARCHAR(255),
-    clinical_impression_comments VARCHAR(300),
+    clinical_impression_comments VARCHAR(500),
     refer_to_screening_station VARCHAR(255),
     transfer_out_to VARCHAR(255),
     reason_to_stop_care VARCHAR(255),
