@@ -528,17 +528,7 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Merge TB Status</from>
-      <to>Merge Sputum</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Import STI screening outcome</from>
-      <to>Merge STI screening outcome</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Merge Nutrition referral</from>
       <to>Merge STI screening outcome</to>
       <enabled>Y</enabled>
     </hop>
@@ -603,8 +593,58 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
+      <from>Import TB Screening Outcome</from>
+      <to>Merge TB Screening Outcome</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge TB Status</from>
+      <to>Merge TB Screening Outcome</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge TB Screening Outcome</from>
+      <to>Merge Sputum</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>Merge Appointment date</from>
-      <to>Write Teen Club Followup</to>
+      <to>Table output</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Adolescent Referred</from>
+      <to>Merge Adolescent Referred</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Adolescent Registered</from>
+      <to>Merge Adolescent Registered</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Mental Health Screened</from>
+      <to>Merge Mental Health Screened</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge Adolescent Referred</from>
+      <to>Merge Adolescent Registered</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge Mental Health Screened</from>
+      <to>Merge Adolescent Referred</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge Nutrition referral</from>
+      <to>Merge Mental Health Screened</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Merge Adolescent Registered</from>
+      <to>Merge STI screening outcome</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -640,8 +680,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>800</xloc>
-      <yloc>320</yloc>
+      <xloc>1296</xloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -756,7 +796,7 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>800</xloc>
+      <xloc>1296</xloc>
       <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
@@ -793,8 +833,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>112</xloc>
-      <yloc>480</yloc>
+      <xloc>128</xloc>
+      <yloc>416</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -904,8 +944,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>800</xloc>
-      <yloc>576</yloc>
+      <xloc>1280</xloc>
+      <yloc>560</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -941,8 +981,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>864</xloc>
-      <yloc>784</yloc>
+      <xloc>1520</xloc>
+      <yloc>816</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -984,6 +1024,43 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
+    <name>Import TB Screening Outcome</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location , o.value_coded as tb_screening_outcome
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'TB screening outcome'
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>112</xloc>
+      <yloc>624</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Import TB Status</name>
     <type>TableInput</type>
     <description/>
@@ -1015,8 +1092,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>112</xloc>
-      <yloc>592</yloc>
+      <xloc>128</xloc>
+      <yloc>528</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1053,7 +1130,7 @@ order by 	patient_id, visit_date, location</sql>
     </remotesteps>
     <GUI>
       <xloc>128</xloc>
-      <yloc>336</yloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1090,7 +1167,7 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1024</xloc>
+      <xloc>1472</xloc>
       <yloc>320</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1166,7 +1243,7 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1024</xloc>
+      <xloc>1472</xloc>
       <yloc>448</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1205,7 +1282,7 @@ order by 	patient_id, visit_date, location</sql>
     </remotesteps>
     <GUI>
       <xloc>272</xloc>
-      <yloc>480</yloc>
+      <yloc>400</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1242,7 +1319,7 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>464</xloc>
+      <xloc>576</xloc>
       <yloc>704</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1280,7 +1357,7 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>736</xloc>
+      <xloc>784</xloc>
       <yloc>704</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1318,7 +1395,7 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1024</xloc>
+      <xloc>1472</xloc>
       <yloc>576</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1335,7 +1412,7 @@ order by 	patient_id, visit_date, location</sql>
       <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1>Merge Nutrition referral</step1>
+    <step1>Merge Adolescent Registered</step1>
     <step2>Import STI screening outcome</step2>
     <keys_1>
       <key>patient_id</key>
@@ -1356,7 +1433,7 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1024</xloc>
+      <xloc>1472</xloc>
       <yloc>704</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1373,7 +1450,7 @@ order by 	patient_id, visit_date, location</sql>
       <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1>Merge TB Status</step1>
+    <step1>Merge TB Screening Outcome</step1>
     <step2>Import Sputum</step2>
     <keys_1>
       <key>patient_id</key>
@@ -1396,6 +1473,44 @@ order by 	patient_id, visit_date, location</sql>
     <GUI>
       <xloc>272</xloc>
       <yloc>704</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge TB Screening Outcome</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Merge TB Status</step1>
+    <step2>Import TB Screening Outcome</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>288</xloc>
+      <yloc>624</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1433,7 +1548,7 @@ order by 	patient_id, visit_date, location</sql>
     </remotesteps>
     <GUI>
       <xloc>272</xloc>
-      <yloc>592</yloc>
+      <yloc>528</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1471,12 +1586,12 @@ order by 	patient_id, visit_date, location</sql>
     </remotesteps>
     <GUI>
       <xloc>272</xloc>
-      <yloc>336</yloc>
+      <yloc>304</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>Write Teen Club Followup</name>
+    <name>Table output</name>
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1513,6 +1628,10 @@ order by 	patient_id, visit_date, location</sql>
         <stream_name>visit_date</stream_name>
       </field>
       <field>
+        <column_name>location</column_name>
+        <stream_name>location</stream_name>
+      </field>
+      <field>
         <column_name>height</column_name>
         <stream_name>height</stream_name>
       </field>
@@ -1529,6 +1648,10 @@ order by 	patient_id, visit_date, location</sql>
         <stream_name>tb_status</stream_name>
       </field>
       <field>
+        <column_name>tb_screening_outcome</column_name>
+        <stream_name>tb_screening_outcome</stream_name>
+      </field>
+      <field>
         <column_name>sputum_collected</column_name>
         <stream_name>sputum_collected</stream_name>
       </field>
@@ -1539,6 +1662,18 @@ order by 	patient_id, visit_date, location</sql>
       <field>
         <column_name>nutrition_referred</column_name>
         <stream_name>nutrition_referred</stream_name>
+      </field>
+      <field>
+        <column_name>mental_health_screened</column_name>
+        <stream_name>mental_health_screened</stream_name>
+      </field>
+      <field>
+        <column_name>adolescent_referred</column_name>
+        <stream_name>adolescent_referred</stream_name>
+      </field>
+      <field>
+        <column_name>adolescent_registered</column_name>
+        <stream_name>adolescent_registered</stream_name>
       </field>
       <field>
         <column_name>sti_screening_outcome</column_name>
@@ -1566,8 +1701,233 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1024</xloc>
+      <xloc>1488</xloc>
       <yloc>160</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Adolescent Referred</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as adolescent_referred
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'If yes,Adolescent referred?'
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1040</xloc>
+      <yloc>880</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Adolescent Registered</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as adolescent_registered
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'If yes,Adolescent registered?'
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1248</xloc>
+      <yloc>960</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Mental Health Screened</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as mental_health_screened
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Mental health screened'
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>832</xloc>
+      <yloc>848</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge Adolescent Referred</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Merge Mental Health Screened</step1>
+    <step2>Import Adolescent Referred</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1072</xloc>
+      <yloc>752</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge Adolescent Registered</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Merge Adolescent Referred</step1>
+    <step2>Import Adolescent Registered</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1296</xloc>
+      <yloc>800</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Merge Mental Health Screened</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Merge Nutrition referral</step1>
+    <step2>Import Mental Health Screened</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>928</xloc>
+      <yloc>720</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
