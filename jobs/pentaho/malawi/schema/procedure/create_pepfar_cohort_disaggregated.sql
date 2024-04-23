@@ -5,15 +5,12 @@ call create_age_groups();
 call create_last_art_outcome_at_facility(_endDate,_location);
 call create_hiv_cohort(_startDate,_endDate,_location,_birthDateDivider);
 
-insert into pepfar_cohort_disaggregated(sort_value,age_group,gender,tx_new,tx_curr,tx_curr_ipt, tx_curr_screened_tb,
-0A,2A,4A,5A,6A,7A,8A,9A,10A,11A,12A,13A,14A,15A,16A,17A,0P,2P,4PP,4PA,9P,9PP,9PA,11P,11PP,11PA,12PP,12PA,14PP,
+insert into pepfar_cohort_disaggregated(sort_value,age_group,gender,tx_curr,
+0A,2A,4A,5A,6A,7A,8A,9A,10A,11A,12A,13A,14A,15A,16A,17A,0P,2P,4PP,4PA,9PP,9PA,11PP,11PA,12PP,12PA,14PP,
 14PA,15PP,15PA,16P,17PP,17PA,non_standard
 )
 select sort_value,x.age_group, x.gender_full, 
-CASE WHEN tx_new is null then 0 else tx_new end as tx_new,
 CASE WHEN active is null then 0 else active end as tx_curr,
-CASE WHEN receiving_ipt is null then 0 else receiving_ipt end as tx_curr_ipt,
-CASE WHEN screened_for_tb is null then 0 else screened_for_tb end as tx_curr_screened_tb,
 CASE WHEN 0A is null then 0 else 0A end as 0A,
 CASE WHEN 2A is null then 0 else 2A end as 2A,
 CASE WHEN 4A is null then 0 else 4A end as 4A,
@@ -34,10 +31,8 @@ CASE WHEN 0P is null then 0 else 0P end as 0P,
 CASE WHEN 2P is null then 0 else 2P end as 2P,
 CASE WHEN 4PP is null then 0 else 4PP end as 4PP,
 CASE WHEN 4PA is null then 0 else 4PA end as 4PA,
-CASE WHEN 9P is null then 0 else 9P end as 9P,
 CASE WHEN 9PP is null then 0 else 9PP end as 9PP,
 CASE WHEN 9PA is null then 0 else 9PA end as 9PA,
-CASE WHEN 11P is null then 0 else 11P end as 11P,
 CASE WHEN 11PP is null then 0 else 11PP end as 11PP,
 CASE WHEN 11PA is null then 0 else 11PA end as 11PA,
 CASE WHEN 12PP is null then 0 else 12PP end as 12PP,
@@ -96,16 +91,8 @@ SELECT CASE
 	WHEN age >=1080 and gender = "M" THEN "90 plus years"
 	WHEN age >=1080 and gender = "F" THEN "90 plus years"
 END as age_group,gender as "gender",
-	COUNT(IF(initial_visit_date BETWEEN _startDate AND _endDate  and transfer_in_date is null and patient_id NOT IN (
-	select patient_id from omrs_patient_identifier where type = "ARV Number" and location != _location) 
-    and patient_id IN(select patient_id from omrs_patient_identifier where type = "ARV Number" and location = _location) , 1, NULL)) as tx_new,	
     COUNT(IF((state = 'On antiretrovirals' and floor(datediff(_endDate,last_appt_date)) <=  _defaultCutOff), 1, NULL)) as active,
-    COUNT(IF(state = 'On antiretrovirals'  and floor(datediff(_endDate,last_appt_date)) <=  _defaultCutOff 
-    and last_ipt_date between _startDate and _endDate, 1, NULL)) as receiving_ipt,
-    COUNT(IF(state = 'On antiretrovirals'  and floor(datediff(_endDate,last_appt_date)) <=  _defaultCutOff 
-    and patient_id in (select distinct(patient_id) from mw_art_followup where visit_date BETWEEN DATE_SUB(_endDate, INTERVAL 1 YEAR) AND _endDate
-    and tb_status is not null and patient_id = patient_id), 1, NULL)) as screened_for_tb,
-            COUNT(IF(state = 'On antiretrovirals' and floor(datediff(_endDate,last_appt_date)) <=  _defaultCutOff and current_regimen = '0A: ABC/3TC + NVP', 1, NULL)) as 0A,
+	COUNT(IF(state = 'On antiretrovirals' and floor(datediff(_endDate,last_appt_date)) <=  _defaultCutOff and current_regimen = '0A: ABC/3TC + NVP', 1, NULL)) as 0A,
     COUNT(IF(state = 'On antiretrovirals' and floor(datediff(_endDate,last_appt_date)) <=  _defaultCutOff and current_regimen = '2A: AZT / 3TC / NVP (previous AZT)', 1, NULL)) as 2A,
     COUNT(IF(state = 'On antiretrovirals' and floor(datediff(_endDate,last_appt_date)) <=  _defaultCutOff and current_regimen = '4A: AZT / 3TC + EFV (previous AZTEFV)', 1, NULL)) as 4A,
     COUNT(IF(state = 'On antiretrovirals' and floor(datediff(_endDate,last_appt_date)) <=  _defaultCutOff and current_regimen = '5A: TDF / 3TC / EFV', 1, NULL)) as 5A,
@@ -125,10 +112,8 @@ COUNT(IF(state = 'On antiretrovirals' and floor(datediff(_endDate,last_appt_date
 COUNT(IF(state = 'On antiretrovirals' and floor(datediff(_endDate,last_appt_date)) <=  _defaultCutOff and current_regimen = '2P: AZT / 3TC / NVP' , 1, NULL)) as 2P,
 COUNT(IF(state = 'On antiretrovirals' and floor(datediff(_endDate,last_appt_date)) <=  _defaultCutOff and current_regimen = "4PP: AZT 60 / 3TC 30 + EFV 200" , 1, NULL)) as 4PP,
 COUNT(IF(state = 'On antiretrovirals' and floor(datediff(_endDate,last_appt_date)) <=  _defaultCutOff and current_regimen = "4PA: AZT 300 / 3TC 150 + EFV 200", 1, NULL)) as 4PA,
-COUNT(IF(state = 'On antiretrovirals' and floor(datediff(_endDate,last_appt_date)) <=  _defaultCutOff and current_regimen = "9P: ABC / 3TC + LPV/r", 1, NULL)) as 9P,
 COUNT(IF(state = 'On antiretrovirals' and floor(datediff(_endDate,last_appt_date)) <=  _defaultCutOff and current_regimen = '9PP: ABC 120 / 3TC 60 + LPV/r 100/25', 1, NULL)) as 9PP,
 COUNT(IF(state = 'On antiretrovirals' and floor(datediff(_endDate,last_appt_date)) <=  _defaultCutOff and current_regimen = '9PA: ABC 600 / 3TC 300 + LPV/r 100/25', 1, NULL)) as 9PA,
-COUNT(IF(state = 'On antiretrovirals' and floor(datediff(_endDate,last_appt_date)) <=  _defaultCutOff and current_regimen = "11P: AZT / 3TC + LPV/r (previous AZT3TCLPV)" , 1, NULL)) as 11P,
 COUNT(IF(state = 'On antiretrovirals' and floor(datediff(_endDate,last_appt_date)) <=  _defaultCutOff and current_regimen = "11PP: AZT 60 / 3TC 30 + LPV/r 100/25" , 1, NULL)) as 11PP,
 COUNT(IF(state = 'On antiretrovirals' and floor(datediff(_endDate,last_appt_date)) <=  _defaultCutOff and current_regimen = "11PA: AZT 300 / 3TC 150 + LPV/r 100/25", 1, NULL)) as 11PA,
 COUNT(IF(state = 'On antiretrovirals' and floor(datediff(_endDate,last_appt_date)) <=  _defaultCutOff and current_regimen = "12PP: DRV 150 + r 50 + DTG 10 (± NRTIs)", 1, NULL)) as 12PP,
