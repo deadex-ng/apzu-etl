@@ -37,7 +37,7 @@ CREATE PROCEDURE create_rpt_trace_criteria(IN _endDate DATE, IN _location VARCHA
     INNER JOIN  mw_lab_tests t on r.patient_id = t.patient_id
     WHERE       t.lab_test_id = latest_test_result_by_date_entered(r.patient_id, 'Viral Load', null, _endDate, 0)
     AND         (
-                  ( _minWks = 2 AND
+                  ( _minWks != 6 AND
                     datediff(_endDate, t.date_result_entered) <= 42+7*_labWks AND
                     t.result_numeric > 1000
                   )
@@ -64,7 +64,7 @@ CREATE PROCEDURE create_rpt_trace_criteria(IN _endDate DATE, IN _location VARCHA
     WHERE       t.lab_test_id = first_test_result_by_date_entered(r.patient_id, 'HIV DNA polymerase chain reaction', _endDate)
     AND         t.lab_test_id = latest_test_result_by_date_entered(r.patient_id, 'HIV DNA polymerase chain reaction', null, _endDate, 0)
     AND         (
-                  ( _minWks = 2 AND
+                  ( _minWks != 6 AND
                     datediff(_endDate, t.date_result_entered) <= 42+7*_labWks AND
                     t.result_coded = 'Positive'
                   )
@@ -76,7 +76,7 @@ CREATE PROCEDURE create_rpt_trace_criteria(IN _endDate DATE, IN _location VARCHA
                 )
   ;
 
-  IF _minWks = 2 THEN
+  IF _minWks != 6 THEN
 
     -- REPEAT_VIRAL_LOAD
     --  Active HIV
@@ -211,7 +211,7 @@ CREATE PROCEDURE create_rpt_trace_criteria(IN _endDate DATE, IN _location VARCHA
       AND     days_late_appt >= (_minWks*7)
       AND     (_maxWks IS NULL OR days_late_appt < (_maxWks*7))
       AND     (
-                _minWks = 2
+                _minWks != 6
                 OR
                 ( _minWks = 6 AND patient_id in ( select DISTINCT patient_id from rpt_priority_patients ) )
               )

@@ -748,7 +748,7 @@ order by 	patient_id, visit_date, location</sql>
     </partitioning>
     <connection>Warehouse</connection>
     <schema/>
-    <table>mw_nutrition_adults_initial</table>
+    <table>mw_nutrition_adult_initial</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>

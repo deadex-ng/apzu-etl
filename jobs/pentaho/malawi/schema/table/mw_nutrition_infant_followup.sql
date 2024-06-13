@@ -1,4 +1,4 @@
-CREATE TABLE mw_nutrition_infant_followup(
+CREATE TABLE mw_nutrition_infant_followup (
 nutrition_infant_followup_id INT NOT NULL AUTO_INCREMENT,
 patient_id INT NOT NULL,
 visit_date DATE,
