@@ -103,3 +103,8 @@ table,mw_poc_htc
 table,mw_poc_nutrition
 table,mw_poc_tb_screening
 table,mw_poc_viral_load_screening
+table,mw_sickle_cell_disease_initial
+table,mw_sickle_cell_disease_quarterly_screening
+table,mw_sickle_cell_disease_annual_screening
+table,mw_sickle_cell_disease_history_of_hospitalization
+table,mw_sickle_cell_disease_followup
