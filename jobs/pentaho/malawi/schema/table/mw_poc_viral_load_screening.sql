@@ -16,5 +16,4 @@ CREATE TABLE mw_poc_viral_load_screening (
     symptom_present VARCHAR(255),
     symptom_absent VARCHAR(255),
     PRIMARY KEY (poc_viral_load_screening_visit_id)
-)
-;
+);

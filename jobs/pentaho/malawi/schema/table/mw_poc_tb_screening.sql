@@ -7,5 +7,4 @@ CREATE TABLE mw_poc_tb_screening (
     symptom_present VARCHAR(255),
     symptom_absent VARCHAR(255),
     PRIMARY KEY (poc_tb_screening_visit_id)
-)
-;
+);
