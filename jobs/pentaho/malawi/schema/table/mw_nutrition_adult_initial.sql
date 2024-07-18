@@ -1,4 +1,5 @@
-CREATE TABLE mw_nutrition_adult_initial (
+DROP TABLE IF EXISTS mw_nutrition_adults_initial;
+CREATE TABLE mw_nutrition_adults_initial(
     nutrition_adults_initial_visit_id INT NOT NULL AUTO_INCREMENT,
     patient_id INT NOT NULL,
     visit_date DATE,
@@ -8,3 +9,6 @@ CREATE TABLE mw_nutrition_adult_initial (
     enrollment_reason_ncd VARCHAR(255),
     PRIMARY KEY (nutrition_adults_initial_visit_id)
 );
+
+
+
