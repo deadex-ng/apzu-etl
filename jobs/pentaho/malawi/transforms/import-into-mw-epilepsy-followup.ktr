@@ -692,36 +692,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Med_Carbamazepine  Merge</from>
-      <to>Med_Phenobarbital Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>import Med_Phenobarbital</from>
-      <to>Med_Phenobarbital Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Med_Phenobarbital Merge</from>
-      <to>Med_Phenytoin Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>import Med_Phenytoin</from>
-      <to>Med_Phenytoin Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Med_Phenytoin Merge</from>
-      <to>Med_Sodium_Valproate Merge </to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>Med_Sodium_Valproate Merge </from>
-      <to>Med_other Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Med_other Merge</from>
       <to>Comments  Merge</to>
       <enabled>Y</enabled>
@@ -729,11 +699,6 @@
     <hop>
       <from>Comments  Merge</from>
       <to>Next_appointment_date Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>import Med_Sodium_Valproate</from>
-      <to>Med_Sodium_Valproate Merge </to>
       <enabled>Y</enabled>
     </hop>
     <hop>
@@ -759,6 +724,281 @@
     <hop>
       <from>Next_appointment_date Merge</from>
       <to>Write Epilepsy Followup Visit Table</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Carbamazepine Dose Merge</from>
+      <to>Carbamazepine Unit Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Carbamazepine Duration Merge</from>
+      <to>Carbamazepine Duration Units Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Carbamazepine Frequency Merge</from>
+      <to>Carbamazepine Duration Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Carbamazepine Route Merge</from>
+      <to>Carbamazepine Frequency Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Carbamazepine Unit Merge</from>
+      <to>Carbamazepine Route Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import  Carbamazepine Frequency</from>
+      <to>Carbamazepine Frequency Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Carbamazepine Dose</from>
+      <to>Carbamazepine Dose Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Carbamazepine Dosing Unit</from>
+      <to>Carbamazepine Unit Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Carbamazepine Duration</from>
+      <to>Carbamazepine Duration Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Carbamazepine Duration Units</from>
+      <to>Carbamazepine Duration Units Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Carbamazepine Route</from>
+      <to>Carbamazepine Route Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Med_Carbamazepine  Merge</from>
+      <to>Carbamazepine Dose Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>import Med_Phenobarbital</from>
+      <to>Med_Phenobarbital Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Carbamazepine Duration Units Merge</from>
+      <to>Med_Phenobarbital Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Phenobarbital Dose Merge</from>
+      <to>Phenobarbital Unit Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Phenobarbital Duration Merge</from>
+      <to>Phenobarbital Duration Units Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Phenobarbital Frequency Merge </from>
+      <to>Phenobarbital Duration Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Phenobarbital Route Merge</from>
+      <to>Phenobarbital Frequency Merge </to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Phenobarbital Unit Merge</from>
+      <to>Phenobarbital Route Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import  Phenobarbital Frequency</from>
+      <to>Phenobarbital Frequency Merge </to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Phenobarbital Dose</from>
+      <to>Phenobarbital Dose Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Phenobarbital Dosing Unit</from>
+      <to>Phenobarbital Unit Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Phenobarbital Duration</from>
+      <to>Phenobarbital Duration Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Phenobarbital Duration Units</from>
+      <to>Phenobarbital Duration Units Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Phenobarbital Route</from>
+      <to>Phenobarbital Route Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Med_Phenobarbital Merge</from>
+      <to>Phenobarbital Dose Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>import Med_Phenytoin</from>
+      <to>Med_Phenytoin Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Phenobarbital Duration Units Merge</from>
+      <to>Med_Phenytoin Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Phenytoin Dose Merge</from>
+      <to>Phenytoin  Unit Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Phenytoin Duration Merge</from>
+      <to>Phenytoin Duration Units Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Phenytoin Frequency Merge </from>
+      <to>Phenytoin Duration Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Phenytoin Route Merge</from>
+      <to>Phenytoin Frequency Merge </to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Phenytoin  Unit Merge</from>
+      <to>Phenytoin Route Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Phenytoin Frequency</from>
+      <to>Phenytoin Frequency Merge </to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Phenytoin Dose</from>
+      <to>Phenytoin Dose Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Phenytoin Dosing Unit</from>
+      <to>Phenytoin  Unit Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Phenytoin Duration</from>
+      <to>Phenytoin Duration Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Phenytoin Duration Units</from>
+      <to>Phenytoin Duration Units Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Phenytoin Route</from>
+      <to>Phenytoin Route Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Med_Phenytoin Merge</from>
+      <to>Phenytoin Dose Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from> Sodium valproate Unit Merge</from>
+      <to>Sodium valproate Route Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import  Sodium valproate Frequency</from>
+      <to>Sodium valproate Frequency Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import  Sodium valproate Route</from>
+      <to>Sodium valproate Route Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Sodium valproate Dose</from>
+      <to>Sodium valproate Dose Merge </to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Sodium valproate Dosing Unit</from>
+      <to> Sodium valproate Unit Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Sodium valproate Duration</from>
+      <to>Sodium valproate Duration Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Sodium valproate Duration Units</from>
+      <to>Sodium valproate Duration Units Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sodium valproate Dose Merge </from>
+      <to> Sodium valproate Unit Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sodium valproate Duration Merge</from>
+      <to>Sodium valproate Duration Units Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sodium valproate Frequency Merge</from>
+      <to>Sodium valproate Duration Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sodium valproate Route Merge</from>
+      <to>Sodium valproate Frequency Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>import Med_Sodium_Valproate</from>
+      <to>Med_Sodium_Valproate Merge </to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Phenytoin Duration Units Merge</from>
+      <to>Med_Sodium_Valproate Merge </to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Med_Sodium_Valproate Merge </from>
+      <to>Sodium valproate Dose Merge </to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Sodium valproate Duration Units Merge</from>
+      <to>Med_other Merge</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -839,6 +1079,44 @@
     </GUI>
   </step>
   <step>
+    <name> Sodium valproate Unit Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Sodium valproate Dose Merge </step1>
+    <step2>Import Sodium valproate Dosing Unit</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1360</xloc>
+      <yloc>704</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name> fever_trigger Merge</name>
     <type>MergeJoin</type>
     <description/>
@@ -915,6 +1193,234 @@
     </GUI>
   </step>
   <step>
+    <name>Carbamazepine Dose Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Med_Carbamazepine  Merge</step1>
+    <step2>Import Carbamazepine Dose</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>848</xloc>
+      <yloc>496</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Carbamazepine Duration Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Carbamazepine Frequency Merge</step1>
+    <step2>Import Carbamazepine Duration</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>848</xloc>
+      <yloc>912</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Carbamazepine Duration Units Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Carbamazepine Duration Merge</step1>
+    <step2>Import Carbamazepine Duration Units</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>848</xloc>
+      <yloc>1024</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Carbamazepine Frequency Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Carbamazepine Route Merge</step1>
+    <step2>Import  Carbamazepine Frequency</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>848</xloc>
+      <yloc>816</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Carbamazepine Route Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Carbamazepine Unit Merge</step1>
+    <step2>Import Carbamazepine Route</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>848</xloc>
+      <yloc>704</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Carbamazepine Unit Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Carbamazepine Dose Merge</step1>
+    <step2>Import Carbamazepine Dosing Unit</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>848</xloc>
+      <yloc>592</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Comments  Merge</name>
     <type>MergeJoin</type>
     <description/>
@@ -947,8 +1453,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1232</xloc>
-      <yloc>432</yloc>
+      <xloc>1680</xloc>
+      <yloc>960</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1029,6 +1535,162 @@
     </GUI>
   </step>
   <step>
+    <name>Import  Carbamazepine Frequency</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as  med_carbamazepine_frequency
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Carbamazepine') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Drug frequency coded' and e.encounter_type in ('EPILEPSY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location
+
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>656</xloc>
+      <yloc>832</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import  Phenobarbital Frequency</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as  med_Phenobarbital_frequency
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Phenobarbital') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Drug frequency coded' and e.encounter_type in ('EPILEPSY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location
+
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>976</xloc>
+      <yloc>624</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import  Sodium valproate Frequency</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as  med_sodium_valproate_frequency
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Sodium valproate') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Drug frequency coded' and e.encounter_type in ('EPILEPSY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1216</xloc>
+      <yloc>944</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import  Sodium valproate Route</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as  med_sodium_valproate_route		
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Sodium valproate') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Routes of administration (coded)' and e.encounter_type in ('EPILEPSY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1184</xloc>
+      <yloc>816</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Import Any_triggers</name>
     <type>TableInput</type>
     <description/>
@@ -1062,6 +1724,196 @@ order by 	patient_id, visit_date, location</sql>
     <GUI>
       <xloc>96</xloc>
       <yloc>496</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Carbamazepine Dose</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as med_carbamazepine_dose	
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Carbamazepine') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Quantity of medication prescribed per dose' and e.encounter_type in ('EPILEPSY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>672</xloc>
+      <yloc>528</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Carbamazepine Dosing Unit</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as med_carbamazepine_dosing_unit
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Carbamazepine') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Dosing unit' and e.encounter_type in ('EPILEPSY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>704</xloc>
+      <yloc>608</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Carbamazepine Duration</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as med_carbamazepine_duration
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Carbamazepine') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Medication duration' and e.encounter_type in ('EPILEPSY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>640</xloc>
+      <yloc>928</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Carbamazepine Duration Units</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as med_carbamazepine_duration_units
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Carbamazepine') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Time units' and e.encounter_type in ('EPILEPSY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>640</xloc>
+      <yloc>1040</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Carbamazepine Route</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as med_carbamazepine_route		
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Carbamazepine') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Routes of administration (coded)' and e.encounter_type in ('EPILEPSY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>688</xloc>
+      <yloc>720</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1293,6 +2145,426 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
+    <name>Import Phenobarbital Dose</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as med_Phenobarbital_dose	
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Phenobarbital') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Quantity of medication prescribed per dose' and e.encounter_type in ('EPILEPSY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1008</xloc>
+      <yloc>944</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Phenobarbital Dosing Unit</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as med_Phenobarbital_dosing_unit
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Phenobarbital') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Dosing unit' and e.encounter_type in ('EPILEPSY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>992</xloc>
+      <yloc>848</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Phenobarbital Duration</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as med_Phenobarbital_duration 
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Phenobarbital') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Medication duration' and e.encounter_type in ('EPILEPSY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1024</xloc>
+      <yloc>480</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Phenobarbital Duration Units</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as med_Phenobarbital_duration_units
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Phenobarbital') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Time units' and e.encounter_type in ('EPILEPSY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1008</xloc>
+      <yloc>352</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Phenobarbital Route</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as med_Phenobarbital_route		
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Phenobarbital') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Routes of administration (coded)' and e.encounter_type in ('EPILEPSY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>960</xloc>
+      <yloc>768</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Phenytoin Dose</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as med_Phenytoin_dose
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Phenytoin') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Quantity of medication prescribed per dose' and e.encounter_type in ('EPILEPSY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>960</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Phenytoin Dosing Unit</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as med_Phenytoin_dosing_unit
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Phenytoin') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Dosing unit' and e.encounter_type in ('EPILEPSY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>944</xloc>
+      <yloc>48</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Phenytoin Duration</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as med_Phenytoin_duration 
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Phenytoin') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Medication duration' and e.encounter_type in ('EPILEPSY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1184</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Phenytoin Duration Units</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as med_Phenytoin_duration_units
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Phenytoin') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Time units' and e.encounter_type in ('EPILEPSY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1264</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Phenytoin Frequency</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as  med_Phenytoin_frequency
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Phenytoin') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Drug frequency coded' and e.encounter_type in ('EPILEPSY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location
+
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1248</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Phenytoin Route</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as med_Phenytoin_route		
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Phenytoin') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Routes of administration (coded)' and e.encounter_type in ('EPILEPSY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1248</xloc>
+      <yloc>80</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Import Pregnant</name>
     <type>TableInput</type>
     <description/>
@@ -1363,6 +2635,158 @@ order by 	patient_id, visit_date, location</sql>
     <GUI>
       <xloc>400</xloc>
       <yloc>32</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Sodium valproate Dose</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as med_sodium_valproate_dose	
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Sodium valproate') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Quantity of medication prescribed per dose' and e.encounter_type in ('EPILEPSY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1248</xloc>
+      <yloc>624</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Sodium valproate Dosing Unit</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as med_sodium_valproate_dosing_unit
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Sodium valproate') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Dosing unit' and e.encounter_type in ('EPILEPSY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1232</xloc>
+      <yloc>720</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Sodium valproate Duration</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as med_sodium_valproate_duration
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Sodium valproate') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Medication duration' and e.encounter_type in ('EPILEPSY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1200</xloc>
+      <yloc>1040</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Sodium valproate Duration Units</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as med_sodium_valproate_duration_units
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Sodium valproate') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Time units' and e.encounter_type in ('EPILEPSY_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1232</xloc>
+      <yloc>1216</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1788,7 +3212,7 @@ order by 	patient_id, visit_date, location</sql>
       <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1>Med_Carbamazepine  Merge</step1>
+    <step1>Carbamazepine Duration Units Merge</step1>
     <step2>import Med_Phenobarbital</step2>
     <keys_1>
       <key>patient_id</key>
@@ -1809,8 +3233,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>864</xloc>
-      <yloc>528</yloc>
+      <xloc>1120</xloc>
+      <yloc>1024</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1826,7 +3250,7 @@ order by 	patient_id, visit_date, location</sql>
       <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1>Med_Phenobarbital Merge</step1>
+    <step1>Phenobarbital Duration Units Merge</step1>
     <step2>import Med_Phenytoin</step2>
     <keys_1>
       <key>patient_id</key>
@@ -1847,8 +3271,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>896</xloc>
-      <yloc>704</yloc>
+      <xloc>1120</xloc>
+      <yloc>192</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1864,7 +3288,7 @@ order by 	patient_id, visit_date, location</sql>
       <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1>Med_Phenytoin Merge</step1>
+    <step1>Phenytoin Duration Units Merge</step1>
     <step2>import Med_Sodium_Valproate</step2>
     <keys_1>
       <key>patient_id</key>
@@ -1885,8 +3309,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1280</xloc>
-      <yloc>704</yloc>
+      <xloc>1344</xloc>
+      <yloc>464</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1902,7 +3326,7 @@ order by 	patient_id, visit_date, location</sql>
       <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1>Med_Sodium_Valproate Merge </step1>
+    <step1>Sodium valproate Duration Units Merge</step1>
     <step2>import Med_other </step2>
     <keys_1>
       <key>patient_id</key>
@@ -1923,8 +3347,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1248</xloc>
-      <yloc>544</yloc>
+      <xloc>1680</xloc>
+      <yloc>1120</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1961,8 +3385,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1233</xloc>
-      <yloc>306</yloc>
+      <xloc>1680</xloc>
+      <yloc>816</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2005,6 +3429,462 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
+    <name>Phenobarbital Dose Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Med_Phenobarbital Merge</step1>
+    <step2>Import Phenobarbital Dose</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1120</xloc>
+      <yloc>896</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Phenobarbital Duration Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Phenobarbital Frequency Merge </step1>
+    <step2>Import Phenobarbital Duration</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1120</xloc>
+      <yloc>416</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Phenobarbital Duration Units Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Phenobarbital Duration Merge</step1>
+    <step2>Import Phenobarbital Duration Units</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1120</xloc>
+      <yloc>304</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Phenobarbital Frequency Merge </name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Phenobarbital Route Merge</step1>
+    <step2>Import  Phenobarbital Frequency</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1120</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Phenobarbital Route Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Phenobarbital Unit Merge</step1>
+    <step2>Import Phenobarbital Route</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1120</xloc>
+      <yloc>656</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Phenobarbital Unit Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Phenobarbital Dose Merge</step1>
+    <step2>Import Phenobarbital Dosing Unit</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1120</xloc>
+      <yloc>768</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Phenytoin  Unit Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Phenytoin Dose Merge</step1>
+    <step2>Import Phenytoin Dosing Unit</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1120</xloc>
+      <yloc>0</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Phenytoin Dose Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Med_Phenytoin Merge</step1>
+    <step2>Import Phenytoin Dose</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1120</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Phenytoin Duration Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Phenytoin Frequency Merge </step1>
+    <step2>Import Phenytoin Duration</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1344</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Phenytoin Duration Units Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Phenytoin Duration Merge</step1>
+    <step2>Import Phenytoin Duration Units</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1344</xloc>
+      <yloc>336</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Phenytoin Frequency Merge </name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Phenytoin Route Merge</step1>
+    <step2>Import Phenytoin Frequency</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1344</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Phenytoin Route Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Phenytoin  Unit Merge</step1>
+    <step2>Import Phenytoin Route</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1344</xloc>
+      <yloc>0</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Silent_makers Merge</name>
     <type>MergeJoin</type>
     <description/>
@@ -2039,6 +3919,196 @@ order by 	patient_id, visit_date, location</sql>
     <GUI>
       <xloc>544</xloc>
       <yloc>32</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sodium valproate Dose Merge </name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Med_Sodium_Valproate Merge </step1>
+    <step2>Import Sodium valproate Dose</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1360</xloc>
+      <yloc>576</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sodium valproate Duration Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Sodium valproate Frequency Merge</step1>
+    <step2>Import Sodium valproate Duration</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1360</xloc>
+      <yloc>992</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sodium valproate Duration Units Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Sodium valproate Duration Merge</step1>
+    <step2>Import Sodium valproate Duration Units</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1360</xloc>
+      <yloc>1120</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sodium valproate Frequency Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Sodium valproate Route Merge</step1>
+    <step2>Import  Sodium valproate Frequency</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1360</xloc>
+      <yloc>896</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Sodium valproate Route Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1> Sodium valproate Unit Merge</step1>
+    <step2>Import  Sodium valproate Route</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1360</xloc>
+      <yloc>800</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2156,16 +4226,112 @@ order by 	patient_id, visit_date, location</sql>
         <stream_name>med_carbamazepine</stream_name>
       </field>
       <field>
+        <column_name>med_carbamazepine_dose</column_name>
+        <stream_name>med_carbamazepine_dose</stream_name>
+      </field>
+      <field>
+        <column_name>med_carbamazepine_dosing_unit</column_name>
+        <stream_name>med_carbamazepine_dosing_unit</stream_name>
+      </field>
+      <field>
+        <column_name>med_carbamazepine_route</column_name>
+        <stream_name>med_carbamazepine_route</stream_name>
+      </field>
+      <field>
+        <column_name>med_carbamazepine_frequency</column_name>
+        <stream_name>med_carbamazepine_frequency</stream_name>
+      </field>
+      <field>
+        <column_name>med_carbamazepine_duration</column_name>
+        <stream_name>med_carbamazepine_duration</stream_name>
+      </field>
+      <field>
+        <column_name>med_carbamazepine_duration_units</column_name>
+        <stream_name>med_carbamazepine_duration_units</stream_name>
+      </field>
+      <field>
         <column_name>med_Phenobarbital</column_name>
         <stream_name>med_phenobarbital</stream_name>
+      </field>
+      <field>
+        <column_name>med_Phenobarbital_dose</column_name>
+        <stream_name>med_Phenobarbital_dose</stream_name>
+      </field>
+      <field>
+        <column_name>med_Phenobarbital_dosing_unit</column_name>
+        <stream_name>med_Phenobarbital_dosing_unit</stream_name>
+      </field>
+      <field>
+        <column_name>med_Phenobarbital_route</column_name>
+        <stream_name>med_Phenobarbital_route</stream_name>
+      </field>
+      <field>
+        <column_name>med_Phenobarbital_frequency</column_name>
+        <stream_name>med_Phenobarbital_frequency</stream_name>
+      </field>
+      <field>
+        <column_name>med_Phenobarbital_duration</column_name>
+        <stream_name>med_Phenobarbital_duration</stream_name>
+      </field>
+      <field>
+        <column_name>med_Phenobarbital_duration_units</column_name>
+        <stream_name>med_Phenobarbital_duration_units</stream_name>
       </field>
       <field>
         <column_name>med_Phenytoin</column_name>
         <stream_name>med_phenytoin</stream_name>
       </field>
       <field>
+        <column_name>med_Phenytoin_dose</column_name>
+        <stream_name>med_Phenytoin_dose</stream_name>
+      </field>
+      <field>
+        <column_name>med_Phenytoin_dosing_unit</column_name>
+        <stream_name>med_Phenytoin_dosing_unit</stream_name>
+      </field>
+      <field>
+        <column_name>med_Phenytoin_route</column_name>
+        <stream_name>med_Phenytoin_route</stream_name>
+      </field>
+      <field>
+        <column_name>med_Phenytoin_frequency</column_name>
+        <stream_name>med_Phenytoin_frequency</stream_name>
+      </field>
+      <field>
+        <column_name>med_Phenytoin_duration</column_name>
+        <stream_name>med_Phenytoin_duration</stream_name>
+      </field>
+      <field>
+        <column_name>med_Phenytoin_duration_units</column_name>
+        <stream_name>med_Phenytoin_duration_units</stream_name>
+      </field>
+      <field>
         <column_name>med_Sodium_Valproate</column_name>
         <stream_name>med_sodium_valproate</stream_name>
+      </field>
+      <field>
+        <column_name>med_Sodium_Valproate_dose</column_name>
+        <stream_name>med_sodium_valproate_dose</stream_name>
+      </field>
+      <field>
+        <column_name>med_Sodium_Valproate_dosing_unit</column_name>
+        <stream_name>med_sodium_valproate_dosing_unit</stream_name>
+      </field>
+      <field>
+        <column_name>med_Sodium_Valproate_route</column_name>
+        <stream_name>med_sodium_valproate_route</stream_name>
+      </field>
+      <field>
+        <column_name>med_Sodium_Valproate_frequency</column_name>
+        <stream_name>med_sodium_valproate_frequency</stream_name>
+      </field>
+      <field>
+        <column_name>med_Sodium_Valproate_duration</column_name>
+        <stream_name>med_sodium_valproate_duration</stream_name>
+      </field>
+      <field>
+        <column_name>med_Sodium_Valproate_duration_units</column_name>
+        <stream_name>med_sodium_valproate_duration_units</stream_name>
       </field>
       <field>
         <column_name>med_other</column_name>
@@ -2189,8 +4355,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1232</xloc>
-      <yloc>144</yloc>
+      <xloc>1680</xloc>
+      <yloc>592</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2340,8 +4506,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1011</xloc>
-      <yloc>375</yloc>
+      <xloc>1536</xloc>
+      <yloc>1024</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2377,8 +4543,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>688</xloc>
-      <yloc>560</yloc>
+      <xloc>960</xloc>
+      <yloc>1088</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2414,8 +4580,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>711</xloc>
-      <yloc>743</yloc>
+      <xloc>960</xloc>
+      <yloc>224</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2451,8 +4617,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1083</xloc>
-      <yloc>614</yloc>
+      <xloc>1216</xloc>
+      <yloc>512</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2488,8 +4654,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1039</xloc>
-      <yloc>498</yloc>
+      <xloc>1520</xloc>
+      <yloc>1232</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2525,8 +4691,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1008</xloc>
-      <yloc>240</yloc>
+      <xloc>1520</xloc>
+      <yloc>864</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
