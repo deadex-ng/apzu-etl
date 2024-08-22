@@ -697,26 +697,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>treatment_inhaled_b_agonist Merge</from>
-      <to>treatment_inhaled_steriod Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>import treatment_inhaled_steriod</from>
-      <to>treatment_inhaled_steriod Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>treatment_inhaled_steriod Merge</from>
-      <to>treatment_oral_steroid Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
-      <from>import treatment_oral_steroid</from>
-      <to>treatment_oral_steroid Merge</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>comments Merge</from>
       <to>next_appointment_date Merge</to>
       <enabled>Y</enabled>
@@ -737,18 +717,278 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>treatment_oral_steroid Merge</from>
+      <from>import other_treatment</from>
       <to>other_treatment Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Beta-agonists (inhaled) Dose Merge</from>
+      <to>Beta-agonists (inhaled) Dosing Unit Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Beta-agonists (inhaled) Duration Merge</from>
+      <to>Beta-agonists (inhaled) Duration Units Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Beta-agonists (inhaled) Frequency Merge</from>
+      <to>Beta-agonists (inhaled) Duration Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Beta-agonists (inhaled) Route Merge</from>
+      <to>Beta-agonists (inhaled) Frequency Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Beta-agonists (inhaled) Dosing Unit Merge</from>
+      <to>Beta-agonists (inhaled) Route Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import  Beta-agonists (inhaled) Frequency</from>
+      <to>Beta-agonists (inhaled) Frequency Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Beta-agonists (inhaled) Dose</from>
+      <to>Beta-agonists (inhaled) Dose Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Beta-agonists (inhaled) Dosing Unit</from>
+      <to>Beta-agonists (inhaled) Dosing Unit Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Beta-agonists (inhaled) Duration</from>
+      <to>Beta-agonists (inhaled) Duration Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Beta-agonists (inhaled) Duration Units</from>
+      <to>Beta-agonists (inhaled) Duration Units Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Beta-agonists (inhaled) Route</from>
+      <to>Beta-agonists (inhaled) Route Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>treatment_inhaled_b_agonist Merge</from>
+      <to>Beta-agonists (inhaled) Dose Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>import treatment_inhaled_steriod</from>
+      <to>treatment_inhaled_steriod Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Beta-agonists (inhaled) Duration Units Merge</from>
+      <to>treatment_inhaled_steriod Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Inhaled steroid Dose Merge</from>
+      <to>Inhaled steroid Unit Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Inhaled steroid Duration Merge</from>
+      <to>Inhaled steroid Duration Units Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Inhaled steroid Frequency Merge</from>
+      <to>Inhaled steroid Duration Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Inhaled steroid Route Merge</from>
+      <to>Inhaled steroid Frequency Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Inhaled steroid Unit Merge</from>
+      <to>Inhaled steroid Route Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import  Inhaled steroid Frequency</from>
+      <to>Inhaled steroid Frequency Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Inhaled steroid  Dose</from>
+      <to>Inhaled steroid Dose Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Inhaled steroid Dosing Unit</from>
+      <to>Inhaled steroid Unit Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Inhaled steroid Duration</from>
+      <to>Inhaled steroid Duration Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Inhaled steroid Duration Units</from>
+      <to>Inhaled steroid Duration Units Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Inhaled steroid Route</from>
+      <to>Inhaled steroid Route Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>treatment_inhaled_steriod Merge</from>
+      <to>Inhaled steroid Dose Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>import treatment_oral_steroid</from>
+      <to>treatment_oral_steroid Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Inhaled steroid Duration Units Merge</from>
+      <to>treatment_oral_steroid Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Oral steroid Dose Merge</from>
+      <to>Oral steroid Dosing Unit Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Oral steroid Duration Merge</from>
+      <to>Oral steroid Duration Units Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Oral steroid Frequency Merge</from>
+      <to>Oral steroid Duration Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Oral steroid Route Merge</from>
+      <to>Oral steroid Frequency Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Oral steroid Dosing Unit Merge</from>
+      <to>Oral steroid Route Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import  Oral steroid Frequency</from>
+      <to>Oral steroid Frequency Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Oral steroid  Dose</from>
+      <to>Oral steroid Dose Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Oral steroid Dosing Unit</from>
+      <to>Oral steroid Dosing Unit Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Oral steroid Duration</from>
+      <to>Oral steroid Duration Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Oral steroid Units</from>
+      <to>Oral steroid Duration Units Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Oral steroid Route</from>
+      <to>Oral steroid Route Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>treatment_oral_steroid Merge</from>
+      <to>Oral steroid Dose Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Oral steroid Duration Units Merge</from>
+      <to>other_treatment Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Other non-coded Dose Merge</from>
+      <to>Other non-coded Dosing Unit Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Other non-coded Duration Merge</from>
+      <to>Other non-coded Duration Units Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Other non-coded Frequency Merge</from>
+      <to>Other non-coded Duration Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Other non-coded Route Merge</from>
+      <to>Other non-coded Frequency Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Other non-coded Dosing Unit Merge</from>
+      <to>Other non-coded Route Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import  Other non-coded Frequency</from>
+      <to>Other non-coded Frequency Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Other non-coded  Dose</from>
+      <to>Other non-coded Dose Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Other non-coded Dosing Unit</from>
+      <to>Other non-coded Dosing Unit Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Other non-coded Duration</from>
+      <to>Other non-coded Duration Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Other non-coded Units</from>
+      <to>Other non-coded Duration Units Merge</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Import Other non-coded Route</from>
+      <to>Other non-coded Route Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
       <from>other_treatment Merge</from>
-      <to>comments Merge</to>
+      <to>Other non-coded Dose Merge</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>import other_treatment</from>
-      <to>other_treatment Merge</to>
+      <from>Other non-coded Duration Units Merge</from>
+      <to>comments Merge</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -1766,16 +2006,112 @@ order by 	patient_id, visit_date, location</sql>
         <stream_name>treatment_inhaled_b_agonist</stream_name>
       </field>
       <field>
+        <column_name>treatment_inhaled_b_agonist_dose</column_name>
+        <stream_name>treatment_inhaled_b_agonist_dose</stream_name>
+      </field>
+      <field>
+        <column_name>treatment_inhaled_b_agonist_dosing_unit</column_name>
+        <stream_name>treatment_inhaled_b_agonist_dosing_unit</stream_name>
+      </field>
+      <field>
+        <column_name>treatment_inhaled_b_agonist_route</column_name>
+        <stream_name>treatment_inhaled_b_agonist_route</stream_name>
+      </field>
+      <field>
+        <column_name>treatment_inhaled_b_agonist_frequency</column_name>
+        <stream_name>treatment_inhaled_b_agonist_frequency</stream_name>
+      </field>
+      <field>
+        <column_name>treatment_inhaled_b_agonist_duration</column_name>
+        <stream_name>treatment_inhaled_b_agonist_duration</stream_name>
+      </field>
+      <field>
+        <column_name>treatment_inhaled_b_agonist_duration_units</column_name>
+        <stream_name>treatment_inhaled_b_agonist_duration_units</stream_name>
+      </field>
+      <field>
         <column_name>treatment_inhaled_steriod</column_name>
         <stream_name>treatment_inhaled_steriod</stream_name>
+      </field>
+      <field>
+        <column_name>treatment_inhaled_steriod_dose</column_name>
+        <stream_name>treatment_inhaled_steriod_dose</stream_name>
+      </field>
+      <field>
+        <column_name>treatment_inhaled_steriod_dosing_unit</column_name>
+        <stream_name>treatment_inhaled_steriod_dosing_unit</stream_name>
+      </field>
+      <field>
+        <column_name>treatment_inhaled_steriod_route</column_name>
+        <stream_name>treatment_inhaled_steriod_route</stream_name>
+      </field>
+      <field>
+        <column_name>treatment_inhaled_steriod_frequency</column_name>
+        <stream_name>treatment_inhaled_steriod_frequency</stream_name>
+      </field>
+      <field>
+        <column_name>treatment_inhaled_steriod_duration</column_name>
+        <stream_name>treatment_inhaled_steriod_duration</stream_name>
+      </field>
+      <field>
+        <column_name>treatment_inhaled_steriod_duration_units</column_name>
+        <stream_name>treatment_inhaled_steriod_duration_units</stream_name>
       </field>
       <field>
         <column_name>treatment_oral_steroid</column_name>
         <stream_name>treatment_oral_steroid</stream_name>
       </field>
       <field>
+        <column_name>treatment_oral_steroid_dose</column_name>
+        <stream_name>treatment_oral_steroid_dose</stream_name>
+      </field>
+      <field>
+        <column_name>treatment_oral_steroid_dosing_unit</column_name>
+        <stream_name>treatment_oral_steroid_dosing_unit</stream_name>
+      </field>
+      <field>
+        <column_name>treatment_oral_steroid_route</column_name>
+        <stream_name>treatment_oral_steroid_route</stream_name>
+      </field>
+      <field>
+        <column_name>treatment_oral_steroid_frequency</column_name>
+        <stream_name>treatment_oral_steroid_frequency</stream_name>
+      </field>
+      <field>
+        <column_name>treatment_oral_steroid_duration</column_name>
+        <stream_name>treatment_oral_steroid_duration</stream_name>
+      </field>
+      <field>
+        <column_name>treatment_oral_steroid_duration_units</column_name>
+        <stream_name>treatment_oral_steroid_duration_units</stream_name>
+      </field>
+      <field>
         <column_name>other_treatment</column_name>
         <stream_name>other_treatment</stream_name>
+      </field>
+      <field>
+        <column_name>other_treatment_dose</column_name>
+        <stream_name>other_treatment_dose</stream_name>
+      </field>
+      <field>
+        <column_name>other_treatment_dosing_unit</column_name>
+        <stream_name>other_treatment_dosing_unit</stream_name>
+      </field>
+      <field>
+        <column_name>other_treatment_route</column_name>
+        <stream_name>other_treatment_route</stream_name>
+      </field>
+      <field>
+        <column_name>other_treatment_frequency</column_name>
+        <stream_name>other_treatment_frequency</stream_name>
+      </field>
+      <field>
+        <column_name>other_treatment_duration</column_name>
+        <stream_name>other_treatment_duration</stream_name>
+      </field>
+      <field>
+        <column_name>other_treatment_duration_units</column_name>
+        <stream_name>other_treatment_duration_units</stream_name>
       </field>
       <field>
         <column_name>comments</column_name>
@@ -1795,8 +2131,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1232</xloc>
-      <yloc>240</yloc>
+      <xloc>1776</xloc>
+      <yloc>944</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -1850,7 +2186,7 @@ order by 	patient_id, visit_date, location</sql>
       <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1>other_treatment Merge</step1>
+    <step1>Other non-coded Duration Units Merge</step1>
     <step2>import comments</step2>
     <keys_1>
       <key>patient_id</key>
@@ -1871,8 +2207,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1248</xloc>
-      <yloc>544</yloc>
+      <xloc>1456</xloc>
+      <yloc>1152</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2098,8 +2434,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1039</xloc>
-      <yloc>498</yloc>
+      <xloc>1296</xloc>
+      <yloc>1248</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2135,8 +2471,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1011</xloc>
-      <yloc>375</yloc>
+      <xloc>1600</xloc>
+      <yloc>1248</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2172,82 +2508,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1056</xloc>
-      <yloc>624</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>import treatment_inhaled_steriod</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as treatment_inhaled_steriod
-from		omrs_encounter e
-inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Chronic lung disease treatment' AND o.value_coded = 'Inhaled steroid' and o.encounter_type in ('ASTHMA_FOLLOWUP')
-group by 	e.patient_id, e.encounter_date, e.location
-order by 	patient_id, visit_date, location</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>688</xloc>
-      <yloc>560</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>import treatment_oral_steroid</name>
-    <type>TableInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <connection>Warehouse</connection>
-    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as treatment_oral_steroid
-from		omrs_encounter e
-inner join 	omrs_obs o on e.encounter_id = o.encounter_id
-where		o.concept = 'Chronic lung disease treatment' AND o.value_coded = 'Oral steroid' and o.encounter_type in ('ASTHMA_FOLLOWUP')
-group by 	e.patient_id, e.encounter_date, e.location
-order by 	patient_id, visit_date, location</sql>
-    <limit>0</limit>
-    <lookup/>
-    <execute_each_row>N</execute_each_row>
-    <variables_active>N</variables_active>
-    <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>711</xloc>
-      <yloc>743</yloc>
+      <xloc>1312</xloc>
+      <yloc>288</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2360,8 +2622,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1232</xloc>
-      <yloc>432</yloc>
+      <xloc>1776</xloc>
+      <yloc>1152</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2453,7 +2715,7 @@ order by 	patient_id, visit_date, location</sql>
       <schema_name/>
     </partitioning>
     <join_type>LEFT OUTER</join_type>
-    <step1>treatment_oral_steroid Merge</step1>
+    <step1>Oral steroid Duration Units Merge</step1>
     <step2>import other_treatment</step2>
     <keys_1>
       <key>patient_id</key>
@@ -2474,8 +2736,8 @@ order by 	patient_id, visit_date, location</sql>
       </output>
     </remotesteps>
     <GUI>
-      <xloc>1248</xloc>
-      <yloc>720</yloc>
+      <xloc>1456</xloc>
+      <yloc>240</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -2556,82 +2818,6 @@ order by 	patient_id, visit_date, location</sql>
     </GUI>
   </step>
   <step>
-    <name>treatment_inhaled_steriod Merge</name>
-    <type>MergeJoin</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <join_type>LEFT OUTER</join_type>
-    <step1>treatment_inhaled_b_agonist Merge</step1>
-    <step2>import treatment_inhaled_steriod</step2>
-    <keys_1>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_1>
-    <keys_2>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_2>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>864</xloc>
-      <yloc>528</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>treatment_oral_steroid Merge</name>
-    <type>MergeJoin</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <join_type>LEFT OUTER</join_type>
-    <step1>treatment_inhaled_steriod Merge</step1>
-    <step2>import treatment_oral_steroid</step2>
-    <keys_1>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_1>
-    <keys_2>
-      <key>patient_id</key>
-      <key>visit_date</key>
-      <key>location</key>
-    </keys_2>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>896</xloc>
-      <yloc>704</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>weight Merge</name>
     <type>MergeJoin</type>
     <description/>
@@ -2666,6 +2852,1988 @@ order by 	patient_id, visit_date, location</sql>
     <GUI>
       <xloc>272</xloc>
       <yloc>272</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Beta-agonists (inhaled) Dose Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>treatment_inhaled_b_agonist Merge</step1>
+    <step2>Import Beta-agonists (inhaled) Dose</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>832</xloc>
+      <yloc>512</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Beta-agonists (inhaled) Duration Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Beta-agonists (inhaled) Frequency Merge</step1>
+    <step2>Import Beta-agonists (inhaled) Duration</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>832</xloc>
+      <yloc>928</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Beta-agonists (inhaled) Duration Units Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Beta-agonists (inhaled) Duration Merge</step1>
+    <step2>Import Beta-agonists (inhaled) Duration Units</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>832</xloc>
+      <yloc>1040</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Beta-agonists (inhaled) Frequency Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Beta-agonists (inhaled) Route Merge</step1>
+    <step2>Import  Beta-agonists (inhaled) Frequency</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>832</xloc>
+      <yloc>832</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Beta-agonists (inhaled) Route Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Beta-agonists (inhaled) Dosing Unit Merge</step1>
+    <step2>Import Beta-agonists (inhaled) Route</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>832</xloc>
+      <yloc>720</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Beta-agonists (inhaled) Dosing Unit Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Beta-agonists (inhaled) Dose Merge</step1>
+    <step2>Import Beta-agonists (inhaled) Dosing Unit</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>832</xloc>
+      <yloc>608</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import  Beta-agonists (inhaled) Frequency</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as  treatment_inhaled_b_agonist_frequency
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Beta-agonists (inhaled)' and concept = 'Chronic lung disease treatment') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Drug frequency coded' and e.encounter_type in ('ASTHMA_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location
+
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>640</xloc>
+      <yloc>848</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Beta-agonists (inhaled) Dose</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as treatment_inhaled_b_agonist_dose	
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Beta-agonists (inhaled)' and concept = 'Chronic lung disease treatment') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Quantity of medication prescribed per dose' and e.encounter_type in ('ASTHMA_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>656</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Beta-agonists (inhaled) Dosing Unit</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as treatment_inhaled_b_agonist_dosing_unit
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Beta-agonists (inhaled)' and concept = 'Chronic lung disease treatment') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Dosing unit' and e.encounter_type in ('ASTHMA_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>688</xloc>
+      <yloc>640</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Beta-agonists (inhaled) Duration</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as treatment_inhaled_b_agonist_duration
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Beta-agonists (inhaled)' and concept = 'Chronic lung disease treatment') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Medication duration' and e.encounter_type in ('ASTHMA_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>624</xloc>
+      <yloc>944</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Beta-agonists (inhaled) Duration Units</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as treatment_inhaled_b_agonist_duration_units
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Beta-agonists (inhaled)' and concept = 'Chronic lung disease treatment') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Time units' and e.encounter_type in ('ASTHMA_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>624</xloc>
+      <yloc>1056</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Beta-agonists (inhaled) Route</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as treatment_inhaled_b_agonist_route	
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Beta-agonists (inhaled)' and concept = 'Chronic lung disease treatment') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Routes of administration (coded)' and e.encounter_type in ('ASTHMA_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>672</xloc>
+      <yloc>736</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>import treatment_inhaled_steriod</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as treatment_inhaled_steriod
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Chronic lung disease treatment' AND o.value_coded = 'Inhaled steroid' and o.encounter_type in ('ASTHMA_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>608</xloc>
+      <yloc>1216</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>treatment_inhaled_steriod Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Beta-agonists (inhaled) Duration Units Merge</step1>
+    <step2>import treatment_inhaled_steriod</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>832</xloc>
+      <yloc>1168</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Inhaled steroid Dose Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>treatment_inhaled_steriod Merge</step1>
+    <step2>Import Inhaled steroid  Dose</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1168</xloc>
+      <yloc>1168</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Inhaled steroid Duration Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Inhaled steroid Frequency Merge</step1>
+    <step2>Import Inhaled steroid Duration</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1168</xloc>
+      <yloc>736</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Inhaled steroid Duration Units Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Inhaled steroid Duration Merge</step1>
+    <step2>Import Inhaled steroid Duration Units</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1168</xloc>
+      <yloc>624</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Inhaled steroid Frequency Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Inhaled steroid Route Merge</step1>
+    <step2>Import  Inhaled steroid Frequency</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1168</xloc>
+      <yloc>848</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Inhaled steroid Route Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Inhaled steroid Unit Merge</step1>
+    <step2>Import Inhaled steroid Route</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1168</xloc>
+      <yloc>944</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Inhaled steroid Unit Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Inhaled steroid Dose Merge</step1>
+    <step2>Import Inhaled steroid Dosing Unit</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1168</xloc>
+      <yloc>1056</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import  Inhaled steroid Frequency</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as  treatment_inhaled_steriod_frequency
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Inhaled steroid' and concept = 'Chronic lung disease treatment') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Drug frequency coded' and e.encounter_type in ('ASTHMA_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location
+
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1024</xloc>
+      <yloc>880</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Inhaled steroid  Dose</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as treatment_inhaled_steriod_dose	
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Inhaled steroid' and concept = 'Chronic lung disease treatment') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Quantity of medication prescribed per dose' and e.encounter_type in ('ASTHMA_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>960</xloc>
+      <yloc>1264</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Inhaled steroid Dosing Unit</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as treatment_inhaled_steriod_dosing_unit
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Inhaled steroid' and concept = 'Chronic lung disease treatment') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Dosing unit' and e.encounter_type in ('ASTHMA_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>992</xloc>
+      <yloc>1104</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Inhaled steroid Duration</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as treatment_inhaled_steriod_duration
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Inhaled steroid' and concept = 'Chronic lung disease treatment') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Medication duration' and e.encounter_type in ('ASTHMA_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1008</xloc>
+      <yloc>784</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Inhaled steroid Duration Units</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as treatment_inhaled_steriod_duration_units
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Inhaled steroid' and concept = 'Chronic lung disease treatment') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Time units' and e.encounter_type in ('ASTHMA_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1008</xloc>
+      <yloc>656</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Inhaled steroid Route</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as treatment_inhaled_steriod_route	
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Inhaled steroid' and concept = 'Chronic lung disease treatment') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Routes of administration (coded)' and e.encounter_type in ('ASTHMA_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>992</xloc>
+      <yloc>992</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>import treatment_oral_steroid</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as treatment_oral_steroid
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+where		o.concept = 'Chronic lung disease treatment' AND o.value_coded = 'Oral steroid' and o.encounter_type in ('ASTHMA_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>960</xloc>
+      <yloc>560</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>treatment_oral_steroid Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Inhaled steroid Duration Units Merge</step1>
+    <step2>import treatment_oral_steroid</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1168</xloc>
+      <yloc>496</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Oral steroid Dose Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>treatment_oral_steroid Merge</step1>
+    <step2>Import Oral steroid  Dose</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1168</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Oral steroid Duration Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Oral steroid Frequency Merge</step1>
+    <step2>Import Oral steroid Duration</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1456</xloc>
+      <yloc>16</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Oral steroid Duration Units Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Oral steroid Duration Merge</step1>
+    <step2>Import Oral steroid Units</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1456</xloc>
+      <yloc>112</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Oral steroid Frequency Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Oral steroid Route Merge</step1>
+    <step2>Import  Oral steroid Frequency</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1168</xloc>
+      <yloc>16</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Oral steroid Route Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Oral steroid Dosing Unit Merge</step1>
+    <step2>Import Oral steroid Route</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1168</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Oral steroid Dosing Unit Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Oral steroid Dose Merge</step1>
+    <step2>Import Oral steroid Dosing Unit</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1168</xloc>
+      <yloc>240</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import  Oral steroid Frequency</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as  treatment_oral_steroid_frequency
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Oral steroid' and concept = 'Chronic lung disease treatment') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Drug frequency coded' and e.encounter_type in ('ASTHMA_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location
+
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>992</xloc>
+      <yloc>80</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Oral steroid  Dose</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as treatment_oral_steroid_dose
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Oral steroid' and concept = 'Chronic lung disease treatment') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Quantity of medication prescribed per dose' and e.encounter_type in ('ASTHMA_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>960</xloc>
+      <yloc>432</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Oral steroid Dosing Unit</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as treatment_oral_steroid_dosing_unit
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Oral steroid' and concept = 'Chronic lung disease treatment') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Dosing unit' and e.encounter_type in ('ASTHMA_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1008</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Oral steroid Duration</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as treatment_oral_steroid_duration
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Oral steroid' and concept = 'Chronic lung disease treatment') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Medication duration' and e.encounter_type in ('ASTHMA_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1296</xloc>
+      <yloc>80</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Oral steroid Units</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as treatment_oral_steroid_duration_units
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Oral steroid' and concept = 'Chronic lung disease treatment') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Time units' and e.encounter_type in ('ASTHMA_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1328</xloc>
+      <yloc>176</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Oral steroid Route</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as treatment_oral_steroid_route	
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Oral steroid' and concept = 'Chronic lung disease treatment') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Routes of administration (coded)' and e.encounter_type in ('ASTHMA_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>976</xloc>
+      <yloc>192</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Other non-coded Dose Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>other_treatment Merge</step1>
+    <step2>Import Other non-coded  Dose</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1456</xloc>
+      <yloc>368</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Other non-coded Duration Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Other non-coded Frequency Merge</step1>
+    <step2>Import Other non-coded Duration</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1456</xloc>
+      <yloc>832</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Other non-coded Duration Units Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Other non-coded Duration Merge</step1>
+    <step2>Import Other non-coded Units</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1456</xloc>
+      <yloc>960</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Other non-coded Frequency Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Other non-coded Route Merge</step1>
+    <step2>Import  Other non-coded Frequency</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1456</xloc>
+      <yloc>704</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Other non-coded Route Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Other non-coded Dosing Unit Merge</step1>
+    <step2>Import Other non-coded Route</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1456</xloc>
+      <yloc>592</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Other non-coded Dosing Unit Merge</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>LEFT OUTER</join_type>
+    <step1>Other non-coded Dose Merge</step1>
+    <step2>Import Other non-coded Dosing Unit</step2>
+    <keys_1>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_1>
+    <keys_2>
+      <key>patient_id</key>
+      <key>visit_date</key>
+      <key>location</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1456</xloc>
+      <yloc>464</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import  Other non-coded Frequency</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as  other_treatment_frequency
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Other non-coded') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Drug frequency coded' and e.encounter_type in ('ASTHMA_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location
+
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1296</xloc>
+      <yloc>768</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Other non-coded  Dose</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as other_treatment_dose
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Other non-coded') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Quantity of medication prescribed per dose' and e.encounter_type in ('ASTHMA_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1280</xloc>
+      <yloc>432</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Other non-coded Dosing Unit</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as other_treatment_dosing_unit
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Other non-coded') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Dosing unit' and e.encounter_type in ('ASTHMA_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1280</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Other non-coded Duration</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_numeric as other_treatment_duration
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Other non-coded') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Medication duration' and e.encounter_type in ('ASTHMA_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1312</xloc>
+      <yloc>880</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Other non-coded Units</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as other_treatment_duration_units
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Other non-coded') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Time units' and e.encounter_type in ('ASTHMA_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1296</xloc>
+      <yloc>1008</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Import Other non-coded Route</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>Warehouse</connection>
+    <sql>select		e.patient_id, e.encounter_date as visit_date, e.location, o.value_coded as other_treatment_route
+from		omrs_encounter e
+inner join 	omrs_obs o on e.encounter_id = o.encounter_id
+join        (select encounter_id from omrs_obs where value_coded='Other non-coded') oo on e.encounter_id = oo.encounter_id
+where		o.concept='Routes of administration (coded)' and e.encounter_type in ('ASTHMA_FOLLOWUP')
+group by 	e.patient_id, e.encounter_date, e.location
+order by 	patient_id, visit_date, location</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1296</xloc>
+      <yloc>656</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
