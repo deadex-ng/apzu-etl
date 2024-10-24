@@ -2,9 +2,9 @@
 <transformation>
   <info>
     <name>import-into-mw-poc-eid</name>
-    <description/>
-    <extended_description/>
-    <trans_version/>
+    <description />
+    <extended_description />
+    <trans_version />
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
     <directory>/</directory>
@@ -12,12 +12,12 @@
     </parameters>
     <log>
       <trans-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <size_limit_lines/>
-        <interval/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <size_limit_lines />
+        <interval />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -42,37 +42,37 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_REJECTED</id>
           <enabled>Y</enabled>
           <name>LINES_REJECTED</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>ERRORS</id>
@@ -126,11 +126,11 @@
         </field>
       </trans-log-table>
       <perf-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <interval/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <interval />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -208,10 +208,10 @@
         </field>
       </perf-log-table>
       <channel-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -274,10 +274,10 @@
         </field>
       </channel-log-table>
       <step-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -350,10 +350,10 @@
         </field>
       </step-log-table>
       <metrics-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -402,9 +402,9 @@
       </metrics-log-table>
     </log>
     <maxdate>
-      <connection/>
-      <table/>
-      <field/>
+      <connection />
+      <table />
+      <field />
       <offset>0.0</offset>
       <maxdiff>0.0</maxdiff>
     </maxdate>
@@ -415,7 +415,7 @@
     <feedback_shown>Y</feedback_shown>
     <feedback_size>50000</feedback_size>
     <using_thread_priorities>Y</using_thread_priorities>
-    <shared_objects_file/>
+    <shared_objects_file />
     <capture_step_performance>N</capture_step_performance>
     <step_performance_capturing_delay>1000</step_performance_capturing_delay>
     <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
@@ -445,9 +445,9 @@
     <port>${warehouse.db.port}</port>
     <username>${warehouse.db.user}</username>
     <password>${warehouse.db.password}</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -611,13 +611,13 @@
   <step>
     <name>Import EID</name>
     <type>TableInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>Warehouse</connection>
     <sql>SELECT 
@@ -626,15 +626,14 @@ FROM
     omrs_encounter e
 WHERE
     e.encounter_type IN ('EID Screening')
-GROUP BY e.patient_id , e.encounter_date , e.location
 ORDER BY patient_id , visit_date , location;</sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup />
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -650,13 +649,13 @@ ORDER BY patient_id , visit_date , location;</sql>
   <step>
     <name>Merge age</name>
     <type>MergeJoin</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Merge hiv test time period</step1>
@@ -671,8 +670,8 @@ ORDER BY patient_id , visit_date , location;</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -688,13 +687,13 @@ ORDER BY patient_id , visit_date , location;</sql>
   <step>
     <name>Merge date of blood sample</name>
     <type>MergeJoin</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Import EID</step1>
@@ -709,8 +708,8 @@ ORDER BY patient_id , visit_date , location;</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -726,13 +725,13 @@ ORDER BY patient_id , visit_date , location;</sql>
   <step>
     <name>Merge date of returned result</name>
     <type>MergeJoin</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Merge lab test serial number</step1>
@@ -747,8 +746,8 @@ ORDER BY patient_id , visit_date , location;</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -764,13 +763,13 @@ ORDER BY patient_id , visit_date , location;</sql>
   <step>
     <name>Merge date result to guadian</name>
     <type>MergeJoin</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Merge date of returned result</step1>
@@ -785,8 +784,8 @@ ORDER BY patient_id , visit_date , location;</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -802,13 +801,13 @@ ORDER BY patient_id , visit_date , location;</sql>
   <step>
     <name>Merge hiv test time period</name>
     <type>MergeJoin</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Merge result of hiv test</step1>
@@ -823,8 +822,8 @@ ORDER BY patient_id , visit_date , location;</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -840,13 +839,13 @@ ORDER BY patient_id , visit_date , location;</sql>
   <step>
     <name>Merge hiv test type</name>
     <type>MergeJoin</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Merge date of blood sample</step1>
@@ -861,8 +860,8 @@ ORDER BY patient_id , visit_date , location;</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -878,13 +877,13 @@ ORDER BY patient_id , visit_date , location;</sql>
   <step>
     <name>Merge lab test serial number</name>
     <type>MergeJoin</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Merge units of age of child</step1>
@@ -899,8 +898,8 @@ ORDER BY patient_id , visit_date , location;</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -916,13 +915,13 @@ ORDER BY patient_id , visit_date , location;</sql>
   <step>
     <name>Merge reason for no sample eid</name>
     <type>MergeJoin</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Merge hiv test type</step1>
@@ -937,8 +936,8 @@ ORDER BY patient_id , visit_date , location;</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -954,13 +953,13 @@ ORDER BY patient_id , visit_date , location;</sql>
   <step>
     <name>Merge reason for testing </name>
     <type>MergeJoin</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Merge date result to guadian</step1>
@@ -975,8 +974,8 @@ ORDER BY patient_id , visit_date , location;</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -992,13 +991,13 @@ ORDER BY patient_id , visit_date , location;</sql>
   <step>
     <name>Merge result of hiv test</name>
     <type>MergeJoin</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Merge reason for no sample eid</step1>
@@ -1013,8 +1012,8 @@ ORDER BY patient_id , visit_date , location;</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1030,13 +1029,13 @@ ORDER BY patient_id , visit_date , location;</sql>
   <step>
     <name>Merge units of age of child</name>
     <type>MergeJoin</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Merge age</step1>
@@ -1051,8 +1050,8 @@ ORDER BY patient_id , visit_date , location;</sql>
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1068,16 +1067,16 @@ ORDER BY patient_id , visit_date , location;</sql>
   <step>
     <name>Write EID output</name>
     <type>TableOutput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>Warehouse</connection>
-    <schema/>
+    <schema />
     <table>mw_poc_eid</table>
     <commit>1000</commit>
     <truncate>N</truncate>
@@ -1085,14 +1084,14 @@ ORDER BY patient_id , visit_date , location;</sql>
     <use_batch>Y</use_batch>
     <specify_fields>Y</specify_fields>
     <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
+    <partitioning_field />
     <partitioning_daily>N</partitioning_daily>
     <partitioning_monthly>Y</partitioning_monthly>
     <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
+    <tablename_field />
     <tablename_in_table>Y</tablename_in_table>
     <return_keys>N</return_keys>
-    <return_field/>
+    <return_field />
     <fields>
       <field>
         <column_name>patient_id</column_name>
@@ -1155,8 +1154,8 @@ ORDER BY patient_id , visit_date , location;</sql>
         <stream_name>reason_for_testing_coded</stream_name>
       </field>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1172,13 +1171,13 @@ ORDER BY patient_id , visit_date , location;</sql>
   <step>
     <name>import age</name>
     <type>TableInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select e.patient_id, e.encounter_date as visit_date,  e.location, o.value_numeric as age
@@ -1188,12 +1187,12 @@ where		o.concept = 'Age' and e.encounter_type = 'EID Screening'
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup />
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1209,13 +1208,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import date of blood sample</name>
     <type>TableInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select e.patient_id, e.encounter_date as visit_date,  e.location, o.value_date as date_of_blood_sample
@@ -1225,12 +1224,12 @@ where		o.concept = 'Date of blood sample' and e.encounter_type = 'EID Screening'
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup />
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1246,13 +1245,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import date of returned result</name>
     <type>TableInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select e.patient_id, e.encounter_date as visit_date,  e.location, o.value_date as date_of_returned_result
@@ -1262,12 +1261,12 @@ where		o.concept = 'Date of returned result' and e.encounter_type = 'EID Screeni
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup />
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1283,13 +1282,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import date result to guardian</name>
     <type>TableInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select e.patient_id, e.encounter_date as visit_date,  e.location, o.value_date as date_result_to_guardian
@@ -1299,12 +1298,12 @@ where		o.concept = 'Date result to guardian' and e.encounter_type = 'EID Screeni
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup />
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1320,13 +1319,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import hiv test time period</name>
     <type>TableInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select e.patient_id, e.encounter_date as visit_date,  e.location, o.value_coded as hiv_test_time_period
@@ -1336,12 +1335,12 @@ where		o.concept = 'HIV test time period' and e.encounter_type = 'EID Screening'
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup />
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1357,13 +1356,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import hiv test type</name>
     <type>TableInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select e.patient_id, e.encounter_date as visit_date,  e.location, o.value_coded as hiv_test_type
@@ -1373,12 +1372,12 @@ where		o.concept = 'HIV test type' and e.encounter_type = 'EID Screening'
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup />
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1394,13 +1393,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import lab test serial number</name>
     <type>TableInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select e.patient_id, e.encounter_date as visit_date,  e.location, o.value_text as lab_test_serial_number
@@ -1410,12 +1409,12 @@ where		o.concept = 'Lab test serial number' and e.encounter_type = 'EID Screenin
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup />
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1431,13 +1430,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import reason for no sample eid</name>
     <type>TableInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select e.patient_id, e.encounter_date as visit_date,  e.location, o.value_coded as reason_for_no_sample_eid
@@ -1447,12 +1446,12 @@ where		o.concept = 'Reason for no sample' and e.encounter_type = 'EID Screening'
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup />
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1468,13 +1467,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import reason for testing(coded)</name>
     <type>TableInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select e.patient_id, e.encounter_date as visit_date,  e.location, o.value_coded as reason_for_testing_coded
@@ -1484,12 +1483,12 @@ where		o.concept = 'Reason for testing (coded)' and e.encounter_type = 'EID Scre
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup />
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1505,13 +1504,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import result of hiv test</name>
     <type>TableInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select e.patient_id, e.encounter_date as visit_date,  e.location, o.value_coded as result_of_hiv_test
@@ -1521,12 +1520,12 @@ where		o.concept = 'Result of HIV test' and e.encounter_type = 'EID Screening'
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup />
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1542,13 +1541,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import units of age of child</name>
     <type>TableInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select e.patient_id, e.encounter_date as visit_date,  e.location, o.value_coded as units_of_age_of_child
@@ -1558,12 +1557,12 @@ where		o.concept = 'Units of age of child' and e.encounter_type = 'EID Screening
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup />
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1581,5 +1580,5 @@ order by 	patient_id, visit_date, location</sql>
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>
   <slave_transformation>N</slave_transformation>
-  <attributes/>
+  <attributes />
 </transformation>

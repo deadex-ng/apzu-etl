@@ -2,9 +2,9 @@
 <transformation>
   <info>
     <name>import-into-mw-poc-viral-load-screening</name>
-    <description/>
-    <extended_description/>
-    <trans_version/>
+    <description />
+    <extended_description />
+    <trans_version />
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
     <directory>/</directory>
@@ -12,12 +12,12 @@
     </parameters>
     <log>
       <trans-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <size_limit_lines/>
-        <interval/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <size_limit_lines />
+        <interval />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -42,37 +42,37 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>LINES_REJECTED</id>
           <enabled>Y</enabled>
           <name>LINES_REJECTED</name>
-          <subject/>
+          <subject />
         </field>
         <field>
           <id>ERRORS</id>
@@ -126,11 +126,11 @@
         </field>
       </trans-log-table>
       <perf-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <interval/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <interval />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -208,10 +208,10 @@
         </field>
       </perf-log-table>
       <channel-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -274,10 +274,10 @@
         </field>
       </channel-log-table>
       <step-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -350,10 +350,10 @@
         </field>
       </step-log-table>
       <metrics-log-table>
-        <connection/>
-        <schema/>
-        <table/>
-        <timeout_days/>
+        <connection />
+        <schema />
+        <table />
+        <timeout_days />
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -402,9 +402,9 @@
       </metrics-log-table>
     </log>
     <maxdate>
-      <connection/>
-      <table/>
-      <field/>
+      <connection />
+      <table />
+      <field />
       <offset>0.0</offset>
       <maxdiff>0.0</maxdiff>
     </maxdate>
@@ -415,7 +415,7 @@
     <feedback_shown>Y</feedback_shown>
     <feedback_size>50000</feedback_size>
     <using_thread_priorities>Y</using_thread_priorities>
-    <shared_objects_file/>
+    <shared_objects_file />
     <capture_step_performance>N</capture_step_performance>
     <step_performance_capturing_delay>1000</step_performance_capturing_delay>
     <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
@@ -445,9 +445,9 @@
     <port>${warehouse.db.port}</port>
     <username>${warehouse.db.user}</username>
     <password>${warehouse.db.password}</password>
-    <servername/>
-    <data_tablespace/>
-    <index_tablespace/>
+    <servername />
+    <data_tablespace />
+    <index_tablespace />
     <attributes>
       <attribute>
         <code>FORCE_IDENTIFIERS_TO_LOWERCASE</code>
@@ -611,13 +611,13 @@
   <step>
     <name>Merge lab id</name>
     <type>MergeJoin</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Merge less than limit</step1>
@@ -632,8 +632,8 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -649,13 +649,13 @@
   <step>
     <name>Merge lab location</name>
     <type>MergeJoin</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <join_type>INNER</join_type>
     <step1>import viral load screening encounter</step1>
@@ -670,8 +670,8 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -687,13 +687,13 @@
   <step>
     <name>Merge less than limit</name>
     <type>MergeJoin</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Merge lower than detection limit</step1>
@@ -708,8 +708,8 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -725,13 +725,13 @@
   <step>
     <name>Merge lower than detection limit</name>
     <type>MergeJoin</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Merge reason for no sample</step1>
@@ -746,8 +746,8 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -763,13 +763,13 @@
   <step>
     <name>Merge reason for no result</name>
     <type>MergeJoin</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Merge sample id</step1>
@@ -784,8 +784,8 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -801,13 +801,13 @@
   <step>
     <name>Merge reason for no sample</name>
     <type>MergeJoin</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Merge reason for no result</step1>
@@ -822,8 +822,8 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -839,13 +839,13 @@
   <step>
     <name>Merge reason for testing</name>
     <type>MergeJoin</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Merge sample taken for viral load</step1>
@@ -860,8 +860,8 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -877,13 +877,13 @@
   <step>
     <name>Merge sample id</name>
     <type>MergeJoin</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Merge reason for testing</step1>
@@ -898,8 +898,8 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -915,13 +915,13 @@
   <step>
     <name>Merge sample taken for viral load</name>
     <type>MergeJoin</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Merge lab location</step1>
@@ -936,8 +936,8 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -953,13 +953,13 @@
   <step>
     <name>Merge symptoms absent</name>
     <type>MergeJoin</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Merge symptoms present</step1>
@@ -974,8 +974,8 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -991,13 +991,13 @@
   <step>
     <name>Merge symptoms present</name>
     <type>MergeJoin</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <join_type>LEFT OUTER</join_type>
     <step1>Merge lab id</step1>
@@ -1012,8 +1012,8 @@
       <key>visit_date</key>
       <key>location</key>
     </keys_2>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1029,16 +1029,16 @@
   <step>
     <name>Table output</name>
     <type>TableOutput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>Warehouse</connection>
-    <schema/>
+    <schema />
     <table>mw_poc_viral_load_screening</table>
     <commit>1000</commit>
     <truncate>N</truncate>
@@ -1046,14 +1046,14 @@
     <use_batch>Y</use_batch>
     <specify_fields>Y</specify_fields>
     <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
+    <partitioning_field />
     <partitioning_daily>N</partitioning_daily>
     <partitioning_monthly>Y</partitioning_monthly>
     <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
+    <tablename_field />
     <tablename_in_table>Y</tablename_in_table>
     <return_keys>N</return_keys>
-    <return_field/>
+    <return_field />
     <fields>
       <field>
         <column_name>patient_id</column_name>
@@ -1116,8 +1116,8 @@
         <stream_name>symptom_absent</stream_name>
       </field>
     </fields>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1133,13 +1133,13 @@
   <step>
     <name>import Sample taken for Viral Load</name>
     <type>TableInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select e.patient_id, e.encounter_date as visit_date,  e.location, o.value_coded as sample_taken_for_viral_Load
@@ -1149,12 +1149,12 @@ where		o.concept = 'Sample taken for Viral Load' and e.encounter_type in ('Viral
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup />
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1170,13 +1170,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import lab id</name>
     <type>TableInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select e.patient_id, e.encounter_date as visit_date,  e.location, o.value_text as lab_id
@@ -1186,12 +1186,12 @@ where		o.concept = 'Lab ID' and e.encounter_type = 'Viral Load Screening'
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup />
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1207,13 +1207,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import lab location</name>
     <type>TableInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select e.patient_id, e.encounter_date as visit_date,  e.location, o.value_coded as lab_location 
@@ -1223,12 +1223,12 @@ where		o.concept = 'Location of laboratory' and e.encounter_type = 'Viral Load S
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup />
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1244,13 +1244,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import less than limit</name>
     <type>TableInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select e.patient_id, e.encounter_date as visit_date,  e.location, o.value_numeric as less_than_limit
@@ -1260,12 +1260,12 @@ where		o.concept = 'Less than limit' and e.encounter_type = 'Viral Load Screenin
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup />
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1281,13 +1281,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import lower than detection limit</name>
     <type>TableInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select e.patient_id, e.encounter_date as visit_date,  e.location, o.value_coded as lower_than_detection_limit
@@ -1297,12 +1297,12 @@ where		o.concept = 'Lower than Detection limit' and e.encounter_type = 'Viral Lo
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup />
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1318,13 +1318,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import reason for no result</name>
     <type>TableInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select e.patient_id, e.encounter_date as visit_date,  e.location, o.value_coded as reason_for_no_result
@@ -1334,12 +1334,12 @@ where		o.concept = 'Reason for no result' and e.encounter_type = 'Viral Load Scr
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup />
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1355,13 +1355,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import reason for no sample</name>
     <type>TableInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select e.patient_id, e.encounter_date as visit_date,  e.location, o.value_coded as reason_for_no_sample
@@ -1371,12 +1371,12 @@ where		o.concept = 'Reason for no sample' and e.encounter_type = 'Viral Load Scr
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup />
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1392,13 +1392,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import reason for testing</name>
     <type>TableInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select e.patient_id, e.encounter_date as visit_date,  e.location, o.value_coded as reason_for_testing
@@ -1408,12 +1408,12 @@ where		o.concept = 'Reason for testing (coded)' and e.encounter_type = 'Viral Lo
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup />
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1429,13 +1429,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import sample ID</name>
     <type>TableInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select e.patient_id, e.encounter_date as visit_date,  e.location, o.value_text as viral_load_sample_id
@@ -1445,12 +1445,12 @@ where		o.concept = 'Viral Load Sample ID' and e.encounter_type = 'Viral Load Scr
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup />
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1466,13 +1466,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import symptoms absent</name>
     <type>TableInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select e.patient_id, e.encounter_date as visit_date,  e.location, o.value_coded as symptom_absent 
@@ -1482,12 +1482,12 @@ where		o.concept = 'Symptom absent' and e.encounter_type = 'TB Screening'
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup />
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1503,13 +1503,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import symptoms present</name>
     <type>TableInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>Warehouse</connection>
     <sql>select e.patient_id, e.encounter_date as visit_date,  e.location, o.value_coded as symptom_present 
@@ -1519,12 +1519,12 @@ where		o.concept = 'Symptom present' and e.encounter_type = 'TB Screening'
 group by 	e.patient_id, e.encounter_date, e.location
 order by 	patient_id, visit_date, location</sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup />
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1540,13 +1540,13 @@ order by 	patient_id, visit_date, location</sql>
   <step>
     <name>import viral load screening encounter</name>
     <type>TableInput</type>
-    <description/>
+    <description />
     <distribute>Y</distribute>
-    <custom_distribution/>
+    <custom_distribution />
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name/>
+      <schema_name />
     </partitioning>
     <connection>Warehouse</connection>
     <sql>SELECT 
@@ -1555,15 +1555,14 @@ FROM
     omrs_encounter e
 WHERE
     e.encounter_type IN ('Viral Load Screening')
-GROUP BY e.patient_id , e.encounter_date , e.location
 ORDER BY patient_id , visit_date , location;</sql>
     <limit>0</limit>
-    <lookup/>
+    <lookup />
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
-    <attributes/>
-    <cluster_schema/>
+    <attributes />
+    <cluster_schema />
     <remotesteps>
       <input>
       </input>
@@ -1581,5 +1580,5 @@ ORDER BY patient_id , visit_date , location;</sql>
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>
   <slave_transformation>N</slave_transformation>
-  <attributes/>
+  <attributes />
 </transformation>
